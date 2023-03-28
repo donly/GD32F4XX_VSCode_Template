@@ -1,0 +1,1395 @@
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccunkh1C.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"gd32f4xx_gpio.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.file 1 "../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c"
+  20              		.section	.text.gpio_deinit,"ax",%progbits
+  21              		.align	1
+  22              		.global	gpio_deinit
+  23              		.syntax unified
+  24              		.thumb
+  25              		.thumb_func
+  27              	gpio_deinit:
+  28              	.LVL0:
+  29              	.LFB116:
+   1:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** /*!
+   2:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \file    gd32f4xx_gpio.c
+   3:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \brief   GPIO driver
+   4:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** 
+   5:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \version 2016-08-15, V1.0.0, firmware for GD32F4xx
+   6:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \version 2018-12-12, V2.0.0, firmware for GD32F4xx
+   7:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \version 2020-09-30, V2.1.0, firmware for GD32F4xx
+   8:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \version 2022-03-09, V3.0.0, firmware for GD32F4xx
+   9:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** */
+  10:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** 
+  11:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** /*
+  12:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     Copyright (c) 2022, GigaDevice Semiconductor Inc.
+  13:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** 
+  14:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     Redistribution and use in source and binary forms, with or without modification,
+  15:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** are permitted provided that the following conditions are met:
+  16:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** 
+  17:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     1. Redistributions of source code must retain the above copyright notice, this
+  18:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****        list of conditions and the following disclaimer.
+  19:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     2. Redistributions in binary form must reproduce the above copyright notice,
+  20:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****        this list of conditions and the following disclaimer in the documentation
+  21:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****        and/or other materials provided with the distribution.
+  22:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     3. Neither the name of the copyright holder nor the names of its contributors
+  23:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****        may be used to endorse or promote products derived from this software without
+  24:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****        specific prior written permission.
+  25:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** 
+  26:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+  27:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+  28:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+  29:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccunkh1C.s 			page 2
+
+
+  30:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+  31:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+  32:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  33:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  34:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY
+  35:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** OF SUCH DAMAGE.
+  36:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** */
+  37:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** 
+  38:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** #include "gd32f4xx_gpio.h"
+  39:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** 
+  40:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** /*!
+  41:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \brief      reset GPIO port
+  42:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \param[in]  gpio_periph: GPIO port
+  43:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****                 only one parameter can be selected which is shown as below:
+  44:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****       \arg        GPIOx(x = A,B,C,D,E,F,G,H,I)
+  45:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \param[out] none
+  46:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \retval     none
+  47:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** */
+  48:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** void gpio_deinit(uint32_t gpio_periph)
+  49:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** {
+  30              		.loc 1 49 1 view -0
+  31              		.cfi_startproc
+  32              		@ args = 0, pretend = 0, frame = 0
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  34              		.loc 1 49 1 is_stmt 0 view .LVU1
+  35 0000 08B5     		push	{r3, lr}
+  36              	.LCFI0:
+  37              		.cfi_def_cfa_offset 8
+  38              		.cfi_offset 3, -8
+  39              		.cfi_offset 14, -4
+  50:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     switch(gpio_periph) {
+  40              		.loc 1 50 5 is_stmt 1 view .LVU2
+  41 0002 3A4B     		ldr	r3, .L19
+  42 0004 9842     		cmp	r0, r3
+  43 0006 55D0     		beq	.L2
+  44 0008 0FD9     		bls	.L16
+  45 000a 394B     		ldr	r3, .L19+4
+  46 000c 9842     		cmp	r0, r3
+  47 000e 63D0     		beq	.L10
+  48 0010 2DD9     		bls	.L17
+  49 0012 384B     		ldr	r3, .L19+8
+  50 0014 9842     		cmp	r0, r3
+  51 0016 43D1     		bne	.L1
+  51:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     case GPIOA:
+  52:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         /* reset GPIOA */
+  53:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         rcu_periph_reset_enable(RCU_GPIOARST);
+  54:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         rcu_periph_reset_disable(RCU_GPIOARST);
+  55:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         break;
+  56:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     case GPIOB:
+  57:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         /* reset GPIOB */
+  58:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         rcu_periph_reset_enable(RCU_GPIOBRST);
+  59:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         rcu_periph_reset_disable(RCU_GPIOBRST);
+  60:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         break;
+  61:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     case GPIOC:
+  62:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         /* reset GPIOC */
+  63:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         rcu_periph_reset_enable(RCU_GPIOCRST);
+  64:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         rcu_periph_reset_disable(RCU_GPIOCRST);
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccunkh1C.s 			page 3
+
+
+  65:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         break;
+  66:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     case GPIOD:
+  67:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         /* reset GPIOD */
+  68:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         rcu_periph_reset_enable(RCU_GPIODRST);
+  69:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         rcu_periph_reset_disable(RCU_GPIODRST);
+  70:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         break;
+  71:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     case GPIOE:
+  72:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         /* reset GPIOE */
+  73:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         rcu_periph_reset_enable(RCU_GPIOERST);
+  74:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         rcu_periph_reset_disable(RCU_GPIOERST);
+  75:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         break;
+  76:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     case GPIOF:
+  77:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         /* reset GPIOF */
+  78:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         rcu_periph_reset_enable(RCU_GPIOFRST);
+  79:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         rcu_periph_reset_disable(RCU_GPIOFRST);
+  80:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         break;
+  81:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     case GPIOG:
+  82:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         /* reset GPIOG */
+  83:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         rcu_periph_reset_enable(RCU_GPIOGRST);
+  84:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         rcu_periph_reset_disable(RCU_GPIOGRST);
+  85:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         break;
+  86:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     case GPIOH:
+  87:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         /* reset GPIOH */
+  88:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         rcu_periph_reset_enable(RCU_GPIOHRST);
+  89:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         rcu_periph_reset_disable(RCU_GPIOHRST);
+  90:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         break;
+  91:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     case GPIOI:
+  92:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         /* reset GPIOI */
+  93:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         rcu_periph_reset_enable(RCU_GPIOIRST);
+  52              		.loc 1 93 9 view .LVU3
+  53 0018 4FF48160 		mov	r0, #1032
+  54              	.LVL1:
+  55              		.loc 1 93 9 is_stmt 0 view .LVU4
+  56 001c FFF7FEFF 		bl	rcu_periph_reset_enable
+  57              	.LVL2:
+  94:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         rcu_periph_reset_disable(RCU_GPIOIRST);
+  58              		.loc 1 94 9 is_stmt 1 view .LVU5
+  59 0020 4FF48160 		mov	r0, #1032
+  60 0024 FFF7FEFF 		bl	rcu_periph_reset_disable
+  61              	.LVL3:
+  95:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         break;
+  62              		.loc 1 95 9 view .LVU6
+  96:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     default:
+  97:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         break;
+  98:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     }
+  99:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** }
+  63              		.loc 1 99 1 is_stmt 0 view .LVU7
+  64 0028 3AE0     		b	.L1
+  65              	.LVL4:
+  66              	.L16:
+  50:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     case GPIOA:
+  67              		.loc 1 50 5 view .LVU8
+  68 002a A3F50063 		sub	r3, r3, #2048
+  69 002e 9842     		cmp	r0, r3
+  70 0030 37D0     		beq	.L4
+  71 0032 0BD9     		bls	.L18
+  72 0034 304B     		ldr	r3, .L19+12
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccunkh1C.s 			page 4
+
+
+  73 0036 9842     		cmp	r0, r3
+  74 0038 32D1     		bne	.L1
+  68:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         rcu_periph_reset_disable(RCU_GPIODRST);
+  75              		.loc 1 68 9 is_stmt 1 view .LVU9
+  76 003a 40F20340 		movw	r0, #1027
+  77              	.LVL5:
+  68:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         rcu_periph_reset_disable(RCU_GPIODRST);
+  78              		.loc 1 68 9 is_stmt 0 view .LVU10
+  79 003e FFF7FEFF 		bl	rcu_periph_reset_enable
+  80              	.LVL6:
+  69:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         break;
+  81              		.loc 1 69 9 is_stmt 1 view .LVU11
+  82 0042 40F20340 		movw	r0, #1027
+  83 0046 FFF7FEFF 		bl	rcu_periph_reset_disable
+  84              	.LVL7:
+  70:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     case GPIOE:
+  85              		.loc 1 70 9 view .LVU12
+  86 004a 29E0     		b	.L1
+  87              	.LVL8:
+  88              	.L18:
+  50:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     case GPIOA:
+  89              		.loc 1 50 5 is_stmt 0 view .LVU13
+  90 004c A3F50063 		sub	r3, r3, #2048
+  91 0050 9842     		cmp	r0, r3
+  92 0052 1DD0     		beq	.L6
+  93 0054 03F58063 		add	r3, r3, #1024
+  94 0058 9842     		cmp	r0, r3
+  95 005a 21D1     		bne	.L1
+  58:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         rcu_periph_reset_disable(RCU_GPIOBRST);
+  96              		.loc 1 58 9 is_stmt 1 view .LVU14
+  97 005c 40F20140 		movw	r0, #1025
+  98              	.LVL9:
+  58:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         rcu_periph_reset_disable(RCU_GPIOBRST);
+  99              		.loc 1 58 9 is_stmt 0 view .LVU15
+ 100 0060 FFF7FEFF 		bl	rcu_periph_reset_enable
+ 101              	.LVL10:
+  59:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         break;
+ 102              		.loc 1 59 9 is_stmt 1 view .LVU16
+ 103 0064 40F20140 		movw	r0, #1025
+ 104 0068 FFF7FEFF 		bl	rcu_periph_reset_disable
+ 105              	.LVL11:
+  60:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     case GPIOC:
+ 106              		.loc 1 60 9 view .LVU17
+ 107 006c 18E0     		b	.L1
+ 108              	.LVL12:
+ 109              	.L17:
+  50:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     case GPIOA:
+ 110              		.loc 1 50 5 is_stmt 0 view .LVU18
+ 111 006e A3F50063 		sub	r3, r3, #2048
+ 112 0072 9842     		cmp	r0, r3
+ 113 0074 27D0     		beq	.L12
+ 114 0076 03F58063 		add	r3, r3, #1024
+ 115 007a 9842     		cmp	r0, r3
+ 116 007c 10D1     		bne	.L1
+  83:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         rcu_periph_reset_disable(RCU_GPIOGRST);
+ 117              		.loc 1 83 9 is_stmt 1 view .LVU19
+ 118 007e 40F20640 		movw	r0, #1030
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccunkh1C.s 			page 5
+
+
+ 119              	.LVL13:
+  83:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         rcu_periph_reset_disable(RCU_GPIOGRST);
+ 120              		.loc 1 83 9 is_stmt 0 view .LVU20
+ 121 0082 FFF7FEFF 		bl	rcu_periph_reset_enable
+ 122              	.LVL14:
+  84:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         break;
+ 123              		.loc 1 84 9 is_stmt 1 view .LVU21
+ 124 0086 40F20640 		movw	r0, #1030
+ 125 008a FFF7FEFF 		bl	rcu_periph_reset_disable
+ 126              	.LVL15:
+  85:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     case GPIOH:
+ 127              		.loc 1 85 9 view .LVU22
+ 128 008e 07E0     		b	.L1
+ 129              	.LVL16:
+ 130              	.L6:
+  53:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         rcu_periph_reset_disable(RCU_GPIOARST);
+ 131              		.loc 1 53 9 view .LVU23
+ 132 0090 4FF48060 		mov	r0, #1024
+ 133              	.LVL17:
+  53:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         rcu_periph_reset_disable(RCU_GPIOARST);
+ 134              		.loc 1 53 9 is_stmt 0 view .LVU24
+ 135 0094 FFF7FEFF 		bl	rcu_periph_reset_enable
+ 136              	.LVL18:
+  54:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         break;
+ 137              		.loc 1 54 9 is_stmt 1 view .LVU25
+ 138 0098 4FF48060 		mov	r0, #1024
+ 139 009c FFF7FEFF 		bl	rcu_periph_reset_disable
+ 140              	.LVL19:
+  55:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     case GPIOB:
+ 141              		.loc 1 55 9 view .LVU26
+ 142              	.L1:
+ 143              		.loc 1 99 1 is_stmt 0 view .LVU27
+ 144 00a0 08BD     		pop	{r3, pc}
+ 145              	.LVL20:
+ 146              	.L4:
+  63:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         rcu_periph_reset_disable(RCU_GPIOCRST);
+ 147              		.loc 1 63 9 is_stmt 1 view .LVU28
+ 148 00a2 40F20240 		movw	r0, #1026
+ 149              	.LVL21:
+  63:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         rcu_periph_reset_disable(RCU_GPIOCRST);
+ 150              		.loc 1 63 9 is_stmt 0 view .LVU29
+ 151 00a6 FFF7FEFF 		bl	rcu_periph_reset_enable
+ 152              	.LVL22:
+  64:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         break;
+ 153              		.loc 1 64 9 is_stmt 1 view .LVU30
+ 154 00aa 40F20240 		movw	r0, #1026
+ 155 00ae FFF7FEFF 		bl	rcu_periph_reset_disable
+ 156              	.LVL23:
+  65:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     case GPIOD:
+ 157              		.loc 1 65 9 view .LVU31
+ 158 00b2 F5E7     		b	.L1
+ 159              	.LVL24:
+ 160              	.L2:
+  73:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         rcu_periph_reset_disable(RCU_GPIOERST);
+ 161              		.loc 1 73 9 view .LVU32
+ 162 00b4 40F20440 		movw	r0, #1028
+ 163              	.LVL25:
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccunkh1C.s 			page 6
+
+
+  73:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         rcu_periph_reset_disable(RCU_GPIOERST);
+ 164              		.loc 1 73 9 is_stmt 0 view .LVU33
+ 165 00b8 FFF7FEFF 		bl	rcu_periph_reset_enable
+ 166              	.LVL26:
+  74:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         break;
+ 167              		.loc 1 74 9 is_stmt 1 view .LVU34
+ 168 00bc 40F20440 		movw	r0, #1028
+ 169 00c0 FFF7FEFF 		bl	rcu_periph_reset_disable
+ 170              	.LVL27:
+  75:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     case GPIOF:
+ 171              		.loc 1 75 9 view .LVU35
+ 172 00c4 ECE7     		b	.L1
+ 173              	.LVL28:
+ 174              	.L12:
+  78:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         rcu_periph_reset_disable(RCU_GPIOFRST);
+ 175              		.loc 1 78 9 view .LVU36
+ 176 00c6 40F20540 		movw	r0, #1029
+ 177              	.LVL29:
+  78:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         rcu_periph_reset_disable(RCU_GPIOFRST);
+ 178              		.loc 1 78 9 is_stmt 0 view .LVU37
+ 179 00ca FFF7FEFF 		bl	rcu_periph_reset_enable
+ 180              	.LVL30:
+  79:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         break;
+ 181              		.loc 1 79 9 is_stmt 1 view .LVU38
+ 182 00ce 40F20540 		movw	r0, #1029
+ 183 00d2 FFF7FEFF 		bl	rcu_periph_reset_disable
+ 184              	.LVL31:
+  80:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     case GPIOG:
+ 185              		.loc 1 80 9 view .LVU39
+ 186 00d6 E3E7     		b	.L1
+ 187              	.LVL32:
+ 188              	.L10:
+  88:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         rcu_periph_reset_disable(RCU_GPIOHRST);
+ 189              		.loc 1 88 9 view .LVU40
+ 190 00d8 40F20740 		movw	r0, #1031
+ 191              	.LVL33:
+  88:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         rcu_periph_reset_disable(RCU_GPIOHRST);
+ 192              		.loc 1 88 9 is_stmt 0 view .LVU41
+ 193 00dc FFF7FEFF 		bl	rcu_periph_reset_enable
+ 194              	.LVL34:
+  89:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         break;
+ 195              		.loc 1 89 9 is_stmt 1 view .LVU42
+ 196 00e0 40F20740 		movw	r0, #1031
+ 197 00e4 FFF7FEFF 		bl	rcu_periph_reset_disable
+ 198              	.LVL35:
+  90:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     case GPIOI:
+ 199              		.loc 1 90 9 view .LVU43
+ 200 00e8 DAE7     		b	.L1
+ 201              	.L20:
+ 202 00ea 00BF     		.align	2
+ 203              	.L19:
+ 204 00ec 00100240 		.word	1073876992
+ 205 00f0 001C0240 		.word	1073880064
+ 206 00f4 00200240 		.word	1073881088
+ 207 00f8 000C0240 		.word	1073875968
+ 208              		.cfi_endproc
+ 209              	.LFE116:
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccunkh1C.s 			page 7
+
+
+ 211              		.section	.text.gpio_mode_set,"ax",%progbits
+ 212              		.align	1
+ 213              		.global	gpio_mode_set
+ 214              		.syntax unified
+ 215              		.thumb
+ 216              		.thumb_func
+ 218              	gpio_mode_set:
+ 219              	.LVL36:
+ 220              	.LFB117:
+ 100:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** 
+ 101:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** /*!
+ 102:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \brief      set GPIO mode
+ 103:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \param[in]  gpio_periph: GPIO port
+ 104:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****                 only one parameter can be selected which is shown as below:
+ 105:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****       \arg        GPIOx(x = A,B,C,D,E,F,G,H,I)
+ 106:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \param[in]  mode: GPIO pin mode
+ 107:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****       \arg        GPIO_MODE_INPUT: input mode
+ 108:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****       \arg        GPIO_MODE_OUTPUT: output mode
+ 109:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****       \arg        GPIO_MODE_AF: alternate function mode
+ 110:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****       \arg        GPIO_MODE_ANALOG: analog mode
+ 111:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \param[in]  pull_up_down: GPIO pin with pull-up or pull-down resistor
+ 112:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****       \arg        GPIO_PUPD_NONE: floating mode, no pull-up and pull-down resistors
+ 113:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****       \arg        GPIO_PUPD_PULLUP: with pull-up resistor
+ 114:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****       \arg        GPIO_PUPD_PULLDOWN:with pull-down resistor
+ 115:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \param[in]  pin: GPIO pin
+ 116:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****                 one or more parameters can be selected which are shown as below:
+ 117:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****       \arg        GPIO_PIN_x(x=0..15), GPIO_PIN_ALL
+ 118:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \param[out] none
+ 119:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \retval     none
+ 120:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** */
+ 121:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** void gpio_mode_set(uint32_t gpio_periph, uint32_t mode, uint32_t pull_up_down, uint32_t pin)
+ 122:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** {
+ 221              		.loc 1 122 1 view -0
+ 222              		.cfi_startproc
+ 223              		@ args = 0, pretend = 0, frame = 0
+ 224              		@ frame_needed = 0, uses_anonymous_args = 0
+ 225              		.loc 1 122 1 is_stmt 0 view .LVU45
+ 226 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 227              	.LCFI1:
+ 228              		.cfi_def_cfa_offset 20
+ 229              		.cfi_offset 4, -20
+ 230              		.cfi_offset 5, -16
+ 231              		.cfi_offset 6, -12
+ 232              		.cfi_offset 7, -8
+ 233              		.cfi_offset 14, -4
+ 123:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     uint16_t i;
+ 234              		.loc 1 123 5 is_stmt 1 view .LVU46
+ 124:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     uint32_t ctl, pupd;
+ 235              		.loc 1 124 5 view .LVU47
+ 125:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** 
+ 126:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     ctl = GPIO_CTL(gpio_periph);
+ 236              		.loc 1 126 5 view .LVU48
+ 237              		.loc 1 126 9 is_stmt 0 view .LVU49
+ 238 0002 0568     		ldr	r5, [r0]
+ 239              	.LVL37:
+ 127:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     pupd = GPIO_PUD(gpio_periph);
+ 240              		.loc 1 127 5 is_stmt 1 view .LVU50
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccunkh1C.s 			page 8
+
+
+ 241              		.loc 1 127 10 is_stmt 0 view .LVU51
+ 242 0004 C668     		ldr	r6, [r0, #12]
+ 243              	.LVL38:
+ 128:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** 
+ 129:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     for(i = 0U; i < 16U; i++) {
+ 244              		.loc 1 129 5 is_stmt 1 view .LVU52
+ 245              		.loc 1 129 11 is_stmt 0 view .LVU53
+ 246 0006 4FF0000C 		mov	ip, #0
+ 247              		.loc 1 129 5 view .LVU54
+ 248 000a 03E0     		b	.L22
+ 249              	.LVL39:
+ 250              	.L23:
+ 251              		.loc 1 129 27 is_stmt 1 discriminator 2 view .LVU55
+ 252 000c 0CF1010C 		add	ip, ip, #1
+ 253              	.LVL40:
+ 254              		.loc 1 129 27 is_stmt 0 discriminator 2 view .LVU56
+ 255 0010 1FFA8CFC 		uxth	ip, ip
+ 256              	.LVL41:
+ 257              	.L22:
+ 258              		.loc 1 129 19 is_stmt 1 discriminator 1 view .LVU57
+ 259 0014 BCF10F0F 		cmp	ip, #15
+ 260 0018 18D8     		bhi	.L26
+ 130:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         if((1U << i) & pin) {
+ 261              		.loc 1 130 9 view .LVU58
+ 262              		.loc 1 130 16 is_stmt 0 view .LVU59
+ 263 001a 4FF0010E 		mov	lr, #1
+ 264 001e 0EFA0CFE 		lsl	lr, lr, ip
+ 265              		.loc 1 130 11 view .LVU60
+ 266 0022 1EEA030F 		tst	lr, r3
+ 267 0026 F1D0     		beq	.L23
+ 131:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****             /* clear the specified pin mode bits */
+ 132:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****             ctl &= ~GPIO_MODE_MASK(i);
+ 268              		.loc 1 132 13 is_stmt 1 view .LVU61
+ 269              		.loc 1 132 21 is_stmt 0 view .LVU62
+ 270 0028 4FEA4C04 		lsl	r4, ip, #1
+ 271 002c 4FF0030E 		mov	lr, #3
+ 272 0030 0EFA04FE 		lsl	lr, lr, r4
+ 273              		.loc 1 132 17 view .LVU63
+ 274 0034 25EA0E05 		bic	r5, r5, lr
+ 275              	.LVL42:
+ 133:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****             /* set the specified pin mode bits */
+ 134:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****             ctl |= GPIO_MODE_SET(i, mode);
+ 276              		.loc 1 134 13 is_stmt 1 view .LVU64
+ 277              		.loc 1 134 20 is_stmt 0 view .LVU65
+ 278 0038 01FA04F7 		lsl	r7, r1, r4
+ 279              		.loc 1 134 17 view .LVU66
+ 280 003c 3D43     		orrs	r5, r5, r7
+ 281              	.LVL43:
+ 135:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** 
+ 136:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****             /* clear the specified pin pupd bits */
+ 137:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****             pupd &= ~GPIO_PUPD_MASK(i);
+ 282              		.loc 1 137 13 is_stmt 1 view .LVU67
+ 283              		.loc 1 137 18 is_stmt 0 view .LVU68
+ 284 003e 26EA0E0E 		bic	lr, r6, lr
+ 285              	.LVL44:
+ 138:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****             /* set the specified pin pupd bits */
+ 139:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****             pupd |= GPIO_PUPD_SET(i, pull_up_down);
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccunkh1C.s 			page 9
+
+
+ 286              		.loc 1 139 13 is_stmt 1 view .LVU69
+ 287              		.loc 1 139 21 is_stmt 0 view .LVU70
+ 288 0042 02FA04F4 		lsl	r4, r2, r4
+ 289              		.loc 1 139 18 view .LVU71
+ 290 0046 44EA0E06 		orr	r6, r4, lr
+ 291              	.LVL45:
+ 292              		.loc 1 139 18 view .LVU72
+ 293 004a DFE7     		b	.L23
+ 294              	.L26:
+ 140:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         }
+ 141:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     }
+ 142:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** 
+ 143:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     GPIO_CTL(gpio_periph) = ctl;
+ 295              		.loc 1 143 5 is_stmt 1 view .LVU73
+ 296              		.loc 1 143 27 is_stmt 0 view .LVU74
+ 297 004c 0560     		str	r5, [r0]
+ 144:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     GPIO_PUD(gpio_periph) = pupd;
+ 298              		.loc 1 144 5 is_stmt 1 view .LVU75
+ 299              		.loc 1 144 27 is_stmt 0 view .LVU76
+ 300 004e C660     		str	r6, [r0, #12]
+ 145:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** }
+ 301              		.loc 1 145 1 view .LVU77
+ 302 0050 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 303              		.loc 1 145 1 view .LVU78
+ 304              		.cfi_endproc
+ 305              	.LFE117:
+ 307              		.section	.text.gpio_output_options_set,"ax",%progbits
+ 308              		.align	1
+ 309              		.global	gpio_output_options_set
+ 310              		.syntax unified
+ 311              		.thumb
+ 312              		.thumb_func
+ 314              	gpio_output_options_set:
+ 315              	.LVL46:
+ 316              	.LFB118:
+ 146:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** 
+ 147:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** /*!
+ 148:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \brief      set GPIO output type and speed
+ 149:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \param[in]  gpio_periph: GPIO port
+ 150:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****                 only one parameter can be selected which is shown as below:
+ 151:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****       \arg        GPIOx(x = A,B,C,D,E,F,G,H,I)
+ 152:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \param[in]  otype: GPIO pin output mode
+ 153:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****       \arg        GPIO_OTYPE_PP: push pull mode
+ 154:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****       \arg        GPIO_OTYPE_OD: open drain mode
+ 155:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \param[in]  speed: GPIO pin output max speed
+ 156:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****       \arg        GPIO_OSPEED_2MHZ: output max speed 2MHz
+ 157:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****       \arg        GPIO_OSPEED_25MHZ: output max speed 25MHz
+ 158:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****       \arg        GPIO_OSPEED_50MHZ: output max speed 50MHz
+ 159:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****       \arg        GPIO_OSPEED_MAX: output max speed more than 50MHz
+ 160:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \param[in]  pin: GPIO pin
+ 161:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****                 one or more parameters can be selected which are shown as below:
+ 162:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****       \arg        GPIO_PIN_x(x=0..15), GPIO_PIN_ALL
+ 163:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \param[out] none
+ 164:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \retval     none
+ 165:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** */
+ 166:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** void gpio_output_options_set(uint32_t gpio_periph, uint8_t otype, uint32_t speed, uint32_t pin)
+ 167:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** {
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccunkh1C.s 			page 10
+
+
+ 317              		.loc 1 167 1 is_stmt 1 view -0
+ 318              		.cfi_startproc
+ 319              		@ args = 0, pretend = 0, frame = 0
+ 320              		@ frame_needed = 0, uses_anonymous_args = 0
+ 321              		.loc 1 167 1 is_stmt 0 view .LVU80
+ 322 0000 10B5     		push	{r4, lr}
+ 323              	.LCFI2:
+ 324              		.cfi_def_cfa_offset 8
+ 325              		.cfi_offset 4, -8
+ 326              		.cfi_offset 14, -4
+ 168:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     uint16_t i;
+ 327              		.loc 1 168 5 is_stmt 1 view .LVU81
+ 169:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     uint32_t ospeedr;
+ 328              		.loc 1 169 5 view .LVU82
+ 170:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** 
+ 171:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     if(GPIO_OTYPE_OD == otype) {
+ 329              		.loc 1 171 5 view .LVU83
+ 330              		.loc 1 171 7 is_stmt 0 view .LVU84
+ 331 0002 0129     		cmp	r1, #1
+ 332 0004 06D0     		beq	.L34
+ 172:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         GPIO_OMODE(gpio_periph) |= (uint32_t)pin;
+ 173:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     } else {
+ 174:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         GPIO_OMODE(gpio_periph) &= (uint32_t)(~pin);
+ 333              		.loc 1 174 9 is_stmt 1 view .LVU85
+ 334 0006 4168     		ldr	r1, [r0, #4]
+ 335              	.LVL47:
+ 336              		.loc 1 174 33 is_stmt 0 view .LVU86
+ 337 0008 21EA0301 		bic	r1, r1, r3
+ 338 000c 4160     		str	r1, [r0, #4]
+ 339              	.L29:
+ 175:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     }
+ 176:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** 
+ 177:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     /* get the specified pin output speed bits value */
+ 178:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     ospeedr = GPIO_OSPD(gpio_periph);
+ 340              		.loc 1 178 5 is_stmt 1 view .LVU87
+ 341              		.loc 1 178 13 is_stmt 0 view .LVU88
+ 342 000e 8468     		ldr	r4, [r0, #8]
+ 343              	.LVL48:
+ 179:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** 
+ 180:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     for(i = 0U; i < 16U; i++) {
+ 344              		.loc 1 180 5 is_stmt 1 view .LVU89
+ 345              		.loc 1 180 11 is_stmt 0 view .LVU90
+ 346 0010 0021     		movs	r1, #0
+ 347              		.loc 1 180 5 view .LVU91
+ 348 0012 05E0     		b	.L30
+ 349              	.LVL49:
+ 350              	.L34:
+ 172:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     } else {
+ 351              		.loc 1 172 9 is_stmt 1 view .LVU92
+ 352 0014 4168     		ldr	r1, [r0, #4]
+ 353              	.LVL50:
+ 172:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     } else {
+ 354              		.loc 1 172 33 is_stmt 0 view .LVU93
+ 355 0016 1943     		orrs	r1, r1, r3
+ 356 0018 4160     		str	r1, [r0, #4]
+ 357 001a F8E7     		b	.L29
+ 358              	.LVL51:
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccunkh1C.s 			page 11
+
+
+ 359              	.L31:
+ 360              		.loc 1 180 27 is_stmt 1 discriminator 2 view .LVU94
+ 361 001c 0131     		adds	r1, r1, #1
+ 362              	.LVL52:
+ 363              		.loc 1 180 27 is_stmt 0 discriminator 2 view .LVU95
+ 364 001e 89B2     		uxth	r1, r1
+ 365              	.LVL53:
+ 366              	.L30:
+ 367              		.loc 1 180 19 is_stmt 1 discriminator 1 view .LVU96
+ 368 0020 0F29     		cmp	r1, #15
+ 369 0022 13D8     		bhi	.L35
+ 181:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         if((1U << i) & pin) {
+ 370              		.loc 1 181 9 view .LVU97
+ 371              		.loc 1 181 16 is_stmt 0 view .LVU98
+ 372 0024 4FF0010C 		mov	ip, #1
+ 373 0028 0CFA01FC 		lsl	ip, ip, r1
+ 374              		.loc 1 181 11 view .LVU99
+ 375 002c 1CEA030F 		tst	ip, r3
+ 376 0030 F4D0     		beq	.L31
+ 182:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****             /* clear the specified pin output speed bits */
+ 183:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****             ospeedr &= ~GPIO_OSPEED_MASK(i);
+ 377              		.loc 1 183 13 is_stmt 1 view .LVU100
+ 378              		.loc 1 183 25 is_stmt 0 view .LVU101
+ 379 0032 4FEA410C 		lsl	ip, r1, #1
+ 380 0036 4FF0030E 		mov	lr, #3
+ 381 003a 0EFA0CFE 		lsl	lr, lr, ip
+ 382              		.loc 1 183 21 view .LVU102
+ 383 003e 24EA0E04 		bic	r4, r4, lr
+ 384              	.LVL54:
+ 184:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****             /* set the specified pin output speed bits */
+ 185:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****             ospeedr |= GPIO_OSPEED_SET(i, speed);
+ 385              		.loc 1 185 13 is_stmt 1 view .LVU103
+ 386              		.loc 1 185 24 is_stmt 0 view .LVU104
+ 387 0042 02FA0CFC 		lsl	ip, r2, ip
+ 388              		.loc 1 185 21 view .LVU105
+ 389 0046 4CEA0404 		orr	r4, ip, r4
+ 390              	.LVL55:
+ 391              		.loc 1 185 21 view .LVU106
+ 392 004a E7E7     		b	.L31
+ 393              	.L35:
+ 186:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         }
+ 187:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     }
+ 188:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     GPIO_OSPD(gpio_periph) = ospeedr;
+ 394              		.loc 1 188 5 is_stmt 1 view .LVU107
+ 395              		.loc 1 188 28 is_stmt 0 view .LVU108
+ 396 004c 8460     		str	r4, [r0, #8]
+ 189:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** }
+ 397              		.loc 1 189 1 view .LVU109
+ 398 004e 10BD     		pop	{r4, pc}
+ 399              		.loc 1 189 1 view .LVU110
+ 400              		.cfi_endproc
+ 401              	.LFE118:
+ 403              		.section	.text.gpio_bit_set,"ax",%progbits
+ 404              		.align	1
+ 405              		.global	gpio_bit_set
+ 406              		.syntax unified
+ 407              		.thumb
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccunkh1C.s 			page 12
+
+
+ 408              		.thumb_func
+ 410              	gpio_bit_set:
+ 411              	.LVL56:
+ 412              	.LFB119:
+ 190:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** 
+ 191:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** /*!
+ 192:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \brief    set GPIO pin bit
+ 193:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \param[in]  gpio_periph: GPIO port
+ 194:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****                 only one parameter can be selected which is shown as below:
+ 195:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****       \arg        GPIOx(x = A,B,C,D,E,F,G,H,I)
+ 196:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \param[in]  pin: GPIO pin
+ 197:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****                 one or more parameters can be selected which are shown as below:
+ 198:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****       \arg        GPIO_PIN_x(x=0..15), GPIO_PIN_ALL
+ 199:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \param[out] none
+ 200:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \retval     none
+ 201:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** */
+ 202:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** void gpio_bit_set(uint32_t gpio_periph, uint32_t pin)
+ 203:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** {
+ 413              		.loc 1 203 1 is_stmt 1 view -0
+ 414              		.cfi_startproc
+ 415              		@ args = 0, pretend = 0, frame = 0
+ 416              		@ frame_needed = 0, uses_anonymous_args = 0
+ 417              		@ link register save eliminated.
+ 204:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     GPIO_BOP(gpio_periph) = (uint32_t)pin;
+ 418              		.loc 1 204 5 view .LVU112
+ 419              		.loc 1 204 27 is_stmt 0 view .LVU113
+ 420 0000 8161     		str	r1, [r0, #24]
+ 205:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** }
+ 421              		.loc 1 205 1 view .LVU114
+ 422 0002 7047     		bx	lr
+ 423              		.cfi_endproc
+ 424              	.LFE119:
+ 426              		.section	.text.gpio_bit_reset,"ax",%progbits
+ 427              		.align	1
+ 428              		.global	gpio_bit_reset
+ 429              		.syntax unified
+ 430              		.thumb
+ 431              		.thumb_func
+ 433              	gpio_bit_reset:
+ 434              	.LVL57:
+ 435              	.LFB120:
+ 206:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** 
+ 207:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** /*!
+ 208:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \brief      reset GPIO pin bit
+ 209:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \param[in]  gpio_periph: GPIO port
+ 210:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****                 only one parameter can be selected which is shown as below:
+ 211:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****       \arg        GPIOx(x = A,B,C,D,E,F,G,H,I)
+ 212:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \param[in]  pin: GPIO pin
+ 213:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****                 one or more parameters can be selected which are shown as below:
+ 214:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****       \arg        GPIO_PIN_x(x=0..15), GPIO_PIN_ALL
+ 215:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \param[out] none
+ 216:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \retval     none
+ 217:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** */
+ 218:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** void gpio_bit_reset(uint32_t gpio_periph, uint32_t pin)
+ 219:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** {
+ 436              		.loc 1 219 1 is_stmt 1 view -0
+ 437              		.cfi_startproc
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccunkh1C.s 			page 13
+
+
+ 438              		@ args = 0, pretend = 0, frame = 0
+ 439              		@ frame_needed = 0, uses_anonymous_args = 0
+ 440              		@ link register save eliminated.
+ 220:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     GPIO_BC(gpio_periph) = (uint32_t)pin;
+ 441              		.loc 1 220 5 view .LVU116
+ 442              		.loc 1 220 26 is_stmt 0 view .LVU117
+ 443 0000 8162     		str	r1, [r0, #40]
+ 221:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** }
+ 444              		.loc 1 221 1 view .LVU118
+ 445 0002 7047     		bx	lr
+ 446              		.cfi_endproc
+ 447              	.LFE120:
+ 449              		.section	.text.gpio_bit_write,"ax",%progbits
+ 450              		.align	1
+ 451              		.global	gpio_bit_write
+ 452              		.syntax unified
+ 453              		.thumb
+ 454              		.thumb_func
+ 456              	gpio_bit_write:
+ 457              	.LVL58:
+ 458              	.LFB121:
+ 222:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** 
+ 223:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** /*!
+ 224:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \brief      write data to the specified GPIO pin
+ 225:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \param[in]  gpio_periph: GPIO port
+ 226:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****                 only one parameter can be selected which is shown as below:
+ 227:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****       \arg        GPIOx(x = A,B,C,D,E,F,G,H,I)
+ 228:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \param[in]  pin: GPIO pin
+ 229:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****                 one or more parameters can be selected which are shown as below:
+ 230:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****       \arg        GPIO_PIN_x(x=0..15), GPIO_PIN_ALL
+ 231:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \param[in]  bit_value: SET or RESET
+ 232:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****       \arg        RESET: clear the port pin
+ 233:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****       \arg        SET: set the port pin
+ 234:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \param[out] none
+ 235:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \retval     none
+ 236:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** */
+ 237:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** void gpio_bit_write(uint32_t gpio_periph, uint32_t pin, bit_status bit_value)
+ 238:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** {
+ 459              		.loc 1 238 1 is_stmt 1 view -0
+ 460              		.cfi_startproc
+ 461              		@ args = 0, pretend = 0, frame = 0
+ 462              		@ frame_needed = 0, uses_anonymous_args = 0
+ 463              		@ link register save eliminated.
+ 239:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     if(RESET != bit_value) {
+ 464              		.loc 1 239 5 view .LVU120
+ 465              		.loc 1 239 7 is_stmt 0 view .LVU121
+ 466 0000 0AB1     		cbz	r2, .L39
+ 240:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         GPIO_BOP(gpio_periph) = (uint32_t)pin;
+ 467              		.loc 1 240 9 is_stmt 1 view .LVU122
+ 468              		.loc 1 240 31 is_stmt 0 view .LVU123
+ 469 0002 8161     		str	r1, [r0, #24]
+ 470 0004 7047     		bx	lr
+ 471              	.L39:
+ 241:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     } else {
+ 242:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         GPIO_BC(gpio_periph) = (uint32_t)pin;
+ 472              		.loc 1 242 9 is_stmt 1 view .LVU124
+ 473              		.loc 1 242 30 is_stmt 0 view .LVU125
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccunkh1C.s 			page 14
+
+
+ 474 0006 8162     		str	r1, [r0, #40]
+ 243:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     }
+ 244:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** }
+ 475              		.loc 1 244 1 view .LVU126
+ 476 0008 7047     		bx	lr
+ 477              		.cfi_endproc
+ 478              	.LFE121:
+ 480              		.section	.text.gpio_port_write,"ax",%progbits
+ 481              		.align	1
+ 482              		.global	gpio_port_write
+ 483              		.syntax unified
+ 484              		.thumb
+ 485              		.thumb_func
+ 487              	gpio_port_write:
+ 488              	.LVL59:
+ 489              	.LFB122:
+ 245:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** 
+ 246:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** /*!
+ 247:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \brief      write data to the specified GPIO port
+ 248:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \param[in]  gpio_periph: GPIO port
+ 249:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****                 only one parameter can be selected which is shown as below:
+ 250:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****       \arg        GPIOx(x = A,B,C,D,E,F,G,H,I)
+ 251:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \param[in]  data: specify the value to be written to the port output control register
+ 252:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \param[out] none
+ 253:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \retval     none
+ 254:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** */
+ 255:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** void gpio_port_write(uint32_t gpio_periph, uint16_t data)
+ 256:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** {
+ 490              		.loc 1 256 1 is_stmt 1 view -0
+ 491              		.cfi_startproc
+ 492              		@ args = 0, pretend = 0, frame = 0
+ 493              		@ frame_needed = 0, uses_anonymous_args = 0
+ 494              		@ link register save eliminated.
+ 257:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     GPIO_OCTL(gpio_periph) = (uint32_t)data;
+ 495              		.loc 1 257 5 view .LVU128
+ 496              		.loc 1 257 28 is_stmt 0 view .LVU129
+ 497 0000 4161     		str	r1, [r0, #20]
+ 258:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** }
+ 498              		.loc 1 258 1 view .LVU130
+ 499 0002 7047     		bx	lr
+ 500              		.cfi_endproc
+ 501              	.LFE122:
+ 503              		.section	.text.gpio_input_bit_get,"ax",%progbits
+ 504              		.align	1
+ 505              		.global	gpio_input_bit_get
+ 506              		.syntax unified
+ 507              		.thumb
+ 508              		.thumb_func
+ 510              	gpio_input_bit_get:
+ 511              	.LVL60:
+ 512              	.LFB123:
+ 259:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** 
+ 260:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** /*!
+ 261:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \brief      get GPIO pin input status
+ 262:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \param[in]  gpio_periph: GPIO port
+ 263:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****                 only one parameter can be selected which is shown as below:
+ 264:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****       \arg        GPIOx(x = A,B,C,D,E,F,G,H,I)
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccunkh1C.s 			page 15
+
+
+ 265:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \param[in]  pin: GPIO pin
+ 266:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****                 one or more parameters can be selected which are shown as below:
+ 267:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****       \arg        GPIO_PIN_x(x=0..15), GPIO_PIN_ALL
+ 268:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \param[out] none
+ 269:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \retval     input status of GPIO pin: SET or RESET
+ 270:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** */
+ 271:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** FlagStatus gpio_input_bit_get(uint32_t gpio_periph, uint32_t pin)
+ 272:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** {
+ 513              		.loc 1 272 1 is_stmt 1 view -0
+ 514              		.cfi_startproc
+ 515              		@ args = 0, pretend = 0, frame = 0
+ 516              		@ frame_needed = 0, uses_anonymous_args = 0
+ 517              		@ link register save eliminated.
+ 273:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     if((uint32_t)RESET != (GPIO_ISTAT(gpio_periph) & (pin))) {
+ 518              		.loc 1 273 5 view .LVU132
+ 519              		.loc 1 273 28 is_stmt 0 view .LVU133
+ 520 0000 0369     		ldr	r3, [r0, #16]
+ 521              		.loc 1 273 7 view .LVU134
+ 522 0002 0B42     		tst	r3, r1
+ 523 0004 01D0     		beq	.L44
+ 274:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         return SET;
+ 524              		.loc 1 274 16 view .LVU135
+ 525 0006 0120     		movs	r0, #1
+ 526              	.LVL61:
+ 527              		.loc 1 274 16 view .LVU136
+ 528 0008 7047     		bx	lr
+ 529              	.LVL62:
+ 530              	.L44:
+ 275:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     } else {
+ 276:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         return RESET;
+ 531              		.loc 1 276 16 view .LVU137
+ 532 000a 0020     		movs	r0, #0
+ 533              	.LVL63:
+ 277:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     }
+ 278:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** }
+ 534              		.loc 1 278 1 view .LVU138
+ 535 000c 7047     		bx	lr
+ 536              		.cfi_endproc
+ 537              	.LFE123:
+ 539              		.section	.text.gpio_input_port_get,"ax",%progbits
+ 540              		.align	1
+ 541              		.global	gpio_input_port_get
+ 542              		.syntax unified
+ 543              		.thumb
+ 544              		.thumb_func
+ 546              	gpio_input_port_get:
+ 547              	.LVL64:
+ 548              	.LFB124:
+ 279:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** 
+ 280:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** /*!
+ 281:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \brief      get GPIO all pins input status
+ 282:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \param[in]  gpio_periph: GPIO port
+ 283:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****                 only one parameter can be selected which is shown as below:
+ 284:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****       \arg        GPIOx(x = A,B,C,D,E,F,G,H,I)
+ 285:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \param[out] none
+ 286:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \retval     input status of GPIO all pins
+ 287:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** */
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccunkh1C.s 			page 16
+
+
+ 288:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** uint16_t gpio_input_port_get(uint32_t gpio_periph)
+ 289:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** {
+ 549              		.loc 1 289 1 is_stmt 1 view -0
+ 550              		.cfi_startproc
+ 551              		@ args = 0, pretend = 0, frame = 0
+ 552              		@ frame_needed = 0, uses_anonymous_args = 0
+ 553              		@ link register save eliminated.
+ 290:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     return ((uint16_t)GPIO_ISTAT(gpio_periph));
+ 554              		.loc 1 290 5 view .LVU140
+ 555              		.loc 1 290 23 is_stmt 0 view .LVU141
+ 556 0000 0069     		ldr	r0, [r0, #16]
+ 557              	.LVL65:
+ 291:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** }
+ 558              		.loc 1 291 1 view .LVU142
+ 559 0002 80B2     		uxth	r0, r0
+ 560 0004 7047     		bx	lr
+ 561              		.cfi_endproc
+ 562              	.LFE124:
+ 564              		.section	.text.gpio_output_bit_get,"ax",%progbits
+ 565              		.align	1
+ 566              		.global	gpio_output_bit_get
+ 567              		.syntax unified
+ 568              		.thumb
+ 569              		.thumb_func
+ 571              	gpio_output_bit_get:
+ 572              	.LVL66:
+ 573              	.LFB125:
+ 292:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** 
+ 293:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** /*!
+ 294:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \brief      get GPIO pin output status
+ 295:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \param[in]  gpio_periph: GPIO port
+ 296:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****                 only one parameter can be selected which is shown as below:
+ 297:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****       \arg        GPIOx(x = A,B,C,D,E,F,G,H,I)
+ 298:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \param[in]  pin: GPIO pin
+ 299:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****                 one or more parameters can be selected which are shown as below:
+ 300:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****       \arg        GPIO_PIN_x(x=0..15), GPIO_PIN_ALL
+ 301:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \param[out] none
+ 302:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \retval     output status of GPIO pin: SET or RESET
+ 303:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** */
+ 304:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** FlagStatus gpio_output_bit_get(uint32_t gpio_periph, uint32_t pin)
+ 305:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** {
+ 574              		.loc 1 305 1 is_stmt 1 view -0
+ 575              		.cfi_startproc
+ 576              		@ args = 0, pretend = 0, frame = 0
+ 577              		@ frame_needed = 0, uses_anonymous_args = 0
+ 578              		@ link register save eliminated.
+ 306:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     if((uint32_t)RESET != (GPIO_OCTL(gpio_periph) & (pin))) {
+ 579              		.loc 1 306 5 view .LVU144
+ 580              		.loc 1 306 28 is_stmt 0 view .LVU145
+ 581 0000 4369     		ldr	r3, [r0, #20]
+ 582              		.loc 1 306 7 view .LVU146
+ 583 0002 0B42     		tst	r3, r1
+ 584 0004 01D0     		beq	.L48
+ 307:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         return SET;
+ 585              		.loc 1 307 16 view .LVU147
+ 586 0006 0120     		movs	r0, #1
+ 587              	.LVL67:
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccunkh1C.s 			page 17
+
+
+ 588              		.loc 1 307 16 view .LVU148
+ 589 0008 7047     		bx	lr
+ 590              	.LVL68:
+ 591              	.L48:
+ 308:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     } else {
+ 309:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         return RESET;
+ 592              		.loc 1 309 16 view .LVU149
+ 593 000a 0020     		movs	r0, #0
+ 594              	.LVL69:
+ 310:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     }
+ 311:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** }
+ 595              		.loc 1 311 1 view .LVU150
+ 596 000c 7047     		bx	lr
+ 597              		.cfi_endproc
+ 598              	.LFE125:
+ 600              		.section	.text.gpio_output_port_get,"ax",%progbits
+ 601              		.align	1
+ 602              		.global	gpio_output_port_get
+ 603              		.syntax unified
+ 604              		.thumb
+ 605              		.thumb_func
+ 607              	gpio_output_port_get:
+ 608              	.LVL70:
+ 609              	.LFB126:
+ 312:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** 
+ 313:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** /*!
+ 314:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \brief      get GPIO port output status
+ 315:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \param[in]  gpio_periph: GPIO port
+ 316:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****                 only one parameter can be selected which is shown as below:
+ 317:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****       \arg        GPIOx(x = A,B,C,D,E,F,G,H,I)
+ 318:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \param[out] none
+ 319:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \retval     output status of GPIO all pins
+ 320:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** */
+ 321:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** uint16_t gpio_output_port_get(uint32_t gpio_periph)
+ 322:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** {
+ 610              		.loc 1 322 1 is_stmt 1 view -0
+ 611              		.cfi_startproc
+ 612              		@ args = 0, pretend = 0, frame = 0
+ 613              		@ frame_needed = 0, uses_anonymous_args = 0
+ 614              		@ link register save eliminated.
+ 323:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     return ((uint16_t)GPIO_OCTL(gpio_periph));
+ 615              		.loc 1 323 5 view .LVU152
+ 616              		.loc 1 323 23 is_stmt 0 view .LVU153
+ 617 0000 4069     		ldr	r0, [r0, #20]
+ 618              	.LVL71:
+ 324:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** }
+ 619              		.loc 1 324 1 view .LVU154
+ 620 0002 80B2     		uxth	r0, r0
+ 621 0004 7047     		bx	lr
+ 622              		.cfi_endproc
+ 623              	.LFE126:
+ 625              		.section	.text.gpio_af_set,"ax",%progbits
+ 626              		.align	1
+ 627              		.global	gpio_af_set
+ 628              		.syntax unified
+ 629              		.thumb
+ 630              		.thumb_func
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccunkh1C.s 			page 18
+
+
+ 632              	gpio_af_set:
+ 633              	.LVL72:
+ 634              	.LFB127:
+ 325:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** 
+ 326:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** /*!
+ 327:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \brief      set GPIO alternate function
+ 328:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \param[in]  gpio_periph: GPIO port
+ 329:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****                 only one parameter can be selected which is shown as below:
+ 330:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****       \arg        GPIOx(x = A,B,C,D,E,F,G,H,I)
+ 331:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \param[in]  alt_func_num: GPIO pin af function
+ 332:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****       \arg        GPIO_AF_0: SYSTEM
+ 333:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****       \arg        GPIO_AF_1: TIMER0, TIMER1
+ 334:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****       \arg        GPIO_AF_2: TIMER2, TIMER3, TIMER4
+ 335:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****       \arg        GPIO_AF_3: TIMER7, TIMER8, TIMER9, TIMER10
+ 336:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****       \arg        GPIO_AF_4: I2C0, I2C1, I2C2
+ 337:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****       \arg        GPIO_AF_5: SPI0, SPI1, SPI2, SPI3, SPI4, SPI5
+ 338:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****       \arg        GPIO_AF_6: SPI2, SPI3, SPI4
+ 339:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****       \arg        GPIO_AF_7: USART0, USART1, USART2, SPI1, SPI2
+ 340:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****       \arg        GPIO_AF_8: UART3, UART4, USART5, UART6, UART7
+ 341:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****       \arg        GPIO_AF_9: CAN0, CAN1, TLI, TIMER11, TIMER12, TIMER13, I2C1, I2C2, CTC
+ 342:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****       \arg        GPIO_AF_10: USB_FS, USB_HS
+ 343:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****       \arg        GPIO_AF_11: ENET
+ 344:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****       \arg        GPIO_AF_12: EXMC, SDIO, USB_HS
+ 345:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****       \arg        GPIO_AF_13: DCI
+ 346:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****       \arg        GPIO_AF_14: TLI
+ 347:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****       \arg        GPIO_AF_15: EVENTOUT
+ 348:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \param[in]  pin: GPIO pin
+ 349:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****                 one or more parameters can be selected which are shown as below:
+ 350:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****       \arg        GPIO_PIN_x(x=0..15), GPIO_PIN_ALL
+ 351:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \param[out] none
+ 352:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \retval     none
+ 353:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** */
+ 354:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** void gpio_af_set(uint32_t gpio_periph, uint32_t alt_func_num, uint32_t pin)
+ 355:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** {
+ 635              		.loc 1 355 1 is_stmt 1 view -0
+ 636              		.cfi_startproc
+ 637              		@ args = 0, pretend = 0, frame = 0
+ 638              		@ frame_needed = 0, uses_anonymous_args = 0
+ 639              		.loc 1 355 1 is_stmt 0 view .LVU156
+ 640 0000 30B5     		push	{r4, r5, lr}
+ 641              	.LCFI3:
+ 642              		.cfi_def_cfa_offset 12
+ 643              		.cfi_offset 4, -12
+ 644              		.cfi_offset 5, -8
+ 645              		.cfi_offset 14, -4
+ 356:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     uint16_t i;
+ 646              		.loc 1 356 5 is_stmt 1 view .LVU157
+ 357:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     uint32_t afrl, afrh;
+ 647              		.loc 1 357 5 view .LVU158
+ 358:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** 
+ 359:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     afrl = GPIO_AFSEL0(gpio_periph);
+ 648              		.loc 1 359 5 view .LVU159
+ 649              		.loc 1 359 10 is_stmt 0 view .LVU160
+ 650 0002 046A     		ldr	r4, [r0, #32]
+ 651              	.LVL73:
+ 360:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     afrh = GPIO_AFSEL1(gpio_periph);
+ 652              		.loc 1 360 5 is_stmt 1 view .LVU161
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccunkh1C.s 			page 19
+
+
+ 653              		.loc 1 360 10 is_stmt 0 view .LVU162
+ 654 0004 456A     		ldr	r5, [r0, #36]
+ 655              	.LVL74:
+ 361:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** 
+ 362:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     for(i = 0U; i < 8U; i++) {
+ 656              		.loc 1 362 5 is_stmt 1 view .LVU163
+ 657              		.loc 1 362 11 is_stmt 0 view .LVU164
+ 658 0006 0023     		movs	r3, #0
+ 659              		.loc 1 362 5 view .LVU165
+ 660 0008 01E0     		b	.L51
+ 661              	.LVL75:
+ 662              	.L52:
+ 663              		.loc 1 362 26 is_stmt 1 discriminator 2 view .LVU166
+ 664 000a 0133     		adds	r3, r3, #1
+ 665              	.LVL76:
+ 666              		.loc 1 362 26 is_stmt 0 discriminator 2 view .LVU167
+ 667 000c 9BB2     		uxth	r3, r3
+ 668              	.LVL77:
+ 669              	.L51:
+ 670              		.loc 1 362 19 is_stmt 1 discriminator 1 view .LVU168
+ 671 000e 072B     		cmp	r3, #7
+ 672 0010 13D8     		bhi	.L58
+ 363:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         if((1U << i) & pin) {
+ 673              		.loc 1 363 9 view .LVU169
+ 674              		.loc 1 363 16 is_stmt 0 view .LVU170
+ 675 0012 4FF0010C 		mov	ip, #1
+ 676 0016 0CFA03FC 		lsl	ip, ip, r3
+ 677              		.loc 1 363 11 view .LVU171
+ 678 001a 1CEA020F 		tst	ip, r2
+ 679 001e F4D0     		beq	.L52
+ 364:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****             /* clear the specified pin alternate function bits */
+ 365:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****             afrl &= ~GPIO_AFR_MASK(i);
+ 680              		.loc 1 365 13 is_stmt 1 view .LVU172
+ 681              		.loc 1 365 22 is_stmt 0 view .LVU173
+ 682 0020 4FEA830E 		lsl	lr, r3, #2
+ 683 0024 4FF00F0C 		mov	ip, #15
+ 684 0028 0CFA0EFC 		lsl	ip, ip, lr
+ 685              		.loc 1 365 18 view .LVU174
+ 686 002c 24EA0C04 		bic	r4, r4, ip
+ 687              	.LVL78:
+ 366:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****             afrl |= GPIO_AFR_SET(i, alt_func_num);
+ 688              		.loc 1 366 13 is_stmt 1 view .LVU175
+ 689              		.loc 1 366 21 is_stmt 0 view .LVU176
+ 690 0030 01FA0EFE 		lsl	lr, r1, lr
+ 691              		.loc 1 366 18 view .LVU177
+ 692 0034 4EEA0404 		orr	r4, lr, r4
+ 693              	.LVL79:
+ 694              		.loc 1 366 18 view .LVU178
+ 695 0038 E7E7     		b	.L52
+ 696              	.L58:
+ 367:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         }
+ 368:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     }
+ 369:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** 
+ 370:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     for(i = 8U; i < 16U; i++) {
+ 697              		.loc 1 370 11 view .LVU179
+ 698 003a 0823     		movs	r3, #8
+ 699              	.LVL80:
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccunkh1C.s 			page 20
+
+
+ 700              		.loc 1 370 11 view .LVU180
+ 701 003c 01E0     		b	.L54
+ 702              	.LVL81:
+ 703              	.L55:
+ 704              		.loc 1 370 27 is_stmt 1 discriminator 2 view .LVU181
+ 705 003e 0133     		adds	r3, r3, #1
+ 706              	.LVL82:
+ 707              		.loc 1 370 27 is_stmt 0 discriminator 2 view .LVU182
+ 708 0040 9BB2     		uxth	r3, r3
+ 709              	.LVL83:
+ 710              	.L54:
+ 711              		.loc 1 370 19 is_stmt 1 discriminator 1 view .LVU183
+ 712 0042 0F2B     		cmp	r3, #15
+ 713 0044 15D8     		bhi	.L59
+ 371:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         if((1U << i) & pin) {
+ 714              		.loc 1 371 9 view .LVU184
+ 715              		.loc 1 371 16 is_stmt 0 view .LVU185
+ 716 0046 4FF0010C 		mov	ip, #1
+ 717 004a 0CFA03FC 		lsl	ip, ip, r3
+ 718              		.loc 1 371 11 view .LVU186
+ 719 004e 1CEA020F 		tst	ip, r2
+ 720 0052 F4D0     		beq	.L55
+ 372:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****             /* clear the specified pin alternate function bits */
+ 373:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****             afrh &= ~GPIO_AFR_MASK(i - 8U);
+ 721              		.loc 1 373 13 is_stmt 1 view .LVU187
+ 722              		.loc 1 373 22 is_stmt 0 view .LVU188
+ 723 0054 A3F1080C 		sub	ip, r3, #8
+ 724 0058 4FEA8C0C 		lsl	ip, ip, #2
+ 725 005c 4FF00F0E 		mov	lr, #15
+ 726 0060 0EFA0CFE 		lsl	lr, lr, ip
+ 727              		.loc 1 373 18 view .LVU189
+ 728 0064 25EA0E05 		bic	r5, r5, lr
+ 729              	.LVL84:
+ 374:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****             afrh |= GPIO_AFR_SET(i - 8U, alt_func_num);
+ 730              		.loc 1 374 13 is_stmt 1 view .LVU190
+ 731              		.loc 1 374 21 is_stmt 0 view .LVU191
+ 732 0068 01FA0CFC 		lsl	ip, r1, ip
+ 733              		.loc 1 374 18 view .LVU192
+ 734 006c 4CEA0505 		orr	r5, ip, r5
+ 735              	.LVL85:
+ 736              		.loc 1 374 18 view .LVU193
+ 737 0070 E5E7     		b	.L55
+ 738              	.L59:
+ 375:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****         }
+ 376:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     }
+ 377:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** 
+ 378:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     GPIO_AFSEL0(gpio_periph) = afrl;
+ 739              		.loc 1 378 5 is_stmt 1 view .LVU194
+ 740              		.loc 1 378 30 is_stmt 0 view .LVU195
+ 741 0072 0462     		str	r4, [r0, #32]
+ 379:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     GPIO_AFSEL1(gpio_periph) = afrh;
+ 742              		.loc 1 379 5 is_stmt 1 view .LVU196
+ 743              		.loc 1 379 30 is_stmt 0 view .LVU197
+ 744 0074 4562     		str	r5, [r0, #36]
+ 380:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** }
+ 745              		.loc 1 380 1 view .LVU198
+ 746 0076 30BD     		pop	{r4, r5, pc}
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccunkh1C.s 			page 21
+
+
+ 747              		.loc 1 380 1 view .LVU199
+ 748              		.cfi_endproc
+ 749              	.LFE127:
+ 751              		.section	.text.gpio_pin_lock,"ax",%progbits
+ 752              		.align	1
+ 753              		.global	gpio_pin_lock
+ 754              		.syntax unified
+ 755              		.thumb
+ 756              		.thumb_func
+ 758              	gpio_pin_lock:
+ 759              	.LVL86:
+ 760              	.LFB128:
+ 381:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** 
+ 382:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** /*!
+ 383:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \brief      lock GPIO pin bit
+ 384:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \param[in]  gpio_periph: GPIO port
+ 385:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****                 only one parameter can be selected which is shown as below:
+ 386:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****       \arg        GPIOx(x = A,B,C,D,E,F,G,H,I)
+ 387:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \param[in]  pin: GPIO pin
+ 388:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****                 one or more parameters can be selected which are shown as below:
+ 389:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****       \arg        GPIO_PIN_x(x=0..15), GPIO_PIN_ALL
+ 390:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \param[out] none
+ 391:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \retval     none
+ 392:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** */
+ 393:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** void gpio_pin_lock(uint32_t gpio_periph, uint32_t pin)
+ 394:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** {
+ 761              		.loc 1 394 1 is_stmt 1 view -0
+ 762              		.cfi_startproc
+ 763              		@ args = 0, pretend = 0, frame = 0
+ 764              		@ frame_needed = 0, uses_anonymous_args = 0
+ 765              		@ link register save eliminated.
+ 395:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     uint32_t lock = 0x00010000U;
+ 766              		.loc 1 395 5 view .LVU201
+ 396:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     lock |= pin;
+ 767              		.loc 1 396 5 view .LVU202
+ 768              		.loc 1 396 10 is_stmt 0 view .LVU203
+ 769 0000 41F48033 		orr	r3, r1, #65536
+ 770              	.LVL87:
+ 397:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** 
+ 398:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     /* lock key writing sequence: write 1->write 0->write 1->read 0->read 1 */
+ 399:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     GPIO_LOCK(gpio_periph) = (uint32_t)lock;
+ 771              		.loc 1 399 5 is_stmt 1 view .LVU204
+ 772              		.loc 1 399 28 is_stmt 0 view .LVU205
+ 773 0004 C361     		str	r3, [r0, #28]
+ 400:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     GPIO_LOCK(gpio_periph) = (uint32_t)pin;
+ 774              		.loc 1 400 5 is_stmt 1 view .LVU206
+ 775              		.loc 1 400 28 is_stmt 0 view .LVU207
+ 776 0006 C161     		str	r1, [r0, #28]
+ 401:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     GPIO_LOCK(gpio_periph) = (uint32_t)lock;
+ 777              		.loc 1 401 5 is_stmt 1 view .LVU208
+ 778              		.loc 1 401 28 is_stmt 0 view .LVU209
+ 779 0008 C361     		str	r3, [r0, #28]
+ 402:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     lock = GPIO_LOCK(gpio_periph);
+ 780              		.loc 1 402 5 is_stmt 1 view .LVU210
+ 781              		.loc 1 402 10 is_stmt 0 view .LVU211
+ 782 000a C369     		ldr	r3, [r0, #28]
+ 783              	.LVL88:
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccunkh1C.s 			page 22
+
+
+ 403:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     lock = GPIO_LOCK(gpio_periph);
+ 784              		.loc 1 403 5 is_stmt 1 view .LVU212
+ 785              		.loc 1 403 10 is_stmt 0 view .LVU213
+ 786 000c C369     		ldr	r3, [r0, #28]
+ 404:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** }
+ 787              		.loc 1 404 1 view .LVU214
+ 788 000e 7047     		bx	lr
+ 789              		.cfi_endproc
+ 790              	.LFE128:
+ 792              		.section	.text.gpio_bit_toggle,"ax",%progbits
+ 793              		.align	1
+ 794              		.global	gpio_bit_toggle
+ 795              		.syntax unified
+ 796              		.thumb
+ 797              		.thumb_func
+ 799              	gpio_bit_toggle:
+ 800              	.LVL89:
+ 801              	.LFB129:
+ 405:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** 
+ 406:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** /*!
+ 407:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \brief      toggle GPIO pin status
+ 408:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \param[in]  gpio_periph: GPIO port
+ 409:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****                 only one parameter can be selected which is shown as below:
+ 410:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****       \arg        GPIOx(x = A,B,C,D,E,F,G,H,I)
+ 411:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \param[in]  pin: GPIO pin
+ 412:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****                 one or more parameters can be selected which are shown as below:
+ 413:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****       \arg        GPIO_PIN_x(x=0..15), GPIO_PIN_ALL
+ 414:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \param[out] none
+ 415:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \retval     none
+ 416:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** */
+ 417:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** void gpio_bit_toggle(uint32_t gpio_periph, uint32_t pin)
+ 418:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** {
+ 802              		.loc 1 418 1 is_stmt 1 view -0
+ 803              		.cfi_startproc
+ 804              		@ args = 0, pretend = 0, frame = 0
+ 805              		@ frame_needed = 0, uses_anonymous_args = 0
+ 806              		@ link register save eliminated.
+ 419:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     GPIO_TG(gpio_periph) = (uint32_t)pin;
+ 807              		.loc 1 419 5 view .LVU216
+ 808              		.loc 1 419 26 is_stmt 0 view .LVU217
+ 809 0000 C162     		str	r1, [r0, #44]
+ 420:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** }
+ 810              		.loc 1 420 1 view .LVU218
+ 811 0002 7047     		bx	lr
+ 812              		.cfi_endproc
+ 813              	.LFE129:
+ 815              		.section	.text.gpio_port_toggle,"ax",%progbits
+ 816              		.align	1
+ 817              		.global	gpio_port_toggle
+ 818              		.syntax unified
+ 819              		.thumb
+ 820              		.thumb_func
+ 822              	gpio_port_toggle:
+ 823              	.LVL90:
+ 824              	.LFB130:
+ 421:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** 
+ 422:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** /*!
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccunkh1C.s 			page 23
+
+
+ 423:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \brief      toggle GPIO port status
+ 424:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \param[in]  gpio_periph: GPIO port
+ 425:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****                 only one parameter can be selected which is shown as below:
+ 426:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****       \arg        GPIOx(x = A,B,C,D,E,F,G,H,I)
+ 427:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** 
+ 428:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \param[out] none
+ 429:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     \retval     none
+ 430:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** */
+ 431:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** void gpio_port_toggle(uint32_t gpio_periph)
+ 432:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** {
+ 825              		.loc 1 432 1 is_stmt 1 view -0
+ 826              		.cfi_startproc
+ 827              		@ args = 0, pretend = 0, frame = 0
+ 828              		@ frame_needed = 0, uses_anonymous_args = 0
+ 829              		@ link register save eliminated.
+ 433:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c ****     GPIO_TG(gpio_periph) = 0x0000FFFFU;
+ 830              		.loc 1 433 5 view .LVU220
+ 831              		.loc 1 433 26 is_stmt 0 view .LVU221
+ 832 0000 4FF6FF73 		movw	r3, #65535
+ 833 0004 C362     		str	r3, [r0, #44]
+ 434:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c **** }
+ 834              		.loc 1 434 1 view .LVU222
+ 835 0006 7047     		bx	lr
+ 836              		.cfi_endproc
+ 837              	.LFE130:
+ 839              		.text
+ 840              	.Letext0:
+ 841              		.file 2 "/Applications/ArmGNUToolchain/12.2.mpacbti-rel1/arm-none-eabi/arm-none-eabi/include/machi
+ 842              		.file 3 "/Applications/ArmGNUToolchain/12.2.mpacbti-rel1/arm-none-eabi/arm-none-eabi/include/sys/_
+ 843              		.file 4 "../../../GD32F4xx_Firmware_Library/CMSIS/GD/GD32F4xx/Include/gd32f4xx.h"
+ 844              		.file 5 "../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Include/gd32f4xx_rcu.h"
+ 845              		.file 6 "../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Include/gd32f4xx_gpio.h"
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccunkh1C.s 			page 24
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 gd32f4xx_gpio.c
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccunkh1C.s:21     .text.gpio_deinit:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccunkh1C.s:27     .text.gpio_deinit:00000000 gpio_deinit
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccunkh1C.s:204    .text.gpio_deinit:000000ec $d
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccunkh1C.s:212    .text.gpio_mode_set:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccunkh1C.s:218    .text.gpio_mode_set:00000000 gpio_mode_set
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccunkh1C.s:308    .text.gpio_output_options_set:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccunkh1C.s:314    .text.gpio_output_options_set:00000000 gpio_output_options_set
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccunkh1C.s:404    .text.gpio_bit_set:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccunkh1C.s:410    .text.gpio_bit_set:00000000 gpio_bit_set
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccunkh1C.s:427    .text.gpio_bit_reset:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccunkh1C.s:433    .text.gpio_bit_reset:00000000 gpio_bit_reset
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccunkh1C.s:450    .text.gpio_bit_write:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccunkh1C.s:456    .text.gpio_bit_write:00000000 gpio_bit_write
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccunkh1C.s:481    .text.gpio_port_write:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccunkh1C.s:487    .text.gpio_port_write:00000000 gpio_port_write
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccunkh1C.s:504    .text.gpio_input_bit_get:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccunkh1C.s:510    .text.gpio_input_bit_get:00000000 gpio_input_bit_get
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccunkh1C.s:540    .text.gpio_input_port_get:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccunkh1C.s:546    .text.gpio_input_port_get:00000000 gpio_input_port_get
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccunkh1C.s:565    .text.gpio_output_bit_get:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccunkh1C.s:571    .text.gpio_output_bit_get:00000000 gpio_output_bit_get
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccunkh1C.s:601    .text.gpio_output_port_get:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccunkh1C.s:607    .text.gpio_output_port_get:00000000 gpio_output_port_get
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccunkh1C.s:626    .text.gpio_af_set:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccunkh1C.s:632    .text.gpio_af_set:00000000 gpio_af_set
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccunkh1C.s:752    .text.gpio_pin_lock:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccunkh1C.s:758    .text.gpio_pin_lock:00000000 gpio_pin_lock
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccunkh1C.s:793    .text.gpio_bit_toggle:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccunkh1C.s:799    .text.gpio_bit_toggle:00000000 gpio_bit_toggle
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccunkh1C.s:816    .text.gpio_port_toggle:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccunkh1C.s:822    .text.gpio_port_toggle:00000000 gpio_port_toggle
+
+UNDEFINED SYMBOLS
+rcu_periph_reset_enable
+rcu_periph_reset_disable

@@ -1,0 +1,389 @@
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccfS3IsH.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"gd32f4xx_it.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.file 1 "gd32f4xx_it.c"
+  20              		.section	.text.NMI_Handler,"ax",%progbits
+  21              		.align	1
+  22              		.global	NMI_Handler
+  23              		.syntax unified
+  24              		.thumb
+  25              		.thumb_func
+  27              	NMI_Handler:
+  28              	.LFB116:
+   1:gd32f4xx_it.c **** /*!
+   2:gd32f4xx_it.c ****     \file    gd32f4xx_it.c
+   3:gd32f4xx_it.c ****     \brief   interrupt service routines
+   4:gd32f4xx_it.c **** 
+   5:gd32f4xx_it.c ****     \version 2022-04-26, V2.0.0, demo for GD32F4xx
+   6:gd32f4xx_it.c **** */
+   7:gd32f4xx_it.c **** 
+   8:gd32f4xx_it.c **** /*
+   9:gd32f4xx_it.c ****     Copyright (c) 2022, GigaDevice Semiconductor Inc.
+  10:gd32f4xx_it.c **** 
+  11:gd32f4xx_it.c ****     Redistribution and use in source and binary forms, with or without modification,
+  12:gd32f4xx_it.c **** are permitted provided that the following conditions are met:
+  13:gd32f4xx_it.c **** 
+  14:gd32f4xx_it.c ****     1. Redistributions of source code must retain the above copyright notice, this
+  15:gd32f4xx_it.c ****        list of conditions and the following disclaimer.
+  16:gd32f4xx_it.c ****     2. Redistributions in binary form must reproduce the above copyright notice,
+  17:gd32f4xx_it.c ****        this list of conditions and the following disclaimer in the documentation
+  18:gd32f4xx_it.c ****        and/or other materials provided with the distribution.
+  19:gd32f4xx_it.c ****     3. Neither the name of the copyright holder nor the names of its contributors
+  20:gd32f4xx_it.c ****        may be used to endorse or promote products derived from this software without
+  21:gd32f4xx_it.c ****        specific prior written permission.
+  22:gd32f4xx_it.c **** 
+  23:gd32f4xx_it.c ****     THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+  24:gd32f4xx_it.c **** AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+  25:gd32f4xx_it.c **** WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+  26:gd32f4xx_it.c **** IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+  27:gd32f4xx_it.c **** INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+  28:gd32f4xx_it.c **** NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+  29:gd32f4xx_it.c **** PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  30:gd32f4xx_it.c **** WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccfS3IsH.s 			page 2
+
+
+  31:gd32f4xx_it.c **** ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY
+  32:gd32f4xx_it.c **** OF SUCH DAMAGE.
+  33:gd32f4xx_it.c **** */
+  34:gd32f4xx_it.c **** 
+  35:gd32f4xx_it.c **** #include "gd32f4xx_it.h"
+  36:gd32f4xx_it.c **** #include "gd32f470v_start.h"
+  37:gd32f4xx_it.c **** #include "systick.h"
+  38:gd32f4xx_it.c **** 
+  39:gd32f4xx_it.c **** /*!
+  40:gd32f4xx_it.c ****     \brief      this function handles NMI exception
+  41:gd32f4xx_it.c ****     \param[in]  none
+  42:gd32f4xx_it.c ****     \param[out] none
+  43:gd32f4xx_it.c ****     \retval     none
+  44:gd32f4xx_it.c **** */
+  45:gd32f4xx_it.c **** void NMI_Handler(void)
+  46:gd32f4xx_it.c **** {
+  29              		.loc 1 46 1 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33              		@ link register save eliminated.
+  47:gd32f4xx_it.c **** }
+  34              		.loc 1 47 1 view .LVU1
+  35 0000 7047     		bx	lr
+  36              		.cfi_endproc
+  37              	.LFE116:
+  39              		.section	.text.HardFault_Handler,"ax",%progbits
+  40              		.align	1
+  41              		.global	HardFault_Handler
+  42              		.syntax unified
+  43              		.thumb
+  44              		.thumb_func
+  46              	HardFault_Handler:
+  47              	.LFB117:
+  48:gd32f4xx_it.c **** 
+  49:gd32f4xx_it.c **** /*!
+  50:gd32f4xx_it.c ****     \brief      this function handles HardFault exception
+  51:gd32f4xx_it.c ****     \param[in]  none
+  52:gd32f4xx_it.c ****     \param[out] none
+  53:gd32f4xx_it.c ****     \retval     none
+  54:gd32f4xx_it.c **** */
+  55:gd32f4xx_it.c **** void HardFault_Handler(void)
+  56:gd32f4xx_it.c **** {
+  48              		.loc 1 56 1 view -0
+  49              		.cfi_startproc
+  50              		@ Volatile: function does not return.
+  51              		@ args = 0, pretend = 0, frame = 0
+  52              		@ frame_needed = 0, uses_anonymous_args = 0
+  53              		@ link register save eliminated.
+  54              	.L3:
+  57:gd32f4xx_it.c ****     /* if Hard Fault exception occurs, go to infinite loop */
+  58:gd32f4xx_it.c ****     while(1) {
+  55              		.loc 1 58 5 discriminator 1 view .LVU3
+  59:gd32f4xx_it.c ****     }
+  56              		.loc 1 59 5 discriminator 1 view .LVU4
+  58:gd32f4xx_it.c ****     }
+  57              		.loc 1 58 10 discriminator 1 view .LVU5
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccfS3IsH.s 			page 3
+
+
+  58 0000 FEE7     		b	.L3
+  59              		.cfi_endproc
+  60              	.LFE117:
+  62              		.section	.text.MemManage_Handler,"ax",%progbits
+  63              		.align	1
+  64              		.global	MemManage_Handler
+  65              		.syntax unified
+  66              		.thumb
+  67              		.thumb_func
+  69              	MemManage_Handler:
+  70              	.LFB118:
+  60:gd32f4xx_it.c **** }
+  61:gd32f4xx_it.c **** 
+  62:gd32f4xx_it.c **** /*!
+  63:gd32f4xx_it.c ****     \brief      this function handles MemManage exception
+  64:gd32f4xx_it.c ****     \param[in]  none
+  65:gd32f4xx_it.c ****     \param[out] none
+  66:gd32f4xx_it.c ****     \retval     none
+  67:gd32f4xx_it.c **** */
+  68:gd32f4xx_it.c **** void MemManage_Handler(void)
+  69:gd32f4xx_it.c **** {
+  71              		.loc 1 69 1 view -0
+  72              		.cfi_startproc
+  73              		@ Volatile: function does not return.
+  74              		@ args = 0, pretend = 0, frame = 0
+  75              		@ frame_needed = 0, uses_anonymous_args = 0
+  76              		@ link register save eliminated.
+  77              	.L5:
+  70:gd32f4xx_it.c ****     /* if Memory Manage exception occurs, go to infinite loop */
+  71:gd32f4xx_it.c ****     while(1) {
+  78              		.loc 1 71 5 discriminator 1 view .LVU7
+  72:gd32f4xx_it.c ****     }
+  79              		.loc 1 72 5 discriminator 1 view .LVU8
+  71:gd32f4xx_it.c ****     }
+  80              		.loc 1 71 10 discriminator 1 view .LVU9
+  81 0000 FEE7     		b	.L5
+  82              		.cfi_endproc
+  83              	.LFE118:
+  85              		.section	.text.BusFault_Handler,"ax",%progbits
+  86              		.align	1
+  87              		.global	BusFault_Handler
+  88              		.syntax unified
+  89              		.thumb
+  90              		.thumb_func
+  92              	BusFault_Handler:
+  93              	.LFB119:
+  73:gd32f4xx_it.c **** }
+  74:gd32f4xx_it.c **** 
+  75:gd32f4xx_it.c **** /*!
+  76:gd32f4xx_it.c ****     \brief      this function handles BusFault exception
+  77:gd32f4xx_it.c ****     \param[in]  none
+  78:gd32f4xx_it.c ****     \param[out] none
+  79:gd32f4xx_it.c ****     \retval     none
+  80:gd32f4xx_it.c **** */
+  81:gd32f4xx_it.c **** void BusFault_Handler(void)
+  82:gd32f4xx_it.c **** {
+  94              		.loc 1 82 1 view -0
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccfS3IsH.s 			page 4
+
+
+  95              		.cfi_startproc
+  96              		@ Volatile: function does not return.
+  97              		@ args = 0, pretend = 0, frame = 0
+  98              		@ frame_needed = 0, uses_anonymous_args = 0
+  99              		@ link register save eliminated.
+ 100              	.L7:
+  83:gd32f4xx_it.c ****     /* if Bus Fault exception occurs, go to infinite loop */
+  84:gd32f4xx_it.c ****     while(1) {
+ 101              		.loc 1 84 5 discriminator 1 view .LVU11
+  85:gd32f4xx_it.c ****     }
+ 102              		.loc 1 85 5 discriminator 1 view .LVU12
+  84:gd32f4xx_it.c ****     }
+ 103              		.loc 1 84 10 discriminator 1 view .LVU13
+ 104 0000 FEE7     		b	.L7
+ 105              		.cfi_endproc
+ 106              	.LFE119:
+ 108              		.section	.text.UsageFault_Handler,"ax",%progbits
+ 109              		.align	1
+ 110              		.global	UsageFault_Handler
+ 111              		.syntax unified
+ 112              		.thumb
+ 113              		.thumb_func
+ 115              	UsageFault_Handler:
+ 116              	.LFB120:
+  86:gd32f4xx_it.c **** }
+  87:gd32f4xx_it.c **** 
+  88:gd32f4xx_it.c **** /*!
+  89:gd32f4xx_it.c ****     \brief      this function handles UsageFault exception
+  90:gd32f4xx_it.c ****     \param[in]  none
+  91:gd32f4xx_it.c ****     \param[out] none
+  92:gd32f4xx_it.c ****     \retval     none
+  93:gd32f4xx_it.c **** */
+  94:gd32f4xx_it.c **** void UsageFault_Handler(void)
+  95:gd32f4xx_it.c **** {
+ 117              		.loc 1 95 1 view -0
+ 118              		.cfi_startproc
+ 119              		@ Volatile: function does not return.
+ 120              		@ args = 0, pretend = 0, frame = 0
+ 121              		@ frame_needed = 0, uses_anonymous_args = 0
+ 122              		@ link register save eliminated.
+ 123              	.L9:
+  96:gd32f4xx_it.c ****     /* if Usage Fault exception occurs, go to infinite loop */
+  97:gd32f4xx_it.c ****     while(1) {
+ 124              		.loc 1 97 5 discriminator 1 view .LVU15
+  98:gd32f4xx_it.c ****     }
+ 125              		.loc 1 98 5 discriminator 1 view .LVU16
+  97:gd32f4xx_it.c ****     }
+ 126              		.loc 1 97 10 discriminator 1 view .LVU17
+ 127 0000 FEE7     		b	.L9
+ 128              		.cfi_endproc
+ 129              	.LFE120:
+ 131              		.section	.text.SVC_Handler,"ax",%progbits
+ 132              		.align	1
+ 133              		.global	SVC_Handler
+ 134              		.syntax unified
+ 135              		.thumb
+ 136              		.thumb_func
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccfS3IsH.s 			page 5
+
+
+ 138              	SVC_Handler:
+ 139              	.LFB121:
+  99:gd32f4xx_it.c **** }
+ 100:gd32f4xx_it.c **** 
+ 101:gd32f4xx_it.c **** /*!
+ 102:gd32f4xx_it.c ****     \brief      this function handles SVC exception
+ 103:gd32f4xx_it.c ****     \param[in]  none
+ 104:gd32f4xx_it.c ****     \param[out] none
+ 105:gd32f4xx_it.c ****     \retval     none
+ 106:gd32f4xx_it.c **** */
+ 107:gd32f4xx_it.c **** void SVC_Handler(void)
+ 108:gd32f4xx_it.c **** {
+ 140              		.loc 1 108 1 view -0
+ 141              		.cfi_startproc
+ 142              		@ args = 0, pretend = 0, frame = 0
+ 143              		@ frame_needed = 0, uses_anonymous_args = 0
+ 144              		@ link register save eliminated.
+ 109:gd32f4xx_it.c **** }
+ 145              		.loc 1 109 1 view .LVU19
+ 146 0000 7047     		bx	lr
+ 147              		.cfi_endproc
+ 148              	.LFE121:
+ 150              		.section	.text.DebugMon_Handler,"ax",%progbits
+ 151              		.align	1
+ 152              		.global	DebugMon_Handler
+ 153              		.syntax unified
+ 154              		.thumb
+ 155              		.thumb_func
+ 157              	DebugMon_Handler:
+ 158              	.LFB122:
+ 110:gd32f4xx_it.c **** 
+ 111:gd32f4xx_it.c **** /*!
+ 112:gd32f4xx_it.c ****     \brief      this function handles DebugMon exception
+ 113:gd32f4xx_it.c ****     \param[in]  none
+ 114:gd32f4xx_it.c ****     \param[out] none
+ 115:gd32f4xx_it.c ****     \retval     none
+ 116:gd32f4xx_it.c **** */
+ 117:gd32f4xx_it.c **** void DebugMon_Handler(void)
+ 118:gd32f4xx_it.c **** {
+ 159              		.loc 1 118 1 view -0
+ 160              		.cfi_startproc
+ 161              		@ args = 0, pretend = 0, frame = 0
+ 162              		@ frame_needed = 0, uses_anonymous_args = 0
+ 163              		@ link register save eliminated.
+ 119:gd32f4xx_it.c **** }
+ 164              		.loc 1 119 1 view .LVU21
+ 165 0000 7047     		bx	lr
+ 166              		.cfi_endproc
+ 167              	.LFE122:
+ 169              		.section	.text.PendSV_Handler,"ax",%progbits
+ 170              		.align	1
+ 171              		.global	PendSV_Handler
+ 172              		.syntax unified
+ 173              		.thumb
+ 174              		.thumb_func
+ 176              	PendSV_Handler:
+ 177              	.LFB123:
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccfS3IsH.s 			page 6
+
+
+ 120:gd32f4xx_it.c **** 
+ 121:gd32f4xx_it.c **** /*!
+ 122:gd32f4xx_it.c ****     \brief      this function handles PendSV exception
+ 123:gd32f4xx_it.c ****     \param[in]  none
+ 124:gd32f4xx_it.c ****     \param[out] none
+ 125:gd32f4xx_it.c ****     \retval     none
+ 126:gd32f4xx_it.c **** */
+ 127:gd32f4xx_it.c **** void PendSV_Handler(void)
+ 128:gd32f4xx_it.c **** {
+ 178              		.loc 1 128 1 view -0
+ 179              		.cfi_startproc
+ 180              		@ args = 0, pretend = 0, frame = 0
+ 181              		@ frame_needed = 0, uses_anonymous_args = 0
+ 182              		@ link register save eliminated.
+ 129:gd32f4xx_it.c **** }
+ 183              		.loc 1 129 1 view .LVU23
+ 184 0000 7047     		bx	lr
+ 185              		.cfi_endproc
+ 186              	.LFE123:
+ 188              		.section	.text.SysTick_Handler,"ax",%progbits
+ 189              		.align	1
+ 190              		.global	SysTick_Handler
+ 191              		.syntax unified
+ 192              		.thumb
+ 193              		.thumb_func
+ 195              	SysTick_Handler:
+ 196              	.LFB124:
+ 130:gd32f4xx_it.c **** 
+ 131:gd32f4xx_it.c **** /*!
+ 132:gd32f4xx_it.c ****     \brief      this function handles SysTick exception
+ 133:gd32f4xx_it.c ****     \param[in]  none
+ 134:gd32f4xx_it.c ****     \param[out] none
+ 135:gd32f4xx_it.c ****     \retval     none
+ 136:gd32f4xx_it.c **** */
+ 137:gd32f4xx_it.c **** void SysTick_Handler(void)
+ 138:gd32f4xx_it.c **** {
+ 197              		.loc 1 138 1 view -0
+ 198              		.cfi_startproc
+ 199              		@ args = 0, pretend = 0, frame = 0
+ 200              		@ frame_needed = 0, uses_anonymous_args = 0
+ 201 0000 08B5     		push	{r3, lr}
+ 202              	.LCFI0:
+ 203              		.cfi_def_cfa_offset 8
+ 204              		.cfi_offset 3, -8
+ 205              		.cfi_offset 14, -4
+ 139:gd32f4xx_it.c ****     delay_decrement();
+ 206              		.loc 1 139 5 view .LVU25
+ 207 0002 FFF7FEFF 		bl	delay_decrement
+ 208              	.LVL0:
+ 140:gd32f4xx_it.c **** }
+ 209              		.loc 1 140 1 is_stmt 0 view .LVU26
+ 210 0006 08BD     		pop	{r3, pc}
+ 211              		.cfi_endproc
+ 212              	.LFE124:
+ 214              		.text
+ 215              	.Letext0:
+ 216              		.file 2 "systick.h"
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccfS3IsH.s 			page 7
+
+
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccfS3IsH.s 			page 8
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 gd32f4xx_it.c
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccfS3IsH.s:21     .text.NMI_Handler:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccfS3IsH.s:27     .text.NMI_Handler:00000000 NMI_Handler
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccfS3IsH.s:40     .text.HardFault_Handler:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccfS3IsH.s:46     .text.HardFault_Handler:00000000 HardFault_Handler
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccfS3IsH.s:63     .text.MemManage_Handler:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccfS3IsH.s:69     .text.MemManage_Handler:00000000 MemManage_Handler
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccfS3IsH.s:86     .text.BusFault_Handler:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccfS3IsH.s:92     .text.BusFault_Handler:00000000 BusFault_Handler
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccfS3IsH.s:109    .text.UsageFault_Handler:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccfS3IsH.s:115    .text.UsageFault_Handler:00000000 UsageFault_Handler
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccfS3IsH.s:132    .text.SVC_Handler:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccfS3IsH.s:138    .text.SVC_Handler:00000000 SVC_Handler
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccfS3IsH.s:151    .text.DebugMon_Handler:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccfS3IsH.s:157    .text.DebugMon_Handler:00000000 DebugMon_Handler
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccfS3IsH.s:170    .text.PendSV_Handler:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccfS3IsH.s:176    .text.PendSV_Handler:00000000 PendSV_Handler
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccfS3IsH.s:189    .text.SysTick_Handler:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccfS3IsH.s:195    .text.SysTick_Handler:00000000 SysTick_Handler
+
+UNDEFINED SYMBOLS
+delay_decrement

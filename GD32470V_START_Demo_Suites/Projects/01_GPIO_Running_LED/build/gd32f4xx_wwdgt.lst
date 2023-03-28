@@ -1,0 +1,414 @@
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccOOwt1O.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"gd32f4xx_wwdgt.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.file 1 "../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c"
+  20              		.section	.text.wwdgt_deinit,"ax",%progbits
+  21              		.align	1
+  22              		.global	wwdgt_deinit
+  23              		.syntax unified
+  24              		.thumb
+  25              		.thumb_func
+  27              	wwdgt_deinit:
+  28              	.LFB116:
+   1:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c **** /*!
+   2:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c ****     \file    gd32f4xx_wwdgt.c
+   3:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c ****     \brief   WWDGT driver
+   4:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c **** 
+   5:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c ****     \version 2016-08-15, V1.0.0, firmware for GD32F4xx
+   6:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c ****     \version 2018-12-12, V2.0.0, firmware for GD32F4xx
+   7:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c ****     \version 2020-09-30, V2.1.0, firmware for GD32F4xx
+   8:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c ****     \version 2022-03-09, V3.0.0, firmware for GD32F4xx
+   9:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c **** */
+  10:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c **** 
+  11:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c **** /*
+  12:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c ****     Copyright (c) 2022, GigaDevice Semiconductor Inc.
+  13:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c **** 
+  14:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c ****     Redistribution and use in source and binary forms, with or without modification, 
+  15:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c **** are permitted provided that the following conditions are met:
+  16:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c **** 
+  17:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c ****     1. Redistributions of source code must retain the above copyright notice, this 
+  18:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c ****        list of conditions and the following disclaimer.
+  19:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c ****     2. Redistributions in binary form must reproduce the above copyright notice, 
+  20:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c ****        this list of conditions and the following disclaimer in the documentation 
+  21:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c ****        and/or other materials provided with the distribution.
+  22:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c ****     3. Neither the name of the copyright holder nor the names of its contributors 
+  23:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c ****        may be used to endorse or promote products derived from this software without 
+  24:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c ****        specific prior written permission.
+  25:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c **** 
+  26:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c ****     THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" 
+  27:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c **** AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  28:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c **** WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  29:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c **** IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  30:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c **** INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccOOwt1O.s 			page 2
+
+
+  31:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c **** NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  32:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c **** PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  33:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c **** WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  34:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c **** ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY 
+  35:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c **** OF SUCH DAMAGE.
+  36:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c **** */
+  37:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c **** 
+  38:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c **** #include "gd32f4xx_wwdgt.h"
+  39:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c **** 
+  40:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c **** /*!
+  41:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c ****     \brief    reset the window watchdog timer configuration
+  42:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c ****     \param[in]  none
+  43:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c ****     \param[out] none
+  44:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c ****     \retval     none
+  45:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c **** */
+  46:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c **** void wwdgt_deinit(void)
+  47:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c **** {
+  29              		.loc 1 47 1 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33 0000 08B5     		push	{r3, lr}
+  34              	.LCFI0:
+  35              		.cfi_def_cfa_offset 8
+  36              		.cfi_offset 3, -8
+  37              		.cfi_offset 14, -4
+  48:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c ****     rcu_periph_reset_enable(RCU_WWDGTRST);
+  38              		.loc 1 48 5 view .LVU1
+  39 0002 40F60B00 		movw	r0, #2059
+  40 0006 FFF7FEFF 		bl	rcu_periph_reset_enable
+  41              	.LVL0:
+  49:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c ****     rcu_periph_reset_disable(RCU_WWDGTRST);
+  42              		.loc 1 49 5 view .LVU2
+  43 000a 40F60B00 		movw	r0, #2059
+  44 000e FFF7FEFF 		bl	rcu_periph_reset_disable
+  45              	.LVL1:
+  50:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c **** }
+  46              		.loc 1 50 1 is_stmt 0 view .LVU3
+  47 0012 08BD     		pop	{r3, pc}
+  48              		.cfi_endproc
+  49              	.LFE116:
+  51              		.section	.text.wwdgt_enable,"ax",%progbits
+  52              		.align	1
+  53              		.global	wwdgt_enable
+  54              		.syntax unified
+  55              		.thumb
+  56              		.thumb_func
+  58              	wwdgt_enable:
+  59              	.LFB117:
+  51:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c **** 
+  52:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c **** /*!
+  53:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c ****     \brief    start the window watchdog timer counter
+  54:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c ****     \param[in]  none
+  55:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c ****     \param[out] none
+  56:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c ****     \retval     none
+  57:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c **** */
+  58:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c **** void wwdgt_enable(void)
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccOOwt1O.s 			page 3
+
+
+  59:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c **** {
+  60              		.loc 1 59 1 is_stmt 1 view -0
+  61              		.cfi_startproc
+  62              		@ args = 0, pretend = 0, frame = 0
+  63              		@ frame_needed = 0, uses_anonymous_args = 0
+  64              		@ link register save eliminated.
+  60:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c ****     WWDGT_CTL |= WWDGT_CTL_WDGTEN;
+  65              		.loc 1 60 5 view .LVU5
+  66 0000 034A     		ldr	r2, .L4
+  67 0002 D2F8003C 		ldr	r3, [r2, #3072]
+  68              		.loc 1 60 15 is_stmt 0 view .LVU6
+  69 0006 43F08003 		orr	r3, r3, #128
+  70 000a C2F8003C 		str	r3, [r2, #3072]
+  61:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c **** }
+  71              		.loc 1 61 1 view .LVU7
+  72 000e 7047     		bx	lr
+  73              	.L5:
+  74              		.align	2
+  75              	.L4:
+  76 0010 00200040 		.word	1073750016
+  77              		.cfi_endproc
+  78              	.LFE117:
+  80              		.section	.text.wwdgt_counter_update,"ax",%progbits
+  81              		.align	1
+  82              		.global	wwdgt_counter_update
+  83              		.syntax unified
+  84              		.thumb
+  85              		.thumb_func
+  87              	wwdgt_counter_update:
+  88              	.LVL2:
+  89              	.LFB118:
+  62:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c **** 
+  63:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c **** /*!
+  64:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c ****     \brief    configure the window watchdog timer counter value
+  65:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c ****     \param[in]  counter_value: 0x00 - 0x7F
+  66:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c ****     \param[out] none
+  67:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c ****     \retval     none
+  68:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c **** */
+  69:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c **** void wwdgt_counter_update(uint16_t counter_value)
+  70:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c **** {
+  90              		.loc 1 70 1 is_stmt 1 view -0
+  91              		.cfi_startproc
+  92              		@ args = 0, pretend = 0, frame = 0
+  93              		@ frame_needed = 0, uses_anonymous_args = 0
+  94              		@ link register save eliminated.
+  71:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c ****     WWDGT_CTL = (uint32_t)(CTL_CNT(counter_value));
+  95              		.loc 1 71 5 view .LVU9
+  96              		.loc 1 71 17 is_stmt 0 view .LVU10
+  97 0000 00F07F00 		and	r0, r0, #127
+  98              	.LVL3:
+  99              		.loc 1 71 15 view .LVU11
+ 100 0004 014B     		ldr	r3, .L7
+ 101 0006 C3F8000C 		str	r0, [r3, #3072]
+  72:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c **** }
+ 102              		.loc 1 72 1 view .LVU12
+ 103 000a 7047     		bx	lr
+ 104              	.L8:
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccOOwt1O.s 			page 4
+
+
+ 105              		.align	2
+ 106              	.L7:
+ 107 000c 00200040 		.word	1073750016
+ 108              		.cfi_endproc
+ 109              	.LFE118:
+ 111              		.section	.text.wwdgt_config,"ax",%progbits
+ 112              		.align	1
+ 113              		.global	wwdgt_config
+ 114              		.syntax unified
+ 115              		.thumb
+ 116              		.thumb_func
+ 118              	wwdgt_config:
+ 119              	.LVL4:
+ 120              	.LFB119:
+  73:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c **** 
+  74:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c **** /*!
+  75:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c ****     \brief    configure counter value, window value, and prescaler divider value  
+  76:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c ****     \param[in]  counter: 0x00 - 0x7F   
+  77:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c ****     \param[in]  window: 0x00 - 0x7F
+  78:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c ****     \param[in]  prescaler: wwdgt prescaler value
+  79:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c ****                 only one parameter can be selected which is shown as below:
+  80:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c ****       \arg        WWDGT_CFG_PSC_DIV1: the time base of window watchdog counter = (PCLK1/4096)/1
+  81:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c ****       \arg        WWDGT_CFG_PSC_DIV2: the time base of window watchdog counter = (PCLK1/4096)/2
+  82:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c ****       \arg        WWDGT_CFG_PSC_DIV4: the time base of window watchdog counter = (PCLK1/4096)/4
+  83:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c ****       \arg        WWDGT_CFG_PSC_DIV8: the time base of window watchdog counter = (PCLK1/4096)/8
+  84:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c ****     \param[out] none
+  85:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c ****     \retval     none
+  86:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c **** */
+  87:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c **** void wwdgt_config(uint16_t counter, uint16_t window, uint32_t prescaler)
+  88:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c **** {
+ 121              		.loc 1 88 1 is_stmt 1 view -0
+ 122              		.cfi_startproc
+ 123              		@ args = 0, pretend = 0, frame = 0
+ 124              		@ frame_needed = 0, uses_anonymous_args = 0
+ 125              		@ link register save eliminated.
+  89:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c ****     /* configure WIN and PSC bits, configure CNT bit */
+  90:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c ****     WWDGT_CTL = (uint32_t)(CTL_CNT(counter));
+ 126              		.loc 1 90 5 view .LVU14
+ 127              		.loc 1 90 17 is_stmt 0 view .LVU15
+ 128 0000 00F07F00 		and	r0, r0, #127
+ 129              	.LVL5:
+ 130              		.loc 1 90 15 view .LVU16
+ 131 0004 044B     		ldr	r3, .L10
+ 132 0006 C3F8000C 		str	r0, [r3, #3072]
+  91:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c ****     WWDGT_CFG = (uint32_t)(CFG_WIN(window) | prescaler);
+ 133              		.loc 1 91 5 is_stmt 1 view .LVU17
+ 134              		.loc 1 91 28 is_stmt 0 view .LVU18
+ 135 000a 01F07F01 		and	r1, r1, #127
+ 136              	.LVL6:
+ 137              		.loc 1 91 17 view .LVU19
+ 138 000e 1143     		orrs	r1, r1, r2
+ 139              		.loc 1 91 15 view .LVU20
+ 140 0010 C3F8041C 		str	r1, [r3, #3076]
+  92:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c **** }
+ 141              		.loc 1 92 1 view .LVU21
+ 142 0014 7047     		bx	lr
+ 143              	.L11:
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccOOwt1O.s 			page 5
+
+
+ 144 0016 00BF     		.align	2
+ 145              	.L10:
+ 146 0018 00200040 		.word	1073750016
+ 147              		.cfi_endproc
+ 148              	.LFE119:
+ 150              		.section	.text.wwdgt_flag_get,"ax",%progbits
+ 151              		.align	1
+ 152              		.global	wwdgt_flag_get
+ 153              		.syntax unified
+ 154              		.thumb
+ 155              		.thumb_func
+ 157              	wwdgt_flag_get:
+ 158              	.LFB120:
+  93:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c **** 
+  94:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c **** /*!
+  95:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c ****     \brief    check early wakeup interrupt state of WWDGT
+  96:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c ****     \param[in]  none
+  97:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c ****     \param[out] none
+  98:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c ****     \retval     FlagStatus: SET or RESET
+  99:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c **** */
+ 100:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c **** FlagStatus wwdgt_flag_get(void)
+ 101:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c **** {
+ 159              		.loc 1 101 1 is_stmt 1 view -0
+ 160              		.cfi_startproc
+ 161              		@ args = 0, pretend = 0, frame = 0
+ 162              		@ frame_needed = 0, uses_anonymous_args = 0
+ 163              		@ link register save eliminated.
+ 102:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c ****     if(RESET != (WWDGT_STAT & WWDGT_STAT_EWIF)){
+ 164              		.loc 1 102 5 view .LVU23
+ 165              		.loc 1 102 18 is_stmt 0 view .LVU24
+ 166 0000 044B     		ldr	r3, .L15
+ 167 0002 D3F8083C 		ldr	r3, [r3, #3080]
+ 168              		.loc 1 102 7 view .LVU25
+ 169 0006 13F0010F 		tst	r3, #1
+ 170 000a 01D1     		bne	.L14
+ 103:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c ****         return SET;
+ 104:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c ****     }
+ 105:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c **** 
+ 106:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c ****     return RESET;
+ 171              		.loc 1 106 12 view .LVU26
+ 172 000c 0020     		movs	r0, #0
+ 173 000e 7047     		bx	lr
+ 174              	.L14:
+ 103:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c ****         return SET;
+ 175              		.loc 1 103 16 view .LVU27
+ 176 0010 0120     		movs	r0, #1
+ 107:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c **** }
+ 177              		.loc 1 107 1 view .LVU28
+ 178 0012 7047     		bx	lr
+ 179              	.L16:
+ 180              		.align	2
+ 181              	.L15:
+ 182 0014 00200040 		.word	1073750016
+ 183              		.cfi_endproc
+ 184              	.LFE120:
+ 186              		.section	.text.wwdgt_flag_clear,"ax",%progbits
+ 187              		.align	1
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccOOwt1O.s 			page 6
+
+
+ 188              		.global	wwdgt_flag_clear
+ 189              		.syntax unified
+ 190              		.thumb
+ 191              		.thumb_func
+ 193              	wwdgt_flag_clear:
+ 194              	.LFB121:
+ 108:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c **** 
+ 109:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c **** /*!
+ 110:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c ****     \brief    clear early wakeup interrupt state of WWDGT
+ 111:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c ****     \param[in]  none
+ 112:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c ****     \param[out] none
+ 113:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c ****     \retval     none
+ 114:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c **** */
+ 115:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c **** void wwdgt_flag_clear(void)
+ 116:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c **** {
+ 195              		.loc 1 116 1 is_stmt 1 view -0
+ 196              		.cfi_startproc
+ 197              		@ args = 0, pretend = 0, frame = 0
+ 198              		@ frame_needed = 0, uses_anonymous_args = 0
+ 199              		@ link register save eliminated.
+ 117:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c ****     WWDGT_STAT = (uint32_t)(RESET);
+ 200              		.loc 1 117 5 view .LVU30
+ 201              		.loc 1 117 16 is_stmt 0 view .LVU31
+ 202 0000 024B     		ldr	r3, .L18
+ 203 0002 0022     		movs	r2, #0
+ 204 0004 C3F8082C 		str	r2, [r3, #3080]
+ 118:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c **** }
+ 205              		.loc 1 118 1 view .LVU32
+ 206 0008 7047     		bx	lr
+ 207              	.L19:
+ 208 000a 00BF     		.align	2
+ 209              	.L18:
+ 210 000c 00200040 		.word	1073750016
+ 211              		.cfi_endproc
+ 212              	.LFE121:
+ 214              		.section	.text.wwdgt_interrupt_enable,"ax",%progbits
+ 215              		.align	1
+ 216              		.global	wwdgt_interrupt_enable
+ 217              		.syntax unified
+ 218              		.thumb
+ 219              		.thumb_func
+ 221              	wwdgt_interrupt_enable:
+ 222              	.LFB122:
+ 119:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c **** 
+ 120:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c **** /*!
+ 121:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c ****     \brief    enable early wakeup interrupt of WWDGT
+ 122:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c ****     \param[in]  none
+ 123:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c ****     \param[out] none
+ 124:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c ****     \retval     none
+ 125:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c **** */
+ 126:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c **** void wwdgt_interrupt_enable(void)
+ 127:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c **** {
+ 223              		.loc 1 127 1 is_stmt 1 view -0
+ 224              		.cfi_startproc
+ 225              		@ args = 0, pretend = 0, frame = 0
+ 226              		@ frame_needed = 0, uses_anonymous_args = 0
+ 227              		@ link register save eliminated.
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccOOwt1O.s 			page 7
+
+
+ 128:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c ****     WWDGT_CFG |= WWDGT_CFG_EWIE;
+ 228              		.loc 1 128 5 view .LVU34
+ 229 0000 034A     		ldr	r2, .L21
+ 230 0002 D2F8043C 		ldr	r3, [r2, #3076]
+ 231              		.loc 1 128 15 is_stmt 0 view .LVU35
+ 232 0006 43F40073 		orr	r3, r3, #512
+ 233 000a C2F8043C 		str	r3, [r2, #3076]
+ 129:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c **** }
+ 234              		.loc 1 129 1 view .LVU36
+ 235 000e 7047     		bx	lr
+ 236              	.L22:
+ 237              		.align	2
+ 238              	.L21:
+ 239 0010 00200040 		.word	1073750016
+ 240              		.cfi_endproc
+ 241              	.LFE122:
+ 243              		.text
+ 244              	.Letext0:
+ 245              		.file 2 "/Applications/ArmGNUToolchain/12.2.mpacbti-rel1/arm-none-eabi/arm-none-eabi/include/machi
+ 246              		.file 3 "/Applications/ArmGNUToolchain/12.2.mpacbti-rel1/arm-none-eabi/arm-none-eabi/include/sys/_
+ 247              		.file 4 "../../../GD32F4xx_Firmware_Library/CMSIS/GD/GD32F4xx/Include/gd32f4xx.h"
+ 248              		.file 5 "../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Include/gd32f4xx_rcu.h"
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccOOwt1O.s 			page 8
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 gd32f4xx_wwdgt.c
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccOOwt1O.s:21     .text.wwdgt_deinit:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccOOwt1O.s:27     .text.wwdgt_deinit:00000000 wwdgt_deinit
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccOOwt1O.s:52     .text.wwdgt_enable:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccOOwt1O.s:58     .text.wwdgt_enable:00000000 wwdgt_enable
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccOOwt1O.s:76     .text.wwdgt_enable:00000010 $d
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccOOwt1O.s:81     .text.wwdgt_counter_update:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccOOwt1O.s:87     .text.wwdgt_counter_update:00000000 wwdgt_counter_update
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccOOwt1O.s:107    .text.wwdgt_counter_update:0000000c $d
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccOOwt1O.s:112    .text.wwdgt_config:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccOOwt1O.s:118    .text.wwdgt_config:00000000 wwdgt_config
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccOOwt1O.s:146    .text.wwdgt_config:00000018 $d
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccOOwt1O.s:151    .text.wwdgt_flag_get:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccOOwt1O.s:157    .text.wwdgt_flag_get:00000000 wwdgt_flag_get
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccOOwt1O.s:182    .text.wwdgt_flag_get:00000014 $d
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccOOwt1O.s:187    .text.wwdgt_flag_clear:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccOOwt1O.s:193    .text.wwdgt_flag_clear:00000000 wwdgt_flag_clear
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccOOwt1O.s:210    .text.wwdgt_flag_clear:0000000c $d
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccOOwt1O.s:215    .text.wwdgt_interrupt_enable:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccOOwt1O.s:221    .text.wwdgt_interrupt_enable:00000000 wwdgt_interrupt_enable
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccOOwt1O.s:239    .text.wwdgt_interrupt_enable:00000010 $d
+
+UNDEFINED SYMBOLS
+rcu_periph_reset_enable
+rcu_periph_reset_disable

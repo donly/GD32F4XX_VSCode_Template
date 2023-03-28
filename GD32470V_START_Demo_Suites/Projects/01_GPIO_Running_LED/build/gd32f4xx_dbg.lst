@@ -1,0 +1,487 @@
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccOGj6tk.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"gd32f4xx_dbg.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.file 1 "../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c"
+  20              		.section	.text.dbg_deinit,"ax",%progbits
+  21              		.align	1
+  22              		.global	dbg_deinit
+  23              		.syntax unified
+  24              		.thumb
+  25              		.thumb_func
+  27              	dbg_deinit:
+  28              	.LFB116:
+   1:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** /*!
+   2:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****     \file    gd32f4xx_dbg.c
+   3:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****     \brief   DBG driver
+   4:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** 
+   5:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****     \version 2016-08-15, V1.0.0, firmware for GD32F4xx
+   6:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****     \version 2018-12-12, V2.0.0, firmware for GD32F4xx
+   7:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****     \version 2020-09-30, V2.1.0, firmware for GD32F4xx
+   8:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****     \version 2022-03-09, V3.0.0, firmware for GD32F4xx
+   9:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** */
+  10:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** 
+  11:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** /*
+  12:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****     Copyright (c) 2022, GigaDevice Semiconductor Inc.
+  13:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** 
+  14:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****     Redistribution and use in source and binary forms, with or without modification,
+  15:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** are permitted provided that the following conditions are met:
+  16:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** 
+  17:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****     1. Redistributions of source code must retain the above copyright notice, this
+  18:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****        list of conditions and the following disclaimer.
+  19:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****     2. Redistributions in binary form must reproduce the above copyright notice,
+  20:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****        this list of conditions and the following disclaimer in the documentation
+  21:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****        and/or other materials provided with the distribution.
+  22:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****     3. Neither the name of the copyright holder nor the names of its contributors
+  23:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****        may be used to endorse or promote products derived from this software without
+  24:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****        specific prior written permission.
+  25:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** 
+  26:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****     THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+  27:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+  28:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+  29:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+  30:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccOGj6tk.s 			page 2
+
+
+  31:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+  32:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  33:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  34:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY
+  35:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** OF SUCH DAMAGE.
+  36:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** */
+  37:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** 
+  38:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** #include "gd32f4xx_dbg.h"
+  39:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** 
+  40:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** #define DBG_RESET_VAL       0x00000000U
+  41:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** 
+  42:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** /*!
+  43:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****     \brief    deinitialize the DBG
+  44:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****     \param[in]  none
+  45:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****     \param[out] none
+  46:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****     \retval     none
+  47:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** */
+  48:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** void dbg_deinit(void)
+  49:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** {
+  29              		.loc 1 49 1 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33              		@ link register save eliminated.
+  50:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****     DBG_CTL0 = DBG_RESET_VAL;
+  34              		.loc 1 50 5 view .LVU1
+  35              		.loc 1 50 14 is_stmt 0 view .LVU2
+  36 0000 024B     		ldr	r3, .L2
+  37 0002 0022     		movs	r2, #0
+  38 0004 5A60     		str	r2, [r3, #4]
+  51:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****     DBG_CTL1 = DBG_RESET_VAL;
+  39              		.loc 1 51 5 is_stmt 1 view .LVU3
+  40              		.loc 1 51 14 is_stmt 0 view .LVU4
+  41 0006 9A60     		str	r2, [r3, #8]
+  52:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** }
+  42              		.loc 1 52 1 view .LVU5
+  43 0008 7047     		bx	lr
+  44              	.L3:
+  45 000a 00BF     		.align	2
+  46              	.L2:
+  47 000c 002004E0 		.word	-536600576
+  48              		.cfi_endproc
+  49              	.LFE116:
+  51              		.section	.text.dbg_id_get,"ax",%progbits
+  52              		.align	1
+  53              		.global	dbg_id_get
+  54              		.syntax unified
+  55              		.thumb
+  56              		.thumb_func
+  58              	dbg_id_get:
+  59              	.LFB117:
+  53:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** 
+  54:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** /*!
+  55:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****     \brief    read DBG_ID code register
+  56:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****     \param[in]  none
+  57:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****     \param[out] none
+  58:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****     \retval     DBG_ID code
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccOGj6tk.s 			page 3
+
+
+  59:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** */
+  60:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** uint32_t dbg_id_get(void)
+  61:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** {
+  60              		.loc 1 61 1 is_stmt 1 view -0
+  61              		.cfi_startproc
+  62              		@ args = 0, pretend = 0, frame = 0
+  63              		@ frame_needed = 0, uses_anonymous_args = 0
+  64              		@ link register save eliminated.
+  62:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****     return DBG_ID;
+  65              		.loc 1 62 5 view .LVU7
+  66              		.loc 1 62 12 is_stmt 0 view .LVU8
+  67 0000 014B     		ldr	r3, .L5
+  68 0002 1868     		ldr	r0, [r3]
+  63:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** }
+  69              		.loc 1 63 1 view .LVU9
+  70 0004 7047     		bx	lr
+  71              	.L6:
+  72 0006 00BF     		.align	2
+  73              	.L5:
+  74 0008 002004E0 		.word	-536600576
+  75              		.cfi_endproc
+  76              	.LFE117:
+  78              		.section	.text.dbg_low_power_enable,"ax",%progbits
+  79              		.align	1
+  80              		.global	dbg_low_power_enable
+  81              		.syntax unified
+  82              		.thumb
+  83              		.thumb_func
+  85              	dbg_low_power_enable:
+  86              	.LVL0:
+  87              	.LFB118:
+  64:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** 
+  65:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** /*!
+  66:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****     \brief    enable low power behavior when the mcu is in debug mode
+  67:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****     \param[in]  dbg_low_power:
+  68:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****                 this parameter can be any combination of the following values:
+  69:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****       \arg        DBG_LOW_POWER_SLEEP: keep debugger connection during sleep mode
+  70:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****       \arg        DBG_LOW_POWER_DEEPSLEEP: keep debugger connection during deepsleep mode
+  71:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****       \arg        DBG_LOW_POWER_STANDBY: keep debugger connection during standby mode
+  72:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****     \param[out] none
+  73:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****     \retval     none
+  74:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** */
+  75:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** void dbg_low_power_enable(uint32_t dbg_low_power)
+  76:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** {
+  88              		.loc 1 76 1 is_stmt 1 view -0
+  89              		.cfi_startproc
+  90              		@ args = 0, pretend = 0, frame = 0
+  91              		@ frame_needed = 0, uses_anonymous_args = 0
+  92              		@ link register save eliminated.
+  77:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****     DBG_CTL0 |= dbg_low_power;
+  93              		.loc 1 77 5 view .LVU11
+  94 0000 024A     		ldr	r2, .L8
+  95 0002 5368     		ldr	r3, [r2, #4]
+  96              		.loc 1 77 14 is_stmt 0 view .LVU12
+  97 0004 0343     		orrs	r3, r3, r0
+  98 0006 5360     		str	r3, [r2, #4]
+  78:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** }
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccOGj6tk.s 			page 4
+
+
+  99              		.loc 1 78 1 view .LVU13
+ 100 0008 7047     		bx	lr
+ 101              	.L9:
+ 102 000a 00BF     		.align	2
+ 103              	.L8:
+ 104 000c 002004E0 		.word	-536600576
+ 105              		.cfi_endproc
+ 106              	.LFE118:
+ 108              		.section	.text.dbg_low_power_disable,"ax",%progbits
+ 109              		.align	1
+ 110              		.global	dbg_low_power_disable
+ 111              		.syntax unified
+ 112              		.thumb
+ 113              		.thumb_func
+ 115              	dbg_low_power_disable:
+ 116              	.LVL1:
+ 117              	.LFB119:
+  79:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** 
+  80:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** /*!
+  81:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****     \brief    disable low power behavior when the mcu is in debug mode
+  82:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****     \param[in]  dbg_low_power:
+  83:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****                 this parameter can be any combination of the following values:
+  84:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****       \arg        DBG_LOW_POWER_SLEEP: donot keep debugger connection during sleep mode
+  85:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****       \arg        DBG_LOW_POWER_DEEPSLEEP: donot keep debugger connection during deepsleep mode
+  86:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****       \arg        DBG_LOW_POWER_STANDBY: donot keep debugger connection during standby mode
+  87:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****     \param[out] none
+  88:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****     \retval     none
+  89:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** */
+  90:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** void dbg_low_power_disable(uint32_t dbg_low_power)
+  91:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** {
+ 118              		.loc 1 91 1 is_stmt 1 view -0
+ 119              		.cfi_startproc
+ 120              		@ args = 0, pretend = 0, frame = 0
+ 121              		@ frame_needed = 0, uses_anonymous_args = 0
+ 122              		@ link register save eliminated.
+  92:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****     DBG_CTL0 &= ~dbg_low_power;
+ 123              		.loc 1 92 5 view .LVU15
+ 124 0000 024A     		ldr	r2, .L11
+ 125 0002 5368     		ldr	r3, [r2, #4]
+ 126              		.loc 1 92 14 is_stmt 0 view .LVU16
+ 127 0004 23EA0003 		bic	r3, r3, r0
+ 128 0008 5360     		str	r3, [r2, #4]
+  93:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** }
+ 129              		.loc 1 93 1 view .LVU17
+ 130 000a 7047     		bx	lr
+ 131              	.L12:
+ 132              		.align	2
+ 133              	.L11:
+ 134 000c 002004E0 		.word	-536600576
+ 135              		.cfi_endproc
+ 136              	.LFE119:
+ 138              		.section	.text.dbg_periph_enable,"ax",%progbits
+ 139              		.align	1
+ 140              		.global	dbg_periph_enable
+ 141              		.syntax unified
+ 142              		.thumb
+ 143              		.thumb_func
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccOGj6tk.s 			page 5
+
+
+ 145              	dbg_periph_enable:
+ 146              	.LVL2:
+ 147              	.LFB120:
+  94:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** 
+  95:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** /*!
+  96:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****     \brief    enable peripheral behavior when the mcu is in debug mode
+  97:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****     \param[in]  dbg_periph: dbg_periph_enum
+  98:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****                 only one parameter can be selected which is shown as below:
+  99:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****       \arg        DBG_TIMER1_HOLD: hold TIMER1 counter when core is halted
+ 100:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****       \arg        DBG_TIMER2_HOLD: hold TIMER2 counter when core is halted
+ 101:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****       \arg        DBG_TIMER3_HOLD: hold TIMER3 counter when core is halted
+ 102:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****       \arg        DBG_TIMER4_HOLD: hold TIMER4 counter when core is halted
+ 103:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****       \arg        DBG_TIMER5_HOLD: hold TIMER5 counter when core is halted
+ 104:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****       \arg        DBG_TIMER6_HOLD: hold TIMER6 counter when core is halted
+ 105:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****       \arg        DBG_TIMER11_HOLD: hold TIMER11 counter when core is halted
+ 106:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****       \arg        DBG_TIMER12_HOLD: hold TIMER12 counter when core is halted
+ 107:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****       \arg        DBG_TIMER13_HOLD: hold TIMER13 counter when core is halted
+ 108:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****       \arg        DBG_RTC_HOLD: hold RTC calendar and wakeup counter when core is halted
+ 109:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****       \arg        DBG_WWDGT_HOLD: debug WWDGT kept when core is halted
+ 110:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****       \arg        DBG_FWDGT_HOLD: debug FWDGT kept when core is halted
+ 111:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****       \arg        DBG_I2C0_HOLD: hold I2C0 smbus when core is halted
+ 112:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****       \arg        DBG_I2C1_HOLD: hold I2C1 smbus when core is halted
+ 113:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****       \arg        DBG_I2C2_HOLD: hold I2C2 smbus when core is halted
+ 114:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****       \arg        DBG_CAN0_HOLD: debug CAN0 kept when core is halted
+ 115:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****       \arg        DBG_CAN1_HOLD: debug CAN1 kept when core is halted
+ 116:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****       \arg        DBG_TIMER0_HOLD: hold TIMER0 counter when core is halted
+ 117:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****       \arg        DBG_TIMER7_HOLD: hold TIMER7 counter when core is halted
+ 118:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****       \arg        DBG_TIMER8_HOLD: hold TIMER8 counter when core is halted
+ 119:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****       \arg        DBG_TIMER9_HOLD: hold TIMER9 counter when core is halted
+ 120:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****       \arg        DBG_TIMER10_HOLD: hold TIMER10 counter when core is halted
+ 121:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****     \retval     none
+ 122:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** */
+ 123:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** void dbg_periph_enable(dbg_periph_enum dbg_periph)
+ 124:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** {
+ 148              		.loc 1 124 1 is_stmt 1 view -0
+ 149              		.cfi_startproc
+ 150              		@ args = 0, pretend = 0, frame = 0
+ 151              		@ frame_needed = 0, uses_anonymous_args = 0
+ 152              		@ link register save eliminated.
+ 125:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****     DBG_REG_VAL(dbg_periph) |= BIT(DBG_BIT_POS(dbg_periph));
+ 153              		.loc 1 125 5 view .LVU19
+ 154 0000 8309     		lsrs	r3, r0, #6
+ 155 0002 03F16043 		add	r3, r3, #-536870912
+ 156 0006 03F58423 		add	r3, r3, #270336
+ 157 000a 1A68     		ldr	r2, [r3]
+ 158              		.loc 1 125 32 is_stmt 0 view .LVU20
+ 159 000c 00F01F00 		and	r0, r0, #31
+ 160              	.LVL3:
+ 161              		.loc 1 125 32 view .LVU21
+ 162 0010 0121     		movs	r1, #1
+ 163 0012 8140     		lsls	r1, r1, r0
+ 164              		.loc 1 125 29 view .LVU22
+ 165 0014 0A43     		orrs	r2, r2, r1
+ 166 0016 1A60     		str	r2, [r3]
+ 126:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** }
+ 167              		.loc 1 126 1 view .LVU23
+ 168 0018 7047     		bx	lr
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccOGj6tk.s 			page 6
+
+
+ 169              		.cfi_endproc
+ 170              	.LFE120:
+ 172              		.section	.text.dbg_periph_disable,"ax",%progbits
+ 173              		.align	1
+ 174              		.global	dbg_periph_disable
+ 175              		.syntax unified
+ 176              		.thumb
+ 177              		.thumb_func
+ 179              	dbg_periph_disable:
+ 180              	.LVL4:
+ 181              	.LFB121:
+ 127:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** 
+ 128:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** /*!
+ 129:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****     \brief    disable peripheral behavior when the mcu is in debug mode
+ 130:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****     \param[in]  dbg_periph: dbg_periph_enum
+ 131:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****                 only one parameter can be selected which is shown as below:
+ 132:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****       \arg        DBG_TIMER1_HOLD: hold TIMER1 counter when core is halted
+ 133:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****       \arg        DBG_TIMER2_HOLD: hold TIMER2 counter when core is halted
+ 134:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****       \arg        DBG_TIMER3_HOLD: hold TIMER3 counter when core is halted
+ 135:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****       \arg        DBG_TIMER4_HOLD: hold TIMER4 counter when core is halted
+ 136:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****       \arg        DBG_TIMER5_HOLD: hold TIMER5 counter when core is halted
+ 137:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****       \arg        DBG_TIMER6_HOLD: hold TIMER6 counter when core is halted
+ 138:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****       \arg        DBG_TIMER11_HOLD: hold TIMER11 counter when core is halted
+ 139:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****       \arg        DBG_TIMER12_HOLD: hold TIMER12 counter when core is halted
+ 140:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****       \arg        DBG_TIMER13_HOLD: hold TIMER13 counter when core is halted
+ 141:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****       \arg        DBG_RTC_HOLD: hold RTC calendar and wakeup counter when core is halted
+ 142:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****       \arg        DBG_WWDGT_HOLD: debug WWDGT kept when core is halted
+ 143:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****       \arg        DBG_FWDGT_HOLD: debug FWDGT kept when core is halted
+ 144:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****       \arg        DBG_I2C0_HOLD: hold I2C0 smbus when core is halted
+ 145:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****       \arg        DBG_I2C1_HOLD: hold I2C1 smbus when core is halted
+ 146:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****       \arg        DBG_I2C2_HOLD: hold I2C2 smbus when core is halted
+ 147:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****       \arg        DBG_CAN0_HOLD: debug CAN0 kept when core is halted
+ 148:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****       \arg        DBG_CAN1_HOLD: debug CAN1 kept when core is halted
+ 149:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****       \arg        DBG_TIMER0_HOLD: hold TIMER0 counter when core is halted
+ 150:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****       \arg        DBG_TIMER7_HOLD: hold TIMER7 counter when core is halted
+ 151:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****       \arg        DBG_TIMER8_HOLD: hold TIMER8 counter when core is halted
+ 152:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****       \arg        DBG_TIMER9_HOLD: hold TIMER9 counter when core is halted
+ 153:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****       \arg        DBG_TIMER10_HOLD: hold TIMER10 counter when core is halted
+ 154:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****     \param[out] none
+ 155:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****     \retval     none
+ 156:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** */
+ 157:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** void dbg_periph_disable(dbg_periph_enum dbg_periph)
+ 158:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** {
+ 182              		.loc 1 158 1 is_stmt 1 view -0
+ 183              		.cfi_startproc
+ 184              		@ args = 0, pretend = 0, frame = 0
+ 185              		@ frame_needed = 0, uses_anonymous_args = 0
+ 186              		@ link register save eliminated.
+ 159:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****     DBG_REG_VAL(dbg_periph) &= ~BIT(DBG_BIT_POS(dbg_periph));
+ 187              		.loc 1 159 5 view .LVU25
+ 188 0000 8309     		lsrs	r3, r0, #6
+ 189 0002 03F16043 		add	r3, r3, #-536870912
+ 190 0006 03F58423 		add	r3, r3, #270336
+ 191 000a 1A68     		ldr	r2, [r3]
+ 192              		.loc 1 159 33 is_stmt 0 view .LVU26
+ 193 000c 00F01F00 		and	r0, r0, #31
+ 194              	.LVL5:
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccOGj6tk.s 			page 7
+
+
+ 195              		.loc 1 159 33 view .LVU27
+ 196 0010 0121     		movs	r1, #1
+ 197 0012 8140     		lsls	r1, r1, r0
+ 198              		.loc 1 159 29 view .LVU28
+ 199 0014 22EA0102 		bic	r2, r2, r1
+ 200 0018 1A60     		str	r2, [r3]
+ 160:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** }
+ 201              		.loc 1 160 1 view .LVU29
+ 202 001a 7047     		bx	lr
+ 203              		.cfi_endproc
+ 204              	.LFE121:
+ 206              		.section	.text.dbg_trace_pin_enable,"ax",%progbits
+ 207              		.align	1
+ 208              		.global	dbg_trace_pin_enable
+ 209              		.syntax unified
+ 210              		.thumb
+ 211              		.thumb_func
+ 213              	dbg_trace_pin_enable:
+ 214              	.LFB122:
+ 161:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** 
+ 162:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** /*!
+ 163:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****     \brief    enable trace pin assignment
+ 164:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****     \param[in]  none
+ 165:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****     \param[out] none
+ 166:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****     \retval     none
+ 167:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** */
+ 168:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** void dbg_trace_pin_enable(void)
+ 169:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** {
+ 215              		.loc 1 169 1 is_stmt 1 view -0
+ 216              		.cfi_startproc
+ 217              		@ args = 0, pretend = 0, frame = 0
+ 218              		@ frame_needed = 0, uses_anonymous_args = 0
+ 219              		@ link register save eliminated.
+ 170:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****     DBG_CTL0 |= DBG_CTL0_TRACE_IOEN;
+ 220              		.loc 1 170 5 view .LVU31
+ 221 0000 024A     		ldr	r2, .L16
+ 222 0002 5368     		ldr	r3, [r2, #4]
+ 223              		.loc 1 170 14 is_stmt 0 view .LVU32
+ 224 0004 43F02003 		orr	r3, r3, #32
+ 225 0008 5360     		str	r3, [r2, #4]
+ 171:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** }
+ 226              		.loc 1 171 1 view .LVU33
+ 227 000a 7047     		bx	lr
+ 228              	.L17:
+ 229              		.align	2
+ 230              	.L16:
+ 231 000c 002004E0 		.word	-536600576
+ 232              		.cfi_endproc
+ 233              	.LFE122:
+ 235              		.section	.text.dbg_trace_pin_disable,"ax",%progbits
+ 236              		.align	1
+ 237              		.global	dbg_trace_pin_disable
+ 238              		.syntax unified
+ 239              		.thumb
+ 240              		.thumb_func
+ 242              	dbg_trace_pin_disable:
+ 243              	.LFB123:
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccOGj6tk.s 			page 8
+
+
+ 172:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** 
+ 173:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** /*!
+ 174:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****     \brief    disable trace pin assignment
+ 175:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****     \param[in]  none
+ 176:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****     \param[out] none
+ 177:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****     \retval     none
+ 178:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** */
+ 179:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** void dbg_trace_pin_disable(void)
+ 180:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** {
+ 244              		.loc 1 180 1 is_stmt 1 view -0
+ 245              		.cfi_startproc
+ 246              		@ args = 0, pretend = 0, frame = 0
+ 247              		@ frame_needed = 0, uses_anonymous_args = 0
+ 248              		@ link register save eliminated.
+ 181:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c ****     DBG_CTL0 &= ~DBG_CTL0_TRACE_IOEN;
+ 249              		.loc 1 181 5 view .LVU35
+ 250 0000 024A     		ldr	r2, .L19
+ 251 0002 5368     		ldr	r3, [r2, #4]
+ 252              		.loc 1 181 14 is_stmt 0 view .LVU36
+ 253 0004 23F02003 		bic	r3, r3, #32
+ 254 0008 5360     		str	r3, [r2, #4]
+ 182:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c **** }
+ 255              		.loc 1 182 1 view .LVU37
+ 256 000a 7047     		bx	lr
+ 257              	.L20:
+ 258              		.align	2
+ 259              	.L19:
+ 260 000c 002004E0 		.word	-536600576
+ 261              		.cfi_endproc
+ 262              	.LFE123:
+ 264              		.text
+ 265              	.Letext0:
+ 266              		.file 2 "/Applications/ArmGNUToolchain/12.2.mpacbti-rel1/arm-none-eabi/arm-none-eabi/include/machi
+ 267              		.file 3 "/Applications/ArmGNUToolchain/12.2.mpacbti-rel1/arm-none-eabi/arm-none-eabi/include/sys/_
+ 268              		.file 4 "../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Include/gd32f4xx_dbg.h"
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccOGj6tk.s 			page 9
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 gd32f4xx_dbg.c
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccOGj6tk.s:21     .text.dbg_deinit:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccOGj6tk.s:27     .text.dbg_deinit:00000000 dbg_deinit
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccOGj6tk.s:47     .text.dbg_deinit:0000000c $d
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccOGj6tk.s:52     .text.dbg_id_get:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccOGj6tk.s:58     .text.dbg_id_get:00000000 dbg_id_get
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccOGj6tk.s:74     .text.dbg_id_get:00000008 $d
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccOGj6tk.s:79     .text.dbg_low_power_enable:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccOGj6tk.s:85     .text.dbg_low_power_enable:00000000 dbg_low_power_enable
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccOGj6tk.s:104    .text.dbg_low_power_enable:0000000c $d
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccOGj6tk.s:109    .text.dbg_low_power_disable:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccOGj6tk.s:115    .text.dbg_low_power_disable:00000000 dbg_low_power_disable
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccOGj6tk.s:134    .text.dbg_low_power_disable:0000000c $d
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccOGj6tk.s:139    .text.dbg_periph_enable:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccOGj6tk.s:145    .text.dbg_periph_enable:00000000 dbg_periph_enable
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccOGj6tk.s:173    .text.dbg_periph_disable:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccOGj6tk.s:179    .text.dbg_periph_disable:00000000 dbg_periph_disable
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccOGj6tk.s:207    .text.dbg_trace_pin_enable:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccOGj6tk.s:213    .text.dbg_trace_pin_enable:00000000 dbg_trace_pin_enable
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccOGj6tk.s:231    .text.dbg_trace_pin_enable:0000000c $d
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccOGj6tk.s:236    .text.dbg_trace_pin_disable:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccOGj6tk.s:242    .text.dbg_trace_pin_disable:00000000 dbg_trace_pin_disable
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccOGj6tk.s:260    .text.dbg_trace_pin_disable:0000000c $d
+
+NO UNDEFINED SYMBOLS

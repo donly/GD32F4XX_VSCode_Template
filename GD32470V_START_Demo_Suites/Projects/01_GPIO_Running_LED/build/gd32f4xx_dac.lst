@@ -1,0 +1,2386 @@
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"gd32f4xx_dac.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.file 1 "../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c"
+  20              		.section	.text.dac_deinit,"ax",%progbits
+  21              		.align	1
+  22              		.global	dac_deinit
+  23              		.syntax unified
+  24              		.thumb
+  25              		.thumb_func
+  27              	dac_deinit:
+  28              	.LFB116:
+   1:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** /*!
+   2:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \file    gd32f4xx_dac.c
+   3:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \brief   DAC driver
+   4:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** 
+   5:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \version 2016-08-15, V1.0.0, firmware for GD32F4xx
+   6:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \version 2018-12-12, V2.0.0, firmware for GD32F4xx
+   7:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \version 2020-09-30, V2.1.0, firmware for GD32F4xx
+   8:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \version 2022-03-09, V3.0.0, firmware for GD32F4xx
+   9:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** */
+  10:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** 
+  11:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** /*
+  12:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     Copyright (c) 2022, GigaDevice Semiconductor Inc.
+  13:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** 
+  14:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     Redistribution and use in source and binary forms, with or without modification,
+  15:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** are permitted provided that the following conditions are met:
+  16:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** 
+  17:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     1. Redistributions of source code must retain the above copyright notice, this
+  18:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****        list of conditions and the following disclaimer.
+  19:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     2. Redistributions in binary form must reproduce the above copyright notice,
+  20:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****        this list of conditions and the following disclaimer in the documentation
+  21:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****        and/or other materials provided with the distribution.
+  22:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     3. Neither the name of the copyright holder nor the names of its contributors
+  23:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****        may be used to endorse or promote products derived from this software without
+  24:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****        specific prior written permission.
+  25:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** 
+  26:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+  27:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+  28:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+  29:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+  30:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s 			page 2
+
+
+  31:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+  32:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  33:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  34:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY
+  35:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** OF SUCH DAMAGE.
+  36:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** */
+  37:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** 
+  38:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** #include "gd32f4xx_dac.h"
+  39:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** 
+  40:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** /* DAC register bit offset */
+  41:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** #define DAC1_REG_OFFSET           ((uint32_t)16U)
+  42:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** #define DH_12BIT_OFFSET           ((uint32_t)16U)
+  43:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** #define DH_8BIT_OFFSET            ((uint32_t)8U)
+  44:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** 
+  45:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** /*!
+  46:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \brief      deinitialize DAC
+  47:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[in]  none
+  48:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[out] none
+  49:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \retval     none
+  50:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** */
+  51:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** void dac_deinit(void)
+  52:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** {
+  29              		.loc 1 52 1 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33 0000 08B5     		push	{r3, lr}
+  34              	.LCFI0:
+  35              		.cfi_def_cfa_offset 8
+  36              		.cfi_offset 3, -8
+  37              		.cfi_offset 14, -4
+  53:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     rcu_periph_reset_enable(RCU_DACRST);
+  38              		.loc 1 53 5 view .LVU1
+  39 0002 40F61D00 		movw	r0, #2077
+  40 0006 FFF7FEFF 		bl	rcu_periph_reset_enable
+  41              	.LVL0:
+  54:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     rcu_periph_reset_disable(RCU_DACRST);
+  42              		.loc 1 54 5 view .LVU2
+  43 000a 40F61D00 		movw	r0, #2077
+  44 000e FFF7FEFF 		bl	rcu_periph_reset_disable
+  45              	.LVL1:
+  55:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** }
+  46              		.loc 1 55 1 is_stmt 0 view .LVU3
+  47 0012 08BD     		pop	{r3, pc}
+  48              		.cfi_endproc
+  49              	.LFE116:
+  51              		.section	.text.dac_enable,"ax",%progbits
+  52              		.align	1
+  53              		.global	dac_enable
+  54              		.syntax unified
+  55              		.thumb
+  56              		.thumb_func
+  58              	dac_enable:
+  59              	.LVL2:
+  60              	.LFB117:
+  56:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** 
+  57:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** /*!
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s 			page 3
+
+
+  58:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \brief      enable DAC
+  59:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[in]  dac_periph: DACx(x = 0,1)
+  60:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[out] none
+  61:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \retval     none
+  62:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** */
+  63:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** void dac_enable(uint32_t dac_periph)
+  64:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** {
+  61              		.loc 1 64 1 is_stmt 1 view -0
+  62              		.cfi_startproc
+  63              		@ args = 0, pretend = 0, frame = 0
+  64              		@ frame_needed = 0, uses_anonymous_args = 0
+  65              		@ link register save eliminated.
+  65:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     if(DAC0 == dac_periph) {
+  66              		.loc 1 65 5 view .LVU5
+  67              		.loc 1 65 7 is_stmt 0 view .LVU6
+  68 0000 38B9     		cbnz	r0, .L4
+  66:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         DAC_CTL |= DAC_CTL_DEN0;
+  69              		.loc 1 66 9 is_stmt 1 view .LVU7
+  70 0002 084A     		ldr	r2, .L6
+  71 0004 D2F80034 		ldr	r3, [r2, #1024]
+  72              		.loc 1 66 17 is_stmt 0 view .LVU8
+  73 0008 43F00103 		orr	r3, r3, #1
+  74 000c C2F80034 		str	r3, [r2, #1024]
+  75 0010 7047     		bx	lr
+  76              	.L4:
+  67:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     } else {
+  68:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         DAC_CTL |= DAC_CTL_DEN1;
+  77              		.loc 1 68 9 is_stmt 1 view .LVU9
+  78 0012 044A     		ldr	r2, .L6
+  79 0014 D2F80034 		ldr	r3, [r2, #1024]
+  80              		.loc 1 68 17 is_stmt 0 view .LVU10
+  81 0018 43F48033 		orr	r3, r3, #65536
+  82 001c C2F80034 		str	r3, [r2, #1024]
+  69:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     }
+  70:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** }
+  83              		.loc 1 70 1 view .LVU11
+  84 0020 7047     		bx	lr
+  85              	.L7:
+  86 0022 00BF     		.align	2
+  87              	.L6:
+  88 0024 00700040 		.word	1073770496
+  89              		.cfi_endproc
+  90              	.LFE117:
+  92              		.section	.text.dac_disable,"ax",%progbits
+  93              		.align	1
+  94              		.global	dac_disable
+  95              		.syntax unified
+  96              		.thumb
+  97              		.thumb_func
+  99              	dac_disable:
+ 100              	.LVL3:
+ 101              	.LFB118:
+  71:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** 
+  72:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** /*!
+  73:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \brief      disable DAC
+  74:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[in]  dac_periph: DACx(x = 0,1)
+  75:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[out] none
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s 			page 4
+
+
+  76:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \retval     none
+  77:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** */
+  78:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** void dac_disable(uint32_t dac_periph)
+  79:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** {
+ 102              		.loc 1 79 1 is_stmt 1 view -0
+ 103              		.cfi_startproc
+ 104              		@ args = 0, pretend = 0, frame = 0
+ 105              		@ frame_needed = 0, uses_anonymous_args = 0
+ 106              		@ link register save eliminated.
+  80:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     if(DAC0 == dac_periph) {
+ 107              		.loc 1 80 5 view .LVU13
+ 108              		.loc 1 80 7 is_stmt 0 view .LVU14
+ 109 0000 38B9     		cbnz	r0, .L9
+  81:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         DAC_CTL &= ~DAC_CTL_DEN0;
+ 110              		.loc 1 81 9 is_stmt 1 view .LVU15
+ 111 0002 084A     		ldr	r2, .L11
+ 112 0004 D2F80034 		ldr	r3, [r2, #1024]
+ 113              		.loc 1 81 17 is_stmt 0 view .LVU16
+ 114 0008 23F00103 		bic	r3, r3, #1
+ 115 000c C2F80034 		str	r3, [r2, #1024]
+ 116 0010 7047     		bx	lr
+ 117              	.L9:
+  82:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     } else {
+  83:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         DAC_CTL &= ~DAC_CTL_DEN1;
+ 118              		.loc 1 83 9 is_stmt 1 view .LVU17
+ 119 0012 044A     		ldr	r2, .L11
+ 120 0014 D2F80034 		ldr	r3, [r2, #1024]
+ 121              		.loc 1 83 17 is_stmt 0 view .LVU18
+ 122 0018 23F48033 		bic	r3, r3, #65536
+ 123 001c C2F80034 		str	r3, [r2, #1024]
+  84:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     }
+  85:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** }
+ 124              		.loc 1 85 1 view .LVU19
+ 125 0020 7047     		bx	lr
+ 126              	.L12:
+ 127 0022 00BF     		.align	2
+ 128              	.L11:
+ 129 0024 00700040 		.word	1073770496
+ 130              		.cfi_endproc
+ 131              	.LFE118:
+ 133              		.section	.text.dac_dma_enable,"ax",%progbits
+ 134              		.align	1
+ 135              		.global	dac_dma_enable
+ 136              		.syntax unified
+ 137              		.thumb
+ 138              		.thumb_func
+ 140              	dac_dma_enable:
+ 141              	.LVL4:
+ 142              	.LFB119:
+  86:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** 
+  87:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** /*!
+  88:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \brief      enable DAC DMA function
+  89:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[in]  dac_periph: DACx(x = 0,1)
+  90:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[out] none
+  91:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \retval     none
+  92:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** */
+  93:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** void dac_dma_enable(uint32_t dac_periph)
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s 			page 5
+
+
+  94:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** {
+ 143              		.loc 1 94 1 is_stmt 1 view -0
+ 144              		.cfi_startproc
+ 145              		@ args = 0, pretend = 0, frame = 0
+ 146              		@ frame_needed = 0, uses_anonymous_args = 0
+ 147              		@ link register save eliminated.
+  95:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     if(DAC0 == dac_periph) {
+ 148              		.loc 1 95 5 view .LVU21
+ 149              		.loc 1 95 7 is_stmt 0 view .LVU22
+ 150 0000 38B9     		cbnz	r0, .L14
+  96:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         DAC_CTL |= DAC_CTL_DDMAEN0;
+ 151              		.loc 1 96 9 is_stmt 1 view .LVU23
+ 152 0002 084A     		ldr	r2, .L16
+ 153 0004 D2F80034 		ldr	r3, [r2, #1024]
+ 154              		.loc 1 96 17 is_stmt 0 view .LVU24
+ 155 0008 43F48053 		orr	r3, r3, #4096
+ 156 000c C2F80034 		str	r3, [r2, #1024]
+ 157 0010 7047     		bx	lr
+ 158              	.L14:
+  97:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     } else {
+  98:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         DAC_CTL |= DAC_CTL_DDMAEN1;
+ 159              		.loc 1 98 9 is_stmt 1 view .LVU25
+ 160 0012 044A     		ldr	r2, .L16
+ 161 0014 D2F80034 		ldr	r3, [r2, #1024]
+ 162              		.loc 1 98 17 is_stmt 0 view .LVU26
+ 163 0018 43F08053 		orr	r3, r3, #268435456
+ 164 001c C2F80034 		str	r3, [r2, #1024]
+  99:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     }
+ 100:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** }
+ 165              		.loc 1 100 1 view .LVU27
+ 166 0020 7047     		bx	lr
+ 167              	.L17:
+ 168 0022 00BF     		.align	2
+ 169              	.L16:
+ 170 0024 00700040 		.word	1073770496
+ 171              		.cfi_endproc
+ 172              	.LFE119:
+ 174              		.section	.text.dac_dma_disable,"ax",%progbits
+ 175              		.align	1
+ 176              		.global	dac_dma_disable
+ 177              		.syntax unified
+ 178              		.thumb
+ 179              		.thumb_func
+ 181              	dac_dma_disable:
+ 182              	.LVL5:
+ 183              	.LFB120:
+ 101:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** 
+ 102:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** /*!
+ 103:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \brief      disable DAC DMA function
+ 104:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[in]  dac_periph: DACx(x = 0,1)
+ 105:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[out] none
+ 106:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \retval     none
+ 107:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** */
+ 108:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** void dac_dma_disable(uint32_t dac_periph)
+ 109:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** {
+ 184              		.loc 1 109 1 is_stmt 1 view -0
+ 185              		.cfi_startproc
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s 			page 6
+
+
+ 186              		@ args = 0, pretend = 0, frame = 0
+ 187              		@ frame_needed = 0, uses_anonymous_args = 0
+ 188              		@ link register save eliminated.
+ 110:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     if(DAC0 == dac_periph) {
+ 189              		.loc 1 110 5 view .LVU29
+ 190              		.loc 1 110 7 is_stmt 0 view .LVU30
+ 191 0000 38B9     		cbnz	r0, .L19
+ 111:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         DAC_CTL &= ~DAC_CTL_DDMAEN0;
+ 192              		.loc 1 111 9 is_stmt 1 view .LVU31
+ 193 0002 084A     		ldr	r2, .L21
+ 194 0004 D2F80034 		ldr	r3, [r2, #1024]
+ 195              		.loc 1 111 17 is_stmt 0 view .LVU32
+ 196 0008 23F48053 		bic	r3, r3, #4096
+ 197 000c C2F80034 		str	r3, [r2, #1024]
+ 198 0010 7047     		bx	lr
+ 199              	.L19:
+ 112:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     } else {
+ 113:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         DAC_CTL &= ~DAC_CTL_DDMAEN1;
+ 200              		.loc 1 113 9 is_stmt 1 view .LVU33
+ 201 0012 044A     		ldr	r2, .L21
+ 202 0014 D2F80034 		ldr	r3, [r2, #1024]
+ 203              		.loc 1 113 17 is_stmt 0 view .LVU34
+ 204 0018 23F08053 		bic	r3, r3, #268435456
+ 205 001c C2F80034 		str	r3, [r2, #1024]
+ 114:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     }
+ 115:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** }
+ 206              		.loc 1 115 1 view .LVU35
+ 207 0020 7047     		bx	lr
+ 208              	.L22:
+ 209 0022 00BF     		.align	2
+ 210              	.L21:
+ 211 0024 00700040 		.word	1073770496
+ 212              		.cfi_endproc
+ 213              	.LFE120:
+ 215              		.section	.text.dac_output_buffer_enable,"ax",%progbits
+ 216              		.align	1
+ 217              		.global	dac_output_buffer_enable
+ 218              		.syntax unified
+ 219              		.thumb
+ 220              		.thumb_func
+ 222              	dac_output_buffer_enable:
+ 223              	.LVL6:
+ 224              	.LFB121:
+ 116:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** 
+ 117:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** /*!
+ 118:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \brief      enable DAC output buffer
+ 119:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[in]  dac_periph: DACx(x = 0,1)
+ 120:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[out] none
+ 121:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \retval     none
+ 122:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** */
+ 123:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** void dac_output_buffer_enable(uint32_t dac_periph)
+ 124:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** {
+ 225              		.loc 1 124 1 is_stmt 1 view -0
+ 226              		.cfi_startproc
+ 227              		@ args = 0, pretend = 0, frame = 0
+ 228              		@ frame_needed = 0, uses_anonymous_args = 0
+ 229              		@ link register save eliminated.
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s 			page 7
+
+
+ 125:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     if(DAC0 == dac_periph) {
+ 230              		.loc 1 125 5 view .LVU37
+ 231              		.loc 1 125 7 is_stmt 0 view .LVU38
+ 232 0000 38B9     		cbnz	r0, .L24
+ 126:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         DAC_CTL &= ~DAC_CTL_DBOFF0;
+ 233              		.loc 1 126 9 is_stmt 1 view .LVU39
+ 234 0002 084A     		ldr	r2, .L26
+ 235 0004 D2F80034 		ldr	r3, [r2, #1024]
+ 236              		.loc 1 126 17 is_stmt 0 view .LVU40
+ 237 0008 23F00203 		bic	r3, r3, #2
+ 238 000c C2F80034 		str	r3, [r2, #1024]
+ 239 0010 7047     		bx	lr
+ 240              	.L24:
+ 127:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     } else {
+ 128:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         DAC_CTL &= ~DAC_CTL_DBOFF1;
+ 241              		.loc 1 128 9 is_stmt 1 view .LVU41
+ 242 0012 044A     		ldr	r2, .L26
+ 243 0014 D2F80034 		ldr	r3, [r2, #1024]
+ 244              		.loc 1 128 17 is_stmt 0 view .LVU42
+ 245 0018 23F40033 		bic	r3, r3, #131072
+ 246 001c C2F80034 		str	r3, [r2, #1024]
+ 129:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     }
+ 130:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** }
+ 247              		.loc 1 130 1 view .LVU43
+ 248 0020 7047     		bx	lr
+ 249              	.L27:
+ 250 0022 00BF     		.align	2
+ 251              	.L26:
+ 252 0024 00700040 		.word	1073770496
+ 253              		.cfi_endproc
+ 254              	.LFE121:
+ 256              		.section	.text.dac_output_buffer_disable,"ax",%progbits
+ 257              		.align	1
+ 258              		.global	dac_output_buffer_disable
+ 259              		.syntax unified
+ 260              		.thumb
+ 261              		.thumb_func
+ 263              	dac_output_buffer_disable:
+ 264              	.LVL7:
+ 265              	.LFB122:
+ 131:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** 
+ 132:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** /*!
+ 133:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \brief      disable DAC output buffer
+ 134:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[in]  dac_periph: DACx(x = 0,1)
+ 135:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[out] none
+ 136:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \retval     none
+ 137:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** */
+ 138:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** void dac_output_buffer_disable(uint32_t dac_periph)
+ 139:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** {
+ 266              		.loc 1 139 1 is_stmt 1 view -0
+ 267              		.cfi_startproc
+ 268              		@ args = 0, pretend = 0, frame = 0
+ 269              		@ frame_needed = 0, uses_anonymous_args = 0
+ 270              		@ link register save eliminated.
+ 140:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     if(DAC0 == dac_periph) {
+ 271              		.loc 1 140 5 view .LVU45
+ 272              		.loc 1 140 7 is_stmt 0 view .LVU46
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s 			page 8
+
+
+ 273 0000 38B9     		cbnz	r0, .L29
+ 141:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         DAC_CTL |= DAC_CTL_DBOFF0;
+ 274              		.loc 1 141 9 is_stmt 1 view .LVU47
+ 275 0002 084A     		ldr	r2, .L31
+ 276 0004 D2F80034 		ldr	r3, [r2, #1024]
+ 277              		.loc 1 141 17 is_stmt 0 view .LVU48
+ 278 0008 43F00203 		orr	r3, r3, #2
+ 279 000c C2F80034 		str	r3, [r2, #1024]
+ 280 0010 7047     		bx	lr
+ 281              	.L29:
+ 142:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     } else {
+ 143:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         DAC_CTL |= DAC_CTL_DBOFF1;
+ 282              		.loc 1 143 9 is_stmt 1 view .LVU49
+ 283 0012 044A     		ldr	r2, .L31
+ 284 0014 D2F80034 		ldr	r3, [r2, #1024]
+ 285              		.loc 1 143 17 is_stmt 0 view .LVU50
+ 286 0018 43F40033 		orr	r3, r3, #131072
+ 287 001c C2F80034 		str	r3, [r2, #1024]
+ 144:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     }
+ 145:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** }
+ 288              		.loc 1 145 1 view .LVU51
+ 289 0020 7047     		bx	lr
+ 290              	.L32:
+ 291 0022 00BF     		.align	2
+ 292              	.L31:
+ 293 0024 00700040 		.word	1073770496
+ 294              		.cfi_endproc
+ 295              	.LFE122:
+ 297              		.section	.text.dac_output_value_get,"ax",%progbits
+ 298              		.align	1
+ 299              		.global	dac_output_value_get
+ 300              		.syntax unified
+ 301              		.thumb
+ 302              		.thumb_func
+ 304              	dac_output_value_get:
+ 305              	.LVL8:
+ 306              	.LFB123:
+ 146:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** 
+ 147:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** /*!
+ 148:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \brief      get DAC output value
+ 149:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[in]  dac_periph: DACx(x = 0,1)
+ 150:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[out] none
+ 151:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \retval     DAC output data
+ 152:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** */
+ 153:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** uint16_t dac_output_value_get(uint32_t dac_periph)
+ 154:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** {
+ 307              		.loc 1 154 1 is_stmt 1 view -0
+ 308              		.cfi_startproc
+ 309              		@ args = 0, pretend = 0, frame = 0
+ 310              		@ frame_needed = 0, uses_anonymous_args = 0
+ 311              		@ link register save eliminated.
+ 155:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     uint16_t data = 0U;
+ 312              		.loc 1 155 5 view .LVU53
+ 156:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     if(DAC0 == dac_periph) {
+ 313              		.loc 1 156 5 view .LVU54
+ 314              		.loc 1 156 7 is_stmt 0 view .LVU55
+ 315 0000 20B9     		cbnz	r0, .L34
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s 			page 9
+
+
+ 157:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         /* store the DAC0 output value */
+ 158:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         data = (uint16_t)DAC0_DO;
+ 316              		.loc 1 158 9 is_stmt 1 view .LVU56
+ 317              		.loc 1 158 26 is_stmt 0 view .LVU57
+ 318 0002 054B     		ldr	r3, .L36
+ 319 0004 D3F82C04 		ldr	r0, [r3, #1068]
+ 320              	.LVL9:
+ 321              		.loc 1 158 14 view .LVU58
+ 322 0008 80B2     		uxth	r0, r0
+ 323              	.LVL10:
+ 324              		.loc 1 158 14 view .LVU59
+ 325 000a 7047     		bx	lr
+ 326              	.LVL11:
+ 327              	.L34:
+ 159:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     } else {
+ 160:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         /* store the DAC1 output value */
+ 161:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         data = (uint16_t)DAC1_DO;
+ 328              		.loc 1 161 9 is_stmt 1 view .LVU60
+ 329              		.loc 1 161 26 is_stmt 0 view .LVU61
+ 330 000c 024B     		ldr	r3, .L36
+ 331 000e D3F83004 		ldr	r0, [r3, #1072]
+ 332              	.LVL12:
+ 333              		.loc 1 161 14 view .LVU62
+ 334 0012 80B2     		uxth	r0, r0
+ 335              	.LVL13:
+ 162:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     }
+ 163:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     return data;
+ 336              		.loc 1 163 5 is_stmt 1 view .LVU63
+ 164:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** }
+ 337              		.loc 1 164 1 is_stmt 0 view .LVU64
+ 338 0014 7047     		bx	lr
+ 339              	.L37:
+ 340 0016 00BF     		.align	2
+ 341              	.L36:
+ 342 0018 00700040 		.word	1073770496
+ 343              		.cfi_endproc
+ 344              	.LFE123:
+ 346              		.section	.text.dac_data_set,"ax",%progbits
+ 347              		.align	1
+ 348              		.global	dac_data_set
+ 349              		.syntax unified
+ 350              		.thumb
+ 351              		.thumb_func
+ 353              	dac_data_set:
+ 354              	.LVL14:
+ 355              	.LFB124:
+ 165:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** 
+ 166:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** /*!
+ 167:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \brief      set the DAC specified data holding register value
+ 168:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[in]  dac_periph: DACx(x = 0,1)
+ 169:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[in]  dac_align: data alignment
+ 170:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****                 only one parameter can be selected which is shown as below:
+ 171:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****       \arg        DAC_ALIGN_8B_R: data right 8 bit alignment
+ 172:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****       \arg        DAC_ALIGN_12B_R: data right 12 bit alignment
+ 173:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****       \arg        DAC_ALIGN_12B_L: data left 12 bit alignment
+ 174:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[in]  data: data to be loaded
+ 175:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[out] none
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s 			page 10
+
+
+ 176:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \retval     none
+ 177:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** */
+ 178:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** void dac_data_set(uint32_t dac_periph, uint32_t dac_align, uint16_t data)
+ 179:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** {
+ 356              		.loc 1 179 1 is_stmt 1 view -0
+ 357              		.cfi_startproc
+ 358              		@ args = 0, pretend = 0, frame = 0
+ 359              		@ frame_needed = 0, uses_anonymous_args = 0
+ 360              		@ link register save eliminated.
+ 180:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     if(DAC0 == dac_periph) {
+ 361              		.loc 1 180 5 view .LVU66
+ 362              		.loc 1 180 7 is_stmt 0 view .LVU67
+ 363 0000 88B9     		cbnz	r0, .L39
+ 181:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         switch(dac_align) {
+ 364              		.loc 1 181 9 is_stmt 1 view .LVU68
+ 365 0002 0129     		cmp	r1, #1
+ 366 0004 07D0     		beq	.L40
+ 367 0006 0229     		cmp	r1, #2
+ 368 0008 09D0     		beq	.L41
+ 369 000a 01B1     		cbz	r1, .L45
+ 370              	.L38:
+ 182:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         /* data right 12 bit alignment */
+ 183:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         case DAC_ALIGN_12B_R:
+ 184:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****             DAC0_R12DH = data;
+ 185:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****             break;
+ 186:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         /* data left 12 bit alignment */
+ 187:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         case DAC_ALIGN_12B_L:
+ 188:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****             DAC0_L12DH = data;
+ 189:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****             break;
+ 190:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         /* data right 8 bit alignment */
+ 191:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         case DAC_ALIGN_8B_R:
+ 192:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****             DAC0_R8DH = data;
+ 193:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****             break;
+ 194:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         default:
+ 195:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****             break;
+ 196:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         }
+ 197:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     } else {
+ 198:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         switch(dac_align) {
+ 199:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         /* data right 12 bit alignment */
+ 200:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         case DAC_ALIGN_12B_R:
+ 201:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****             DAC1_R12DH = data;
+ 202:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****             break;
+ 203:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         /* data left 12 bit alignment */
+ 204:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         case DAC_ALIGN_12B_L:
+ 205:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****             DAC1_L12DH = data;
+ 206:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****             break;
+ 207:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         /* data right 8 bit alignment */
+ 208:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         case DAC_ALIGN_8B_R:
+ 209:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****             DAC1_R8DH = data;
+ 210:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****             break;
+ 211:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         default:
+ 212:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****             break;
+ 213:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         }
+ 214:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     }
+ 215:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** }
+ 371              		.loc 1 215 1 is_stmt 0 view .LVU69
+ 372 000c 7047     		bx	lr
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s 			page 11
+
+
+ 373              	.L45:
+ 184:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****             break;
+ 374              		.loc 1 184 13 is_stmt 1 view .LVU70
+ 184:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****             break;
+ 375              		.loc 1 184 24 is_stmt 0 view .LVU71
+ 376 000e 0F4B     		ldr	r3, .L46
+ 377 0010 C3F80824 		str	r2, [r3, #1032]
+ 185:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         /* data left 12 bit alignment */
+ 378              		.loc 1 185 13 is_stmt 1 view .LVU72
+ 379 0014 7047     		bx	lr
+ 380              	.L40:
+ 188:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****             break;
+ 381              		.loc 1 188 13 view .LVU73
+ 188:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****             break;
+ 382              		.loc 1 188 24 is_stmt 0 view .LVU74
+ 383 0016 0D4B     		ldr	r3, .L46
+ 384 0018 C3F80C24 		str	r2, [r3, #1036]
+ 189:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         /* data right 8 bit alignment */
+ 385              		.loc 1 189 13 is_stmt 1 view .LVU75
+ 386 001c 7047     		bx	lr
+ 387              	.L41:
+ 192:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****             break;
+ 388              		.loc 1 192 13 view .LVU76
+ 192:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****             break;
+ 389              		.loc 1 192 23 is_stmt 0 view .LVU77
+ 390 001e 0B4B     		ldr	r3, .L46
+ 391 0020 C3F81024 		str	r2, [r3, #1040]
+ 193:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         default:
+ 392              		.loc 1 193 13 is_stmt 1 view .LVU78
+ 393 0024 7047     		bx	lr
+ 394              	.L39:
+ 198:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         /* data right 12 bit alignment */
+ 395              		.loc 1 198 9 view .LVU79
+ 396 0026 0129     		cmp	r1, #1
+ 397 0028 07D0     		beq	.L43
+ 398 002a 0229     		cmp	r1, #2
+ 399 002c 09D0     		beq	.L44
+ 400 002e 0029     		cmp	r1, #0
+ 401 0030 ECD1     		bne	.L38
+ 201:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****             break;
+ 402              		.loc 1 201 13 view .LVU80
+ 201:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****             break;
+ 403              		.loc 1 201 24 is_stmt 0 view .LVU81
+ 404 0032 064B     		ldr	r3, .L46
+ 405 0034 C3F81424 		str	r2, [r3, #1044]
+ 202:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         /* data left 12 bit alignment */
+ 406              		.loc 1 202 13 is_stmt 1 view .LVU82
+ 407 0038 7047     		bx	lr
+ 408              	.L43:
+ 205:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****             break;
+ 409              		.loc 1 205 13 view .LVU83
+ 205:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****             break;
+ 410              		.loc 1 205 24 is_stmt 0 view .LVU84
+ 411 003a 044B     		ldr	r3, .L46
+ 412 003c C3F81824 		str	r2, [r3, #1048]
+ 206:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         /* data right 8 bit alignment */
+ 413              		.loc 1 206 13 is_stmt 1 view .LVU85
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s 			page 12
+
+
+ 414 0040 7047     		bx	lr
+ 415              	.L44:
+ 209:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****             break;
+ 416              		.loc 1 209 13 view .LVU86
+ 209:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****             break;
+ 417              		.loc 1 209 23 is_stmt 0 view .LVU87
+ 418 0042 024B     		ldr	r3, .L46
+ 419 0044 C3F81C24 		str	r2, [r3, #1052]
+ 210:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         default:
+ 420              		.loc 1 210 13 is_stmt 1 view .LVU88
+ 421              		.loc 1 215 1 is_stmt 0 view .LVU89
+ 422 0048 E0E7     		b	.L38
+ 423              	.L47:
+ 424 004a 00BF     		.align	2
+ 425              	.L46:
+ 426 004c 00700040 		.word	1073770496
+ 427              		.cfi_endproc
+ 428              	.LFE124:
+ 430              		.section	.text.dac_trigger_enable,"ax",%progbits
+ 431              		.align	1
+ 432              		.global	dac_trigger_enable
+ 433              		.syntax unified
+ 434              		.thumb
+ 435              		.thumb_func
+ 437              	dac_trigger_enable:
+ 438              	.LVL15:
+ 439              	.LFB125:
+ 216:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** 
+ 217:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** /*!
+ 218:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \brief      enable DAC trigger
+ 219:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[in]  dac_periph: DACx(x = 0,1)
+ 220:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[out] none
+ 221:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \retval     none
+ 222:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** */
+ 223:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** void dac_trigger_enable(uint32_t dac_periph)
+ 224:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** {
+ 440              		.loc 1 224 1 is_stmt 1 view -0
+ 441              		.cfi_startproc
+ 442              		@ args = 0, pretend = 0, frame = 0
+ 443              		@ frame_needed = 0, uses_anonymous_args = 0
+ 444              		@ link register save eliminated.
+ 225:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     if(DAC0 == dac_periph) {
+ 445              		.loc 1 225 5 view .LVU91
+ 446              		.loc 1 225 7 is_stmt 0 view .LVU92
+ 447 0000 38B9     		cbnz	r0, .L49
+ 226:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         DAC_CTL |= DAC_CTL_DTEN0;
+ 448              		.loc 1 226 9 is_stmt 1 view .LVU93
+ 449 0002 084A     		ldr	r2, .L51
+ 450 0004 D2F80034 		ldr	r3, [r2, #1024]
+ 451              		.loc 1 226 17 is_stmt 0 view .LVU94
+ 452 0008 43F00403 		orr	r3, r3, #4
+ 453 000c C2F80034 		str	r3, [r2, #1024]
+ 454 0010 7047     		bx	lr
+ 455              	.L49:
+ 227:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     } else {
+ 228:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         DAC_CTL |= DAC_CTL_DTEN1;
+ 456              		.loc 1 228 9 is_stmt 1 view .LVU95
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s 			page 13
+
+
+ 457 0012 044A     		ldr	r2, .L51
+ 458 0014 D2F80034 		ldr	r3, [r2, #1024]
+ 459              		.loc 1 228 17 is_stmt 0 view .LVU96
+ 460 0018 43F48023 		orr	r3, r3, #262144
+ 461 001c C2F80034 		str	r3, [r2, #1024]
+ 229:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     }
+ 230:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** }
+ 462              		.loc 1 230 1 view .LVU97
+ 463 0020 7047     		bx	lr
+ 464              	.L52:
+ 465 0022 00BF     		.align	2
+ 466              	.L51:
+ 467 0024 00700040 		.word	1073770496
+ 468              		.cfi_endproc
+ 469              	.LFE125:
+ 471              		.section	.text.dac_trigger_disable,"ax",%progbits
+ 472              		.align	1
+ 473              		.global	dac_trigger_disable
+ 474              		.syntax unified
+ 475              		.thumb
+ 476              		.thumb_func
+ 478              	dac_trigger_disable:
+ 479              	.LVL16:
+ 480              	.LFB126:
+ 231:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** 
+ 232:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** /*!
+ 233:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \brief      disable DAC trigger
+ 234:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[in]  dac_periph: DACx(x = 0,1)
+ 235:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[out] none
+ 236:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \retval     none
+ 237:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** */
+ 238:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** void dac_trigger_disable(uint32_t dac_periph)
+ 239:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** {
+ 481              		.loc 1 239 1 is_stmt 1 view -0
+ 482              		.cfi_startproc
+ 483              		@ args = 0, pretend = 0, frame = 0
+ 484              		@ frame_needed = 0, uses_anonymous_args = 0
+ 485              		@ link register save eliminated.
+ 240:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     if(DAC0 == dac_periph) {
+ 486              		.loc 1 240 5 view .LVU99
+ 487              		.loc 1 240 7 is_stmt 0 view .LVU100
+ 488 0000 38B9     		cbnz	r0, .L54
+ 241:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         DAC_CTL &= ~DAC_CTL_DTEN0;
+ 489              		.loc 1 241 9 is_stmt 1 view .LVU101
+ 490 0002 084A     		ldr	r2, .L56
+ 491 0004 D2F80034 		ldr	r3, [r2, #1024]
+ 492              		.loc 1 241 17 is_stmt 0 view .LVU102
+ 493 0008 23F00403 		bic	r3, r3, #4
+ 494 000c C2F80034 		str	r3, [r2, #1024]
+ 495 0010 7047     		bx	lr
+ 496              	.L54:
+ 242:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     } else {
+ 243:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         DAC_CTL &= ~DAC_CTL_DTEN1;
+ 497              		.loc 1 243 9 is_stmt 1 view .LVU103
+ 498 0012 044A     		ldr	r2, .L56
+ 499 0014 D2F80034 		ldr	r3, [r2, #1024]
+ 500              		.loc 1 243 17 is_stmt 0 view .LVU104
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s 			page 14
+
+
+ 501 0018 23F48023 		bic	r3, r3, #262144
+ 502 001c C2F80034 		str	r3, [r2, #1024]
+ 244:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     }
+ 245:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** }
+ 503              		.loc 1 245 1 view .LVU105
+ 504 0020 7047     		bx	lr
+ 505              	.L57:
+ 506 0022 00BF     		.align	2
+ 507              	.L56:
+ 508 0024 00700040 		.word	1073770496
+ 509              		.cfi_endproc
+ 510              	.LFE126:
+ 512              		.section	.text.dac_trigger_source_config,"ax",%progbits
+ 513              		.align	1
+ 514              		.global	dac_trigger_source_config
+ 515              		.syntax unified
+ 516              		.thumb
+ 517              		.thumb_func
+ 519              	dac_trigger_source_config:
+ 520              	.LVL17:
+ 521              	.LFB127:
+ 246:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** 
+ 247:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** /*!
+ 248:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \brief      set DAC trigger source
+ 249:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[in]  dac_periph: DACx(x = 0,1)
+ 250:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[in]  triggersource: external triggers of DAC
+ 251:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****                 only one parameter can be selected which is shown as below:
+ 252:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****       \arg        DAC_TRIGGER_T1_TRGO: TIMER1 TRGO
+ 253:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****       \arg        DAC_TRIGGER_T3_TRGO: TIMER3 TRGO
+ 254:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****       \arg        DAC_TRIGGER_T4_TRGO: TIMER4 TRGO
+ 255:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****       \arg        DAC_TRIGGER_T5_TRGO: TIMER5 TRGO
+ 256:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****       \arg        DAC_TRIGGER_T6_TRGO: TIMER6 TRGO
+ 257:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****       \arg        DAC_TRIGGER_T7_TRGO: TIMER7 TRGO
+ 258:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****       \arg        DAC_TRIGGER_EXTI_9: EXTI interrupt line9 event
+ 259:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****       \arg        DAC_TRIGGER_SOFTWARE: software trigger
+ 260:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[out] none
+ 261:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \retval     none
+ 262:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** */
+ 263:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** void dac_trigger_source_config(uint32_t dac_periph, uint32_t triggersource)
+ 264:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** {
+ 522              		.loc 1 264 1 is_stmt 1 view -0
+ 523              		.cfi_startproc
+ 524              		@ args = 0, pretend = 0, frame = 0
+ 525              		@ frame_needed = 0, uses_anonymous_args = 0
+ 526              		@ link register save eliminated.
+ 265:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     if(DAC0 == dac_periph) {
+ 527              		.loc 1 265 5 view .LVU107
+ 528              		.loc 1 265 7 is_stmt 0 view .LVU108
+ 529 0000 60B9     		cbnz	r0, .L59
+ 266:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         /* configure DAC0 trigger source */
+ 267:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         DAC_CTL &= ~DAC_CTL_DTSEL0;
+ 530              		.loc 1 267 9 is_stmt 1 view .LVU109
+ 531 0002 0D4B     		ldr	r3, .L61
+ 532 0004 D3F80024 		ldr	r2, [r3, #1024]
+ 533              		.loc 1 267 17 is_stmt 0 view .LVU110
+ 534 0008 22F03802 		bic	r2, r2, #56
+ 535 000c C3F80024 		str	r2, [r3, #1024]
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s 			page 15
+
+
+ 268:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         DAC_CTL |= triggersource;
+ 536              		.loc 1 268 9 is_stmt 1 view .LVU111
+ 537 0010 D3F80024 		ldr	r2, [r3, #1024]
+ 538              		.loc 1 268 17 is_stmt 0 view .LVU112
+ 539 0014 0A43     		orrs	r2, r2, r1
+ 540 0016 C3F80024 		str	r2, [r3, #1024]
+ 541 001a 7047     		bx	lr
+ 542              	.L59:
+ 269:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     } else {
+ 270:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         /* configure DAC1 trigger source */
+ 271:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         DAC_CTL &= ~DAC_CTL_DTSEL1;
+ 543              		.loc 1 271 9 is_stmt 1 view .LVU113
+ 544 001c 064B     		ldr	r3, .L61
+ 545 001e D3F80024 		ldr	r2, [r3, #1024]
+ 546              		.loc 1 271 17 is_stmt 0 view .LVU114
+ 547 0022 22F46012 		bic	r2, r2, #3670016
+ 548 0026 C3F80024 		str	r2, [r3, #1024]
+ 272:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         DAC_CTL |= (triggersource << DAC1_REG_OFFSET);
+ 549              		.loc 1 272 9 is_stmt 1 view .LVU115
+ 550 002a D3F80024 		ldr	r2, [r3, #1024]
+ 551              		.loc 1 272 17 is_stmt 0 view .LVU116
+ 552 002e 42EA0142 		orr	r2, r2, r1, lsl #16
+ 553 0032 C3F80024 		str	r2, [r3, #1024]
+ 273:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     }
+ 274:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** }
+ 554              		.loc 1 274 1 view .LVU117
+ 555 0036 7047     		bx	lr
+ 556              	.L62:
+ 557              		.align	2
+ 558              	.L61:
+ 559 0038 00700040 		.word	1073770496
+ 560              		.cfi_endproc
+ 561              	.LFE127:
+ 563              		.section	.text.dac_software_trigger_enable,"ax",%progbits
+ 564              		.align	1
+ 565              		.global	dac_software_trigger_enable
+ 566              		.syntax unified
+ 567              		.thumb
+ 568              		.thumb_func
+ 570              	dac_software_trigger_enable:
+ 571              	.LVL18:
+ 572              	.LFB128:
+ 275:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** 
+ 276:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** /*!
+ 277:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \brief      enable DAC software trigger
+ 278:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[in]  dac_periph: DACx(x = 0,1)
+ 279:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \retval     none
+ 280:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** */
+ 281:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** void dac_software_trigger_enable(uint32_t dac_periph)
+ 282:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** {
+ 573              		.loc 1 282 1 is_stmt 1 view -0
+ 574              		.cfi_startproc
+ 575              		@ args = 0, pretend = 0, frame = 0
+ 576              		@ frame_needed = 0, uses_anonymous_args = 0
+ 577              		@ link register save eliminated.
+ 283:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     if(DAC0 == dac_periph) {
+ 578              		.loc 1 283 5 view .LVU119
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s 			page 16
+
+
+ 579              		.loc 1 283 7 is_stmt 0 view .LVU120
+ 580 0000 38B9     		cbnz	r0, .L64
+ 284:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         DAC_SWT |= DAC_SWT_SWTR0;
+ 581              		.loc 1 284 9 is_stmt 1 view .LVU121
+ 582 0002 084A     		ldr	r2, .L66
+ 583 0004 D2F80434 		ldr	r3, [r2, #1028]
+ 584              		.loc 1 284 17 is_stmt 0 view .LVU122
+ 585 0008 43F00103 		orr	r3, r3, #1
+ 586 000c C2F80434 		str	r3, [r2, #1028]
+ 587 0010 7047     		bx	lr
+ 588              	.L64:
+ 285:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     } else {
+ 286:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         DAC_SWT |= DAC_SWT_SWTR1;
+ 589              		.loc 1 286 9 is_stmt 1 view .LVU123
+ 590 0012 044A     		ldr	r2, .L66
+ 591 0014 D2F80434 		ldr	r3, [r2, #1028]
+ 592              		.loc 1 286 17 is_stmt 0 view .LVU124
+ 593 0018 43F00203 		orr	r3, r3, #2
+ 594 001c C2F80434 		str	r3, [r2, #1028]
+ 287:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     }
+ 288:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** }
+ 595              		.loc 1 288 1 view .LVU125
+ 596 0020 7047     		bx	lr
+ 597              	.L67:
+ 598 0022 00BF     		.align	2
+ 599              	.L66:
+ 600 0024 00700040 		.word	1073770496
+ 601              		.cfi_endproc
+ 602              	.LFE128:
+ 604              		.section	.text.dac_software_trigger_disable,"ax",%progbits
+ 605              		.align	1
+ 606              		.global	dac_software_trigger_disable
+ 607              		.syntax unified
+ 608              		.thumb
+ 609              		.thumb_func
+ 611              	dac_software_trigger_disable:
+ 612              	.LVL19:
+ 613              	.LFB129:
+ 289:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** 
+ 290:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** /*!
+ 291:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \brief      disable DAC software trigger
+ 292:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[in]  dac_periph: DACx(x = 0,1)
+ 293:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[out] none
+ 294:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \retval     none
+ 295:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** */
+ 296:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** void dac_software_trigger_disable(uint32_t dac_periph)
+ 297:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** {
+ 614              		.loc 1 297 1 is_stmt 1 view -0
+ 615              		.cfi_startproc
+ 616              		@ args = 0, pretend = 0, frame = 0
+ 617              		@ frame_needed = 0, uses_anonymous_args = 0
+ 618              		@ link register save eliminated.
+ 298:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     if(DAC0 == dac_periph) {
+ 619              		.loc 1 298 5 view .LVU127
+ 620              		.loc 1 298 7 is_stmt 0 view .LVU128
+ 621 0000 38B9     		cbnz	r0, .L69
+ 299:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         DAC_SWT &= ~DAC_SWT_SWTR0;
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s 			page 17
+
+
+ 622              		.loc 1 299 9 is_stmt 1 view .LVU129
+ 623 0002 084A     		ldr	r2, .L71
+ 624 0004 D2F80434 		ldr	r3, [r2, #1028]
+ 625              		.loc 1 299 17 is_stmt 0 view .LVU130
+ 626 0008 23F00103 		bic	r3, r3, #1
+ 627 000c C2F80434 		str	r3, [r2, #1028]
+ 628 0010 7047     		bx	lr
+ 629              	.L69:
+ 300:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     } else {
+ 301:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         DAC_SWT &= ~DAC_SWT_SWTR1;
+ 630              		.loc 1 301 9 is_stmt 1 view .LVU131
+ 631 0012 044A     		ldr	r2, .L71
+ 632 0014 D2F80434 		ldr	r3, [r2, #1028]
+ 633              		.loc 1 301 17 is_stmt 0 view .LVU132
+ 634 0018 23F00203 		bic	r3, r3, #2
+ 635 001c C2F80434 		str	r3, [r2, #1028]
+ 302:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     }
+ 303:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** }
+ 636              		.loc 1 303 1 view .LVU133
+ 637 0020 7047     		bx	lr
+ 638              	.L72:
+ 639 0022 00BF     		.align	2
+ 640              	.L71:
+ 641 0024 00700040 		.word	1073770496
+ 642              		.cfi_endproc
+ 643              	.LFE129:
+ 645              		.section	.text.dac_wave_mode_config,"ax",%progbits
+ 646              		.align	1
+ 647              		.global	dac_wave_mode_config
+ 648              		.syntax unified
+ 649              		.thumb
+ 650              		.thumb_func
+ 652              	dac_wave_mode_config:
+ 653              	.LVL20:
+ 654              	.LFB130:
+ 304:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** 
+ 305:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** /*!
+ 306:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \brief      configure DAC wave mode
+ 307:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[in]  dac_periph: DACx(x = 0,1)
+ 308:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[in]  wave_mode: noise wave mode
+ 309:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****                 only one parameter can be selected which is shown as below:
+ 310:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****       \arg        DAC_WAVE_DISABLE: wave disable
+ 311:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****       \arg        DAC_WAVE_MODE_LFSR: LFSR noise mode
+ 312:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****       \arg        DAC_WAVE_MODE_TRIANGLE: triangle noise mode
+ 313:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[out] none
+ 314:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \retval     none
+ 315:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** */
+ 316:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** void dac_wave_mode_config(uint32_t dac_periph, uint32_t wave_mode)
+ 317:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** {
+ 655              		.loc 1 317 1 is_stmt 1 view -0
+ 656              		.cfi_startproc
+ 657              		@ args = 0, pretend = 0, frame = 0
+ 658              		@ frame_needed = 0, uses_anonymous_args = 0
+ 659              		@ link register save eliminated.
+ 318:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     if(DAC0 == dac_periph) {
+ 660              		.loc 1 318 5 view .LVU135
+ 661              		.loc 1 318 7 is_stmt 0 view .LVU136
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s 			page 18
+
+
+ 662 0000 60B9     		cbnz	r0, .L74
+ 319:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         /* configure DAC0 wave mode */
+ 320:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         DAC_CTL &= ~DAC_CTL_DWM0;
+ 663              		.loc 1 320 9 is_stmt 1 view .LVU137
+ 664 0002 0D4B     		ldr	r3, .L76
+ 665 0004 D3F80024 		ldr	r2, [r3, #1024]
+ 666              		.loc 1 320 17 is_stmt 0 view .LVU138
+ 667 0008 22F0C002 		bic	r2, r2, #192
+ 668 000c C3F80024 		str	r2, [r3, #1024]
+ 321:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         DAC_CTL |= wave_mode;
+ 669              		.loc 1 321 9 is_stmt 1 view .LVU139
+ 670 0010 D3F80024 		ldr	r2, [r3, #1024]
+ 671              		.loc 1 321 17 is_stmt 0 view .LVU140
+ 672 0014 0A43     		orrs	r2, r2, r1
+ 673 0016 C3F80024 		str	r2, [r3, #1024]
+ 674 001a 7047     		bx	lr
+ 675              	.L74:
+ 322:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     } else {
+ 323:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         /* configure DAC1 wave mode */
+ 324:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         DAC_CTL &= ~DAC_CTL_DWM1;
+ 676              		.loc 1 324 9 is_stmt 1 view .LVU141
+ 677 001c 064B     		ldr	r3, .L76
+ 678 001e D3F80024 		ldr	r2, [r3, #1024]
+ 679              		.loc 1 324 17 is_stmt 0 view .LVU142
+ 680 0022 22F44002 		bic	r2, r2, #12582912
+ 681 0026 C3F80024 		str	r2, [r3, #1024]
+ 325:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         DAC_CTL |= (wave_mode << DAC1_REG_OFFSET);
+ 682              		.loc 1 325 9 is_stmt 1 view .LVU143
+ 683 002a D3F80024 		ldr	r2, [r3, #1024]
+ 684              		.loc 1 325 17 is_stmt 0 view .LVU144
+ 685 002e 42EA0142 		orr	r2, r2, r1, lsl #16
+ 686 0032 C3F80024 		str	r2, [r3, #1024]
+ 326:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     }
+ 327:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** }
+ 687              		.loc 1 327 1 view .LVU145
+ 688 0036 7047     		bx	lr
+ 689              	.L77:
+ 690              		.align	2
+ 691              	.L76:
+ 692 0038 00700040 		.word	1073770496
+ 693              		.cfi_endproc
+ 694              	.LFE130:
+ 696              		.section	.text.dac_wave_bit_width_config,"ax",%progbits
+ 697              		.align	1
+ 698              		.global	dac_wave_bit_width_config
+ 699              		.syntax unified
+ 700              		.thumb
+ 701              		.thumb_func
+ 703              	dac_wave_bit_width_config:
+ 704              	.LVL21:
+ 705              	.LFB131:
+ 328:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** 
+ 329:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** /*!
+ 330:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \brief      configure DAC wave bit width
+ 331:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[in]  dac_periph: DACx(x = 0,1)
+ 332:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[in]  bit_width: noise wave bit width
+ 333:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****                 only one parameter can be selected which is shown as below:
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s 			page 19
+
+
+ 334:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****       \arg        DAC_WAVE_BIT_WIDTH_1: bit width of the wave signal is 1
+ 335:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****       \arg        DAC_WAVE_BIT_WIDTH_2: bit width of the wave signal is 2
+ 336:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****       \arg        DAC_WAVE_BIT_WIDTH_3: bit width of the wave signal is 3
+ 337:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****       \arg        DAC_WAVE_BIT_WIDTH_4: bit width of the wave signal is 4
+ 338:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****       \arg        DAC_WAVE_BIT_WIDTH_5: bit width of the wave signal is 5
+ 339:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****       \arg        DAC_WAVE_BIT_WIDTH_6: bit width of the wave signal is 6
+ 340:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****       \arg        DAC_WAVE_BIT_WIDTH_7: bit width of the wave signal is 7
+ 341:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****       \arg        DAC_WAVE_BIT_WIDTH_8: bit width of the wave signal is 8
+ 342:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****       \arg        DAC_WAVE_BIT_WIDTH_9: bit width of the wave signal is 9
+ 343:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****       \arg        DAC_WAVE_BIT_WIDTH_10: bit width of the wave signal is 10
+ 344:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****       \arg        DAC_WAVE_BIT_WIDTH_11: bit width of the wave signal is 11
+ 345:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****       \arg        DAC_WAVE_BIT_WIDTH_12: bit width of the wave signal is 12
+ 346:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[out] none
+ 347:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \retval     none
+ 348:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** */
+ 349:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** void dac_wave_bit_width_config(uint32_t dac_periph, uint32_t bit_width)
+ 350:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** {
+ 706              		.loc 1 350 1 is_stmt 1 view -0
+ 707              		.cfi_startproc
+ 708              		@ args = 0, pretend = 0, frame = 0
+ 709              		@ frame_needed = 0, uses_anonymous_args = 0
+ 710              		@ link register save eliminated.
+ 351:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     if(DAC0 == dac_periph) {
+ 711              		.loc 1 351 5 view .LVU147
+ 712              		.loc 1 351 7 is_stmt 0 view .LVU148
+ 713 0000 60B9     		cbnz	r0, .L79
+ 352:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         /* configure DAC0 wave bit width */
+ 353:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         DAC_CTL &= ~DAC_CTL_DWBW0;
+ 714              		.loc 1 353 9 is_stmt 1 view .LVU149
+ 715 0002 0D4B     		ldr	r3, .L81
+ 716 0004 D3F80024 		ldr	r2, [r3, #1024]
+ 717              		.loc 1 353 17 is_stmt 0 view .LVU150
+ 718 0008 22F47062 		bic	r2, r2, #3840
+ 719 000c C3F80024 		str	r2, [r3, #1024]
+ 354:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         DAC_CTL |= bit_width;
+ 720              		.loc 1 354 9 is_stmt 1 view .LVU151
+ 721 0010 D3F80024 		ldr	r2, [r3, #1024]
+ 722              		.loc 1 354 17 is_stmt 0 view .LVU152
+ 723 0014 0A43     		orrs	r2, r2, r1
+ 724 0016 C3F80024 		str	r2, [r3, #1024]
+ 725 001a 7047     		bx	lr
+ 726              	.L79:
+ 355:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     } else {
+ 356:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         /* configure DAC1 wave bit width */
+ 357:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         DAC_CTL &= ~DAC_CTL_DWBW1;
+ 727              		.loc 1 357 9 is_stmt 1 view .LVU153
+ 728 001c 064B     		ldr	r3, .L81
+ 729 001e D3F80024 		ldr	r2, [r3, #1024]
+ 730              		.loc 1 357 17 is_stmt 0 view .LVU154
+ 731 0022 22F07062 		bic	r2, r2, #251658240
+ 732 0026 C3F80024 		str	r2, [r3, #1024]
+ 358:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         DAC_CTL |= (bit_width << DAC1_REG_OFFSET);
+ 733              		.loc 1 358 9 is_stmt 1 view .LVU155
+ 734 002a D3F80024 		ldr	r2, [r3, #1024]
+ 735              		.loc 1 358 17 is_stmt 0 view .LVU156
+ 736 002e 42EA0142 		orr	r2, r2, r1, lsl #16
+ 737 0032 C3F80024 		str	r2, [r3, #1024]
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s 			page 20
+
+
+ 359:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     }
+ 360:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** }
+ 738              		.loc 1 360 1 view .LVU157
+ 739 0036 7047     		bx	lr
+ 740              	.L82:
+ 741              		.align	2
+ 742              	.L81:
+ 743 0038 00700040 		.word	1073770496
+ 744              		.cfi_endproc
+ 745              	.LFE131:
+ 747              		.section	.text.dac_lfsr_noise_config,"ax",%progbits
+ 748              		.align	1
+ 749              		.global	dac_lfsr_noise_config
+ 750              		.syntax unified
+ 751              		.thumb
+ 752              		.thumb_func
+ 754              	dac_lfsr_noise_config:
+ 755              	.LVL22:
+ 756              	.LFB132:
+ 361:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** 
+ 362:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** /*!
+ 363:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \brief      configure DAC LFSR noise mode
+ 364:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[in]  dac_periph: DACx(x = 0,1)
+ 365:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[in]  unmask_bits: unmask LFSR bits in DAC LFSR noise mode
+ 366:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****                 only one parameter can be selected which is shown as below:
+ 367:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****       \arg        DAC_LFSR_BIT0: unmask the LFSR bit0
+ 368:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****       \arg        DAC_LFSR_BITS1_0: unmask the LFSR bits[1:0]
+ 369:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****       \arg        DAC_LFSR_BITS2_0: unmask the LFSR bits[2:0]
+ 370:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****       \arg        DAC_LFSR_BITS3_0: unmask the LFSR bits[3:0]
+ 371:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****       \arg        DAC_LFSR_BITS4_0: unmask the LFSR bits[4:0]
+ 372:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****       \arg        DAC_LFSR_BITS5_0: unmask the LFSR bits[5:0]
+ 373:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****       \arg        DAC_LFSR_BITS6_0: unmask the LFSR bits[6:0]
+ 374:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****       \arg        DAC_LFSR_BITS7_0: unmask the LFSR bits[7:0]
+ 375:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****       \arg        DAC_LFSR_BITS8_0: unmask the LFSR bits[8:0]
+ 376:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****       \arg        DAC_LFSR_BITS9_0: unmask the LFSR bits[9:0]
+ 377:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****       \arg        DAC_LFSR_BITS10_0: unmask the LFSR bits[10:0]
+ 378:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****       \arg        DAC_LFSR_BITS11_0: unmask the LFSR bits[11:0]
+ 379:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[out] none
+ 380:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \retval     none
+ 381:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** */
+ 382:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** void dac_lfsr_noise_config(uint32_t dac_periph, uint32_t unmask_bits)
+ 383:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** {
+ 757              		.loc 1 383 1 is_stmt 1 view -0
+ 758              		.cfi_startproc
+ 759              		@ args = 0, pretend = 0, frame = 0
+ 760              		@ frame_needed = 0, uses_anonymous_args = 0
+ 761              		@ link register save eliminated.
+ 384:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     if(DAC0 == dac_periph) {
+ 762              		.loc 1 384 5 view .LVU159
+ 763              		.loc 1 384 7 is_stmt 0 view .LVU160
+ 764 0000 60B9     		cbnz	r0, .L84
+ 385:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         /* configure DAC0 LFSR noise mode */
+ 386:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         DAC_CTL &= ~DAC_CTL_DWBW0;
+ 765              		.loc 1 386 9 is_stmt 1 view .LVU161
+ 766 0002 0D4B     		ldr	r3, .L86
+ 767 0004 D3F80024 		ldr	r2, [r3, #1024]
+ 768              		.loc 1 386 17 is_stmt 0 view .LVU162
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s 			page 21
+
+
+ 769 0008 22F47062 		bic	r2, r2, #3840
+ 770 000c C3F80024 		str	r2, [r3, #1024]
+ 387:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         DAC_CTL |= unmask_bits;
+ 771              		.loc 1 387 9 is_stmt 1 view .LVU163
+ 772 0010 D3F80024 		ldr	r2, [r3, #1024]
+ 773              		.loc 1 387 17 is_stmt 0 view .LVU164
+ 774 0014 0A43     		orrs	r2, r2, r1
+ 775 0016 C3F80024 		str	r2, [r3, #1024]
+ 776 001a 7047     		bx	lr
+ 777              	.L84:
+ 388:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     } else {
+ 389:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         /* configure DAC1 LFSR noise mode */
+ 390:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         DAC_CTL &= ~DAC_CTL_DWBW1;
+ 778              		.loc 1 390 9 is_stmt 1 view .LVU165
+ 779 001c 064B     		ldr	r3, .L86
+ 780 001e D3F80024 		ldr	r2, [r3, #1024]
+ 781              		.loc 1 390 17 is_stmt 0 view .LVU166
+ 782 0022 22F07062 		bic	r2, r2, #251658240
+ 783 0026 C3F80024 		str	r2, [r3, #1024]
+ 391:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         DAC_CTL |= (unmask_bits << DAC1_REG_OFFSET);
+ 784              		.loc 1 391 9 is_stmt 1 view .LVU167
+ 785 002a D3F80024 		ldr	r2, [r3, #1024]
+ 786              		.loc 1 391 17 is_stmt 0 view .LVU168
+ 787 002e 42EA0142 		orr	r2, r2, r1, lsl #16
+ 788 0032 C3F80024 		str	r2, [r3, #1024]
+ 392:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     }
+ 393:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** }
+ 789              		.loc 1 393 1 view .LVU169
+ 790 0036 7047     		bx	lr
+ 791              	.L87:
+ 792              		.align	2
+ 793              	.L86:
+ 794 0038 00700040 		.word	1073770496
+ 795              		.cfi_endproc
+ 796              	.LFE132:
+ 798              		.section	.text.dac_triangle_noise_config,"ax",%progbits
+ 799              		.align	1
+ 800              		.global	dac_triangle_noise_config
+ 801              		.syntax unified
+ 802              		.thumb
+ 803              		.thumb_func
+ 805              	dac_triangle_noise_config:
+ 806              	.LVL23:
+ 807              	.LFB133:
+ 394:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** 
+ 395:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** /*!
+ 396:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \brief      configure DAC triangle noise mode
+ 397:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[in]  dac_periph: DACx(x = 0,1)
+ 398:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[in]  amplitude: triangle amplitude in DAC triangle noise mode
+ 399:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****                 only one parameter can be selected which is shown as below:
+ 400:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****       \arg        DAC_TRIANGLE_AMPLITUDE_1: triangle amplitude is 1
+ 401:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****       \arg        DAC_TRIANGLE_AMPLITUDE_3: triangle amplitude is 3
+ 402:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****       \arg        DAC_TRIANGLE_AMPLITUDE_7: triangle amplitude is 7
+ 403:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****       \arg        DAC_TRIANGLE_AMPLITUDE_15: triangle amplitude is 15
+ 404:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****       \arg        DAC_TRIANGLE_AMPLITUDE_31: triangle amplitude is 31
+ 405:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****       \arg        DAC_TRIANGLE_AMPLITUDE_63: triangle amplitude is 63
+ 406:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****       \arg        DAC_TRIANGLE_AMPLITUDE_127: triangle amplitude is 127
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s 			page 22
+
+
+ 407:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****       \arg        DAC_TRIANGLE_AMPLITUDE_255: triangle amplitude is 255
+ 408:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****       \arg        DAC_TRIANGLE_AMPLITUDE_511: triangle amplitude is 511
+ 409:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****       \arg        DAC_TRIANGLE_AMPLITUDE_1023: triangle amplitude is 1023
+ 410:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****       \arg        DAC_TRIANGLE_AMPLITUDE_2047: triangle amplitude is 2047
+ 411:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****       \arg        DAC_TRIANGLE_AMPLITUDE_4095: triangle amplitude is 4095
+ 412:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[out] none
+ 413:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \retval     none
+ 414:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** */
+ 415:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** void dac_triangle_noise_config(uint32_t dac_periph, uint32_t amplitude)
+ 416:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** {
+ 808              		.loc 1 416 1 is_stmt 1 view -0
+ 809              		.cfi_startproc
+ 810              		@ args = 0, pretend = 0, frame = 0
+ 811              		@ frame_needed = 0, uses_anonymous_args = 0
+ 812              		@ link register save eliminated.
+ 417:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     if(DAC0 == dac_periph) {
+ 813              		.loc 1 417 5 view .LVU171
+ 814              		.loc 1 417 7 is_stmt 0 view .LVU172
+ 815 0000 60B9     		cbnz	r0, .L89
+ 418:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         /* configure DAC0 triangle noise mode */
+ 419:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         DAC_CTL &= ~DAC_CTL_DWBW0;
+ 816              		.loc 1 419 9 is_stmt 1 view .LVU173
+ 817 0002 0D4B     		ldr	r3, .L91
+ 818 0004 D3F80024 		ldr	r2, [r3, #1024]
+ 819              		.loc 1 419 17 is_stmt 0 view .LVU174
+ 820 0008 22F47062 		bic	r2, r2, #3840
+ 821 000c C3F80024 		str	r2, [r3, #1024]
+ 420:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         DAC_CTL |= amplitude;
+ 822              		.loc 1 420 9 is_stmt 1 view .LVU175
+ 823 0010 D3F80024 		ldr	r2, [r3, #1024]
+ 824              		.loc 1 420 17 is_stmt 0 view .LVU176
+ 825 0014 0A43     		orrs	r2, r2, r1
+ 826 0016 C3F80024 		str	r2, [r3, #1024]
+ 827 001a 7047     		bx	lr
+ 828              	.L89:
+ 421:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     } else {
+ 422:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         /* configure DAC1 triangle noise mode */
+ 423:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         DAC_CTL &= ~DAC_CTL_DWBW1;
+ 829              		.loc 1 423 9 is_stmt 1 view .LVU177
+ 830 001c 064B     		ldr	r3, .L91
+ 831 001e D3F80024 		ldr	r2, [r3, #1024]
+ 832              		.loc 1 423 17 is_stmt 0 view .LVU178
+ 833 0022 22F07062 		bic	r2, r2, #251658240
+ 834 0026 C3F80024 		str	r2, [r3, #1024]
+ 424:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         DAC_CTL |= (amplitude << DAC1_REG_OFFSET);
+ 835              		.loc 1 424 9 is_stmt 1 view .LVU179
+ 836 002a D3F80024 		ldr	r2, [r3, #1024]
+ 837              		.loc 1 424 17 is_stmt 0 view .LVU180
+ 838 002e 42EA0142 		orr	r2, r2, r1, lsl #16
+ 839 0032 C3F80024 		str	r2, [r3, #1024]
+ 425:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     }
+ 426:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** }
+ 840              		.loc 1 426 1 view .LVU181
+ 841 0036 7047     		bx	lr
+ 842              	.L92:
+ 843              		.align	2
+ 844              	.L91:
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s 			page 23
+
+
+ 845 0038 00700040 		.word	1073770496
+ 846              		.cfi_endproc
+ 847              	.LFE133:
+ 849              		.section	.text.dac_concurrent_enable,"ax",%progbits
+ 850              		.align	1
+ 851              		.global	dac_concurrent_enable
+ 852              		.syntax unified
+ 853              		.thumb
+ 854              		.thumb_func
+ 856              	dac_concurrent_enable:
+ 857              	.LFB134:
+ 427:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** 
+ 428:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** /*!
+ 429:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \brief      enable DAC concurrent mode
+ 430:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[in]  none
+ 431:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[out] none
+ 432:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \retval     none
+ 433:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** */
+ 434:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** void dac_concurrent_enable(void)
+ 435:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** {
+ 858              		.loc 1 435 1 is_stmt 1 view -0
+ 859              		.cfi_startproc
+ 860              		@ args = 0, pretend = 0, frame = 0
+ 861              		@ frame_needed = 0, uses_anonymous_args = 0
+ 862              		@ link register save eliminated.
+ 436:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     uint32_t ctl = 0U;
+ 863              		.loc 1 436 5 view .LVU183
+ 864              	.LVL24:
+ 437:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     ctl = DAC_CTL_DEN0 | DAC_CTL_DEN1;
+ 865              		.loc 1 437 5 view .LVU184
+ 438:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     DAC_CTL |= (ctl);
+ 866              		.loc 1 438 5 view .LVU185
+ 867 0000 034A     		ldr	r2, .L94
+ 868 0002 D2F80034 		ldr	r3, [r2, #1024]
+ 869              		.loc 1 438 13 is_stmt 0 view .LVU186
+ 870 0006 43F00113 		orr	r3, r3, #65537
+ 871 000a C2F80034 		str	r3, [r2, #1024]
+ 439:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** }
+ 872              		.loc 1 439 1 view .LVU187
+ 873 000e 7047     		bx	lr
+ 874              	.L95:
+ 875              		.align	2
+ 876              	.L94:
+ 877 0010 00700040 		.word	1073770496
+ 878              		.cfi_endproc
+ 879              	.LFE134:
+ 881              		.section	.text.dac_concurrent_disable,"ax",%progbits
+ 882              		.align	1
+ 883              		.global	dac_concurrent_disable
+ 884              		.syntax unified
+ 885              		.thumb
+ 886              		.thumb_func
+ 888              	dac_concurrent_disable:
+ 889              	.LFB135:
+ 440:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** 
+ 441:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** /*!
+ 442:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \brief      disable DAC concurrent mode
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s 			page 24
+
+
+ 443:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[in]  none
+ 444:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[out] none
+ 445:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \retval     none
+ 446:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** */
+ 447:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** void dac_concurrent_disable(void)
+ 448:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** {
+ 890              		.loc 1 448 1 is_stmt 1 view -0
+ 891              		.cfi_startproc
+ 892              		@ args = 0, pretend = 0, frame = 0
+ 893              		@ frame_needed = 0, uses_anonymous_args = 0
+ 894              		@ link register save eliminated.
+ 449:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     uint32_t ctl = 0U;
+ 895              		.loc 1 449 5 view .LVU189
+ 896              	.LVL25:
+ 450:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     ctl = DAC_CTL_DEN0 | DAC_CTL_DEN1;
+ 897              		.loc 1 450 5 view .LVU190
+ 451:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     DAC_CTL &= (~ctl);
+ 898              		.loc 1 451 5 view .LVU191
+ 899 0000 034A     		ldr	r2, .L97
+ 900 0002 D2F80034 		ldr	r3, [r2, #1024]
+ 901              		.loc 1 451 13 is_stmt 0 view .LVU192
+ 902 0006 23F00113 		bic	r3, r3, #65537
+ 903 000a C2F80034 		str	r3, [r2, #1024]
+ 452:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** }
+ 904              		.loc 1 452 1 view .LVU193
+ 905 000e 7047     		bx	lr
+ 906              	.L98:
+ 907              		.align	2
+ 908              	.L97:
+ 909 0010 00700040 		.word	1073770496
+ 910              		.cfi_endproc
+ 911              	.LFE135:
+ 913              		.section	.text.dac_concurrent_software_trigger_enable,"ax",%progbits
+ 914              		.align	1
+ 915              		.global	dac_concurrent_software_trigger_enable
+ 916              		.syntax unified
+ 917              		.thumb
+ 918              		.thumb_func
+ 920              	dac_concurrent_software_trigger_enable:
+ 921              	.LFB136:
+ 453:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** 
+ 454:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** /*!
+ 455:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \brief      enable DAC concurrent software trigger function
+ 456:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[in]  none
+ 457:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[out] none
+ 458:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \retval     none
+ 459:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** */
+ 460:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** void dac_concurrent_software_trigger_enable(void)
+ 461:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** {
+ 922              		.loc 1 461 1 is_stmt 1 view -0
+ 923              		.cfi_startproc
+ 924              		@ args = 0, pretend = 0, frame = 0
+ 925              		@ frame_needed = 0, uses_anonymous_args = 0
+ 926              		@ link register save eliminated.
+ 462:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     uint32_t swt = 0U;
+ 927              		.loc 1 462 5 view .LVU195
+ 928              	.LVL26:
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s 			page 25
+
+
+ 463:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     swt = DAC_SWT_SWTR0 | DAC_SWT_SWTR1;
+ 929              		.loc 1 463 5 view .LVU196
+ 464:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     DAC_SWT |= (swt);
+ 930              		.loc 1 464 5 view .LVU197
+ 931 0000 034A     		ldr	r2, .L100
+ 932 0002 D2F80434 		ldr	r3, [r2, #1028]
+ 933              		.loc 1 464 13 is_stmt 0 view .LVU198
+ 934 0006 43F00303 		orr	r3, r3, #3
+ 935 000a C2F80434 		str	r3, [r2, #1028]
+ 465:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** }
+ 936              		.loc 1 465 1 view .LVU199
+ 937 000e 7047     		bx	lr
+ 938              	.L101:
+ 939              		.align	2
+ 940              	.L100:
+ 941 0010 00700040 		.word	1073770496
+ 942              		.cfi_endproc
+ 943              	.LFE136:
+ 945              		.section	.text.dac_concurrent_software_trigger_disable,"ax",%progbits
+ 946              		.align	1
+ 947              		.global	dac_concurrent_software_trigger_disable
+ 948              		.syntax unified
+ 949              		.thumb
+ 950              		.thumb_func
+ 952              	dac_concurrent_software_trigger_disable:
+ 953              	.LFB137:
+ 466:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** 
+ 467:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** /*!
+ 468:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \brief      disable DAC concurrent software trigger function
+ 469:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[in]  none
+ 470:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[out] none
+ 471:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \retval     none
+ 472:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** */
+ 473:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** void dac_concurrent_software_trigger_disable(void)
+ 474:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** {
+ 954              		.loc 1 474 1 is_stmt 1 view -0
+ 955              		.cfi_startproc
+ 956              		@ args = 0, pretend = 0, frame = 0
+ 957              		@ frame_needed = 0, uses_anonymous_args = 0
+ 958              		@ link register save eliminated.
+ 475:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     uint32_t swt = 0U;
+ 959              		.loc 1 475 5 view .LVU201
+ 960              	.LVL27:
+ 476:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     swt = DAC_SWT_SWTR0 | DAC_SWT_SWTR1;
+ 961              		.loc 1 476 5 view .LVU202
+ 477:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     DAC_SWT &= (~swt);
+ 962              		.loc 1 477 5 view .LVU203
+ 963 0000 034A     		ldr	r2, .L103
+ 964 0002 D2F80434 		ldr	r3, [r2, #1028]
+ 965              		.loc 1 477 13 is_stmt 0 view .LVU204
+ 966 0006 23F00303 		bic	r3, r3, #3
+ 967 000a C2F80434 		str	r3, [r2, #1028]
+ 478:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** }
+ 968              		.loc 1 478 1 view .LVU205
+ 969 000e 7047     		bx	lr
+ 970              	.L104:
+ 971              		.align	2
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s 			page 26
+
+
+ 972              	.L103:
+ 973 0010 00700040 		.word	1073770496
+ 974              		.cfi_endproc
+ 975              	.LFE137:
+ 977              		.section	.text.dac_concurrent_output_buffer_enable,"ax",%progbits
+ 978              		.align	1
+ 979              		.global	dac_concurrent_output_buffer_enable
+ 980              		.syntax unified
+ 981              		.thumb
+ 982              		.thumb_func
+ 984              	dac_concurrent_output_buffer_enable:
+ 985              	.LFB138:
+ 479:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** 
+ 480:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** /*!
+ 481:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \brief      enable DAC concurrent buffer function
+ 482:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[in]  none
+ 483:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[out] none
+ 484:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \retval     none
+ 485:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** */
+ 486:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** void dac_concurrent_output_buffer_enable(void)
+ 487:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** {
+ 986              		.loc 1 487 1 is_stmt 1 view -0
+ 987              		.cfi_startproc
+ 988              		@ args = 0, pretend = 0, frame = 0
+ 989              		@ frame_needed = 0, uses_anonymous_args = 0
+ 990              		@ link register save eliminated.
+ 488:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     uint32_t ctl = 0U;
+ 991              		.loc 1 488 5 view .LVU207
+ 992              	.LVL28:
+ 489:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     ctl = DAC_CTL_DBOFF0 | DAC_CTL_DBOFF1;
+ 993              		.loc 1 489 5 view .LVU208
+ 490:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     DAC_CTL &= (~ctl);
+ 994              		.loc 1 490 5 view .LVU209
+ 995 0000 034A     		ldr	r2, .L106
+ 996 0002 D2F80034 		ldr	r3, [r2, #1024]
+ 997              		.loc 1 490 13 is_stmt 0 view .LVU210
+ 998 0006 23F00213 		bic	r3, r3, #131074
+ 999 000a C2F80034 		str	r3, [r2, #1024]
+ 491:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** }
+ 1000              		.loc 1 491 1 view .LVU211
+ 1001 000e 7047     		bx	lr
+ 1002              	.L107:
+ 1003              		.align	2
+ 1004              	.L106:
+ 1005 0010 00700040 		.word	1073770496
+ 1006              		.cfi_endproc
+ 1007              	.LFE138:
+ 1009              		.section	.text.dac_concurrent_output_buffer_disable,"ax",%progbits
+ 1010              		.align	1
+ 1011              		.global	dac_concurrent_output_buffer_disable
+ 1012              		.syntax unified
+ 1013              		.thumb
+ 1014              		.thumb_func
+ 1016              	dac_concurrent_output_buffer_disable:
+ 1017              	.LFB139:
+ 492:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** 
+ 493:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** /*!
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s 			page 27
+
+
+ 494:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \brief      disable DAC concurrent buffer function
+ 495:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[in]  none
+ 496:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[out] none
+ 497:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \retval     none
+ 498:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** */
+ 499:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** void dac_concurrent_output_buffer_disable(void)
+ 500:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** {
+ 1018              		.loc 1 500 1 is_stmt 1 view -0
+ 1019              		.cfi_startproc
+ 1020              		@ args = 0, pretend = 0, frame = 0
+ 1021              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1022              		@ link register save eliminated.
+ 501:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     uint32_t ctl = 0U;
+ 1023              		.loc 1 501 5 view .LVU213
+ 1024              	.LVL29:
+ 502:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     ctl = DAC_CTL_DBOFF0 | DAC_CTL_DBOFF1;
+ 1025              		.loc 1 502 5 view .LVU214
+ 503:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     DAC_CTL |= (ctl);
+ 1026              		.loc 1 503 5 view .LVU215
+ 1027 0000 034A     		ldr	r2, .L109
+ 1028 0002 D2F80034 		ldr	r3, [r2, #1024]
+ 1029              		.loc 1 503 13 is_stmt 0 view .LVU216
+ 1030 0006 43F00213 		orr	r3, r3, #131074
+ 1031 000a C2F80034 		str	r3, [r2, #1024]
+ 504:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** }
+ 1032              		.loc 1 504 1 view .LVU217
+ 1033 000e 7047     		bx	lr
+ 1034              	.L110:
+ 1035              		.align	2
+ 1036              	.L109:
+ 1037 0010 00700040 		.word	1073770496
+ 1038              		.cfi_endproc
+ 1039              	.LFE139:
+ 1041              		.section	.text.dac_concurrent_data_set,"ax",%progbits
+ 1042              		.align	1
+ 1043              		.global	dac_concurrent_data_set
+ 1044              		.syntax unified
+ 1045              		.thumb
+ 1046              		.thumb_func
+ 1048              	dac_concurrent_data_set:
+ 1049              	.LVL30:
+ 1050              	.LFB140:
+ 505:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** 
+ 506:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** /*!
+ 507:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \brief      set DAC concurrent mode data holding register value
+ 508:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[in]  dac_align: data alignment
+ 509:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****                 only one parameter can be selected which is shown as below:
+ 510:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****       \arg        DAC_ALIGN_8B_R: data right 8b alignment
+ 511:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****       \arg        DAC_ALIGN_12B_R: data right 12b alignment
+ 512:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****       \arg        DAC_ALIGN_12B_L: data left 12b alignment
+ 513:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[in]  data0: data to be loaded
+ 514:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[in]  data1: data to be loaded
+ 515:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[out] none
+ 516:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \retval     none
+ 517:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** */
+ 518:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** void dac_concurrent_data_set(uint32_t dac_align, uint16_t data0, uint16_t data1)
+ 519:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** {
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s 			page 28
+
+
+ 1051              		.loc 1 519 1 is_stmt 1 view -0
+ 1052              		.cfi_startproc
+ 1053              		@ args = 0, pretend = 0, frame = 0
+ 1054              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1055              		@ link register save eliminated.
+ 520:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     uint32_t data = 0U;
+ 1056              		.loc 1 520 5 view .LVU219
+ 521:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     switch(dac_align) {
+ 1057              		.loc 1 521 5 view .LVU220
+ 1058 0000 0128     		cmp	r0, #1
+ 1059 0002 09D0     		beq	.L112
+ 1060 0004 0228     		cmp	r0, #2
+ 1061 0006 0DD0     		beq	.L113
+ 1062 0008 00B1     		cbz	r0, .L115
+ 1063              	.LVL31:
+ 1064              	.L111:
+ 522:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     /* data right 12b alignment */
+ 523:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     case DAC_ALIGN_12B_R:
+ 524:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         data = ((uint32_t)data1 << DH_12BIT_OFFSET) | data0;
+ 525:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         DACC_R12DH = data;
+ 526:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         break;
+ 527:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     /* data left 12b alignment */
+ 528:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     case DAC_ALIGN_12B_L:
+ 529:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         data = ((uint32_t)data1 << DH_12BIT_OFFSET) | data0;
+ 530:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         DACC_L12DH = data;
+ 531:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         break;
+ 532:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     /* data right 8b alignment */
+ 533:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     case DAC_ALIGN_8B_R:
+ 534:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         data = ((uint32_t)data1 << DH_8BIT_OFFSET) | data0;
+ 535:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         DACC_R8DH = data;
+ 536:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         break;
+ 537:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     default:
+ 538:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         break;
+ 539:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     }
+ 540:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** }
+ 1065              		.loc 1 540 1 is_stmt 0 view .LVU221
+ 1066 000a 7047     		bx	lr
+ 1067              	.LVL32:
+ 1068              	.L115:
+ 524:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         DACC_R12DH = data;
+ 1069              		.loc 1 524 9 is_stmt 1 view .LVU222
+ 524:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         DACC_R12DH = data;
+ 1070              		.loc 1 524 14 is_stmt 0 view .LVU223
+ 1071 000c 41EA0241 		orr	r1, r1, r2, lsl #16
+ 1072              	.LVL33:
+ 525:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         break;
+ 1073              		.loc 1 525 9 is_stmt 1 view .LVU224
+ 525:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         break;
+ 1074              		.loc 1 525 20 is_stmt 0 view .LVU225
+ 1075 0010 074B     		ldr	r3, .L116
+ 1076 0012 C3F82014 		str	r1, [r3, #1056]
+ 526:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     /* data left 12b alignment */
+ 1077              		.loc 1 526 9 is_stmt 1 view .LVU226
+ 1078 0016 7047     		bx	lr
+ 1079              	.LVL34:
+ 1080              	.L112:
+ 529:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         DACC_L12DH = data;
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s 			page 29
+
+
+ 1081              		.loc 1 529 9 view .LVU227
+ 529:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         DACC_L12DH = data;
+ 1082              		.loc 1 529 14 is_stmt 0 view .LVU228
+ 1083 0018 41EA0241 		orr	r1, r1, r2, lsl #16
+ 1084              	.LVL35:
+ 530:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         break;
+ 1085              		.loc 1 530 9 is_stmt 1 view .LVU229
+ 530:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         break;
+ 1086              		.loc 1 530 20 is_stmt 0 view .LVU230
+ 1087 001c 044B     		ldr	r3, .L116
+ 1088 001e C3F82414 		str	r1, [r3, #1060]
+ 531:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     /* data right 8b alignment */
+ 1089              		.loc 1 531 9 is_stmt 1 view .LVU231
+ 1090 0022 7047     		bx	lr
+ 1091              	.LVL36:
+ 1092              	.L113:
+ 534:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         DACC_R8DH = data;
+ 1093              		.loc 1 534 9 view .LVU232
+ 534:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         DACC_R8DH = data;
+ 1094              		.loc 1 534 14 is_stmt 0 view .LVU233
+ 1095 0024 41EA0221 		orr	r1, r1, r2, lsl #8
+ 1096              	.LVL37:
+ 535:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         break;
+ 1097              		.loc 1 535 9 is_stmt 1 view .LVU234
+ 535:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         break;
+ 1098              		.loc 1 535 19 is_stmt 0 view .LVU235
+ 1099 0028 014B     		ldr	r3, .L116
+ 1100 002a C3F82814 		str	r1, [r3, #1064]
+ 536:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     default:
+ 1101              		.loc 1 536 9 is_stmt 1 view .LVU236
+ 1102              		.loc 1 540 1 is_stmt 0 view .LVU237
+ 1103 002e ECE7     		b	.L111
+ 1104              	.L117:
+ 1105              		.align	2
+ 1106              	.L116:
+ 1107 0030 00700040 		.word	1073770496
+ 1108              		.cfi_endproc
+ 1109              	.LFE140:
+ 1111              		.section	.text.dac_concurrent_interrupt_enable,"ax",%progbits
+ 1112              		.align	1
+ 1113              		.global	dac_concurrent_interrupt_enable
+ 1114              		.syntax unified
+ 1115              		.thumb
+ 1116              		.thumb_func
+ 1118              	dac_concurrent_interrupt_enable:
+ 1119              	.LFB141:
+ 541:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** 
+ 542:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** /*!
+ 543:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \brief      enable DAC concurrent interrupt funcution
+ 544:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[in]  none
+ 545:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[out] none
+ 546:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \retval     none
+ 547:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** */
+ 548:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** void dac_concurrent_interrupt_enable(void)
+ 549:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** {
+ 1120              		.loc 1 549 1 is_stmt 1 view -0
+ 1121              		.cfi_startproc
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s 			page 30
+
+
+ 1122              		@ args = 0, pretend = 0, frame = 0
+ 1123              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1124              		@ link register save eliminated.
+ 550:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     uint32_t ctl = 0U;
+ 1125              		.loc 1 550 5 view .LVU239
+ 1126              	.LVL38:
+ 551:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     ctl = DAC_CTL_DDUDRIE0 | DAC_CTL_DDUDRIE1;
+ 1127              		.loc 1 551 5 view .LVU240
+ 552:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     DAC_CTL |= (ctl);
+ 1128              		.loc 1 552 5 view .LVU241
+ 1129 0000 034A     		ldr	r2, .L119
+ 1130 0002 D2F80034 		ldr	r3, [r2, #1024]
+ 1131              		.loc 1 552 13 is_stmt 0 view .LVU242
+ 1132 0006 43F02023 		orr	r3, r3, #536879104
+ 1133 000a C2F80034 		str	r3, [r2, #1024]
+ 553:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** }
+ 1134              		.loc 1 553 1 view .LVU243
+ 1135 000e 7047     		bx	lr
+ 1136              	.L120:
+ 1137              		.align	2
+ 1138              	.L119:
+ 1139 0010 00700040 		.word	1073770496
+ 1140              		.cfi_endproc
+ 1141              	.LFE141:
+ 1143              		.section	.text.dac_concurrent_interrupt_disable,"ax",%progbits
+ 1144              		.align	1
+ 1145              		.global	dac_concurrent_interrupt_disable
+ 1146              		.syntax unified
+ 1147              		.thumb
+ 1148              		.thumb_func
+ 1150              	dac_concurrent_interrupt_disable:
+ 1151              	.LFB142:
+ 554:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** 
+ 555:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** /*!
+ 556:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \brief      disable DAC concurrent interrupt funcution
+ 557:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[in]  none
+ 558:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[out] none
+ 559:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \retval     none
+ 560:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** */
+ 561:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** void dac_concurrent_interrupt_disable(void)
+ 562:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** {
+ 1152              		.loc 1 562 1 is_stmt 1 view -0
+ 1153              		.cfi_startproc
+ 1154              		@ args = 0, pretend = 0, frame = 0
+ 1155              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1156              		@ link register save eliminated.
+ 563:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     uint32_t ctl = 0U;
+ 1157              		.loc 1 563 5 view .LVU245
+ 1158              	.LVL39:
+ 564:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     ctl = DAC_CTL_DDUDRIE0 | DAC_CTL_DDUDRIE1;
+ 1159              		.loc 1 564 5 view .LVU246
+ 565:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     DAC_CTL &= (~ctl);
+ 1160              		.loc 1 565 5 view .LVU247
+ 1161 0000 034A     		ldr	r2, .L122
+ 1162 0002 D2F80034 		ldr	r3, [r2, #1024]
+ 1163              		.loc 1 565 13 is_stmt 0 view .LVU248
+ 1164 0006 23F02023 		bic	r3, r3, #536879104
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s 			page 31
+
+
+ 1165 000a C2F80034 		str	r3, [r2, #1024]
+ 566:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** }
+ 1166              		.loc 1 566 1 view .LVU249
+ 1167 000e 7047     		bx	lr
+ 1168              	.L123:
+ 1169              		.align	2
+ 1170              	.L122:
+ 1171 0010 00700040 		.word	1073770496
+ 1172              		.cfi_endproc
+ 1173              	.LFE142:
+ 1175              		.section	.text.dac_flag_get,"ax",%progbits
+ 1176              		.align	1
+ 1177              		.global	dac_flag_get
+ 1178              		.syntax unified
+ 1179              		.thumb
+ 1180              		.thumb_func
+ 1182              	dac_flag_get:
+ 1183              	.LVL40:
+ 1184              	.LFB143:
+ 567:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** 
+ 568:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** /*!
+ 569:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \brief      get the specified DAC flag (DAC DMA underrun flag)
+ 570:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[in]  dac_periph: DACx(x = 0,1)
+ 571:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[out] none
+ 572:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \retval     FlagStatus: SET or RESET
+ 573:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** */
+ 574:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** FlagStatus dac_flag_get(uint32_t dac_periph)
+ 575:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** {
+ 1185              		.loc 1 575 1 is_stmt 1 view -0
+ 1186              		.cfi_startproc
+ 1187              		@ args = 0, pretend = 0, frame = 0
+ 1188              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1189              		@ link register save eliminated.
+ 576:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     FlagStatus temp_flag = RESET;
+ 1190              		.loc 1 576 5 view .LVU251
+ 577:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     if(DAC0 == dac_periph) {
+ 1191              		.loc 1 577 5 view .LVU252
+ 1192              		.loc 1 577 7 is_stmt 0 view .LVU253
+ 1193 0000 30B9     		cbnz	r0, .L125
+ 578:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         /* check the DMA underrun flag */
+ 579:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         if(RESET != (DAC_STAT & DAC_STAT_DDUDR0)) {
+ 1194              		.loc 1 579 9 is_stmt 1 view .LVU254
+ 1195              		.loc 1 579 22 is_stmt 0 view .LVU255
+ 1196 0002 094B     		ldr	r3, .L129
+ 1197 0004 D3F83434 		ldr	r3, [r3, #1076]
+ 1198              		.loc 1 579 11 view .LVU256
+ 1199 0008 13F4005F 		tst	r3, #8192
+ 1200 000c 08D1     		bne	.L127
+ 1201 000e 7047     		bx	lr
+ 1202              	.L125:
+ 580:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****             temp_flag = SET;
+ 581:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         }
+ 582:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     } else {
+ 583:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         /* check the DMA underrun flag */
+ 584:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         if(RESET != (DAC_STAT & DAC_STAT_DDUDR1)) {
+ 1203              		.loc 1 584 9 is_stmt 1 view .LVU257
+ 1204              		.loc 1 584 22 is_stmt 0 view .LVU258
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s 			page 32
+
+
+ 1205 0010 054B     		ldr	r3, .L129
+ 1206 0012 D3F83434 		ldr	r3, [r3, #1076]
+ 1207              		.loc 1 584 11 view .LVU259
+ 1208 0016 13F0005F 		tst	r3, #536870912
+ 1209 001a 03D1     		bne	.L128
+ 576:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     if(DAC0 == dac_periph) {
+ 1210              		.loc 1 576 16 view .LVU260
+ 1211 001c 0020     		movs	r0, #0
+ 1212              	.LVL41:
+ 576:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     if(DAC0 == dac_periph) {
+ 1213              		.loc 1 576 16 view .LVU261
+ 1214 001e 7047     		bx	lr
+ 1215              	.LVL42:
+ 1216              	.L127:
+ 580:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****             temp_flag = SET;
+ 1217              		.loc 1 580 23 view .LVU262
+ 1218 0020 0120     		movs	r0, #1
+ 1219              	.LVL43:
+ 580:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****             temp_flag = SET;
+ 1220              		.loc 1 580 23 view .LVU263
+ 1221 0022 7047     		bx	lr
+ 1222              	.LVL44:
+ 1223              	.L128:
+ 585:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****             temp_flag = SET;
+ 1224              		.loc 1 585 23 view .LVU264
+ 1225 0024 0120     		movs	r0, #1
+ 1226              	.LVL45:
+ 586:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         }
+ 587:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     }
+ 588:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     return temp_flag;
+ 1227              		.loc 1 588 5 is_stmt 1 view .LVU265
+ 589:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** }
+ 1228              		.loc 1 589 1 is_stmt 0 view .LVU266
+ 1229 0026 7047     		bx	lr
+ 1230              	.L130:
+ 1231              		.align	2
+ 1232              	.L129:
+ 1233 0028 00700040 		.word	1073770496
+ 1234              		.cfi_endproc
+ 1235              	.LFE143:
+ 1237              		.section	.text.dac_flag_clear,"ax",%progbits
+ 1238              		.align	1
+ 1239              		.global	dac_flag_clear
+ 1240              		.syntax unified
+ 1241              		.thumb
+ 1242              		.thumb_func
+ 1244              	dac_flag_clear:
+ 1245              	.LVL46:
+ 1246              	.LFB144:
+ 590:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** 
+ 591:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** /*!
+ 592:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \brief      clear the specified DAC flag (DAC DMA underrun flag)
+ 593:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[in]  dac_periph: DACx(x = 0,1)
+ 594:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[out] none
+ 595:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \retval     none
+ 596:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** */
+ 597:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** void dac_flag_clear(uint32_t dac_periph)
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s 			page 33
+
+
+ 598:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** {
+ 1247              		.loc 1 598 1 is_stmt 1 view -0
+ 1248              		.cfi_startproc
+ 1249              		@ args = 0, pretend = 0, frame = 0
+ 1250              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1251              		@ link register save eliminated.
+ 599:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     if(DAC0 == dac_periph) {
+ 1252              		.loc 1 599 5 view .LVU268
+ 1253              		.loc 1 599 7 is_stmt 0 view .LVU269
+ 1254 0000 38B9     		cbnz	r0, .L132
+ 600:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         DAC_STAT |= DAC_STAT_DDUDR0;
+ 1255              		.loc 1 600 9 is_stmt 1 view .LVU270
+ 1256 0002 084A     		ldr	r2, .L134
+ 1257 0004 D2F83434 		ldr	r3, [r2, #1076]
+ 1258              		.loc 1 600 18 is_stmt 0 view .LVU271
+ 1259 0008 43F40053 		orr	r3, r3, #8192
+ 1260 000c C2F83434 		str	r3, [r2, #1076]
+ 1261 0010 7047     		bx	lr
+ 1262              	.L132:
+ 601:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     } else {
+ 602:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         DAC_STAT |= DAC_STAT_DDUDR1;
+ 1263              		.loc 1 602 9 is_stmt 1 view .LVU272
+ 1264 0012 044A     		ldr	r2, .L134
+ 1265 0014 D2F83434 		ldr	r3, [r2, #1076]
+ 1266              		.loc 1 602 18 is_stmt 0 view .LVU273
+ 1267 0018 43F00053 		orr	r3, r3, #536870912
+ 1268 001c C2F83434 		str	r3, [r2, #1076]
+ 603:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     }
+ 604:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** }
+ 1269              		.loc 1 604 1 view .LVU274
+ 1270 0020 7047     		bx	lr
+ 1271              	.L135:
+ 1272 0022 00BF     		.align	2
+ 1273              	.L134:
+ 1274 0024 00700040 		.word	1073770496
+ 1275              		.cfi_endproc
+ 1276              	.LFE144:
+ 1278              		.section	.text.dac_interrupt_enable,"ax",%progbits
+ 1279              		.align	1
+ 1280              		.global	dac_interrupt_enable
+ 1281              		.syntax unified
+ 1282              		.thumb
+ 1283              		.thumb_func
+ 1285              	dac_interrupt_enable:
+ 1286              	.LVL47:
+ 1287              	.LFB145:
+ 605:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** 
+ 606:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** /*!
+ 607:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \brief      enable DAC interrupt(DAC DMA underrun interrupt)
+ 608:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[in]  dac_periph: DACx(x = 0,1)
+ 609:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[out] none
+ 610:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \retval     none
+ 611:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** */
+ 612:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** void dac_interrupt_enable(uint32_t dac_periph)
+ 613:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** {
+ 1288              		.loc 1 613 1 is_stmt 1 view -0
+ 1289              		.cfi_startproc
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s 			page 34
+
+
+ 1290              		@ args = 0, pretend = 0, frame = 0
+ 1291              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1292              		@ link register save eliminated.
+ 614:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     if(DAC0 == dac_periph) {
+ 1293              		.loc 1 614 5 view .LVU276
+ 1294              		.loc 1 614 7 is_stmt 0 view .LVU277
+ 1295 0000 38B9     		cbnz	r0, .L137
+ 615:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         DAC_CTL |= DAC_CTL_DDUDRIE0;
+ 1296              		.loc 1 615 9 is_stmt 1 view .LVU278
+ 1297 0002 084A     		ldr	r2, .L139
+ 1298 0004 D2F80034 		ldr	r3, [r2, #1024]
+ 1299              		.loc 1 615 17 is_stmt 0 view .LVU279
+ 1300 0008 43F40053 		orr	r3, r3, #8192
+ 1301 000c C2F80034 		str	r3, [r2, #1024]
+ 1302 0010 7047     		bx	lr
+ 1303              	.L137:
+ 616:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     } else {
+ 617:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         DAC_CTL |= DAC_CTL_DDUDRIE1;
+ 1304              		.loc 1 617 9 is_stmt 1 view .LVU280
+ 1305 0012 044A     		ldr	r2, .L139
+ 1306 0014 D2F80034 		ldr	r3, [r2, #1024]
+ 1307              		.loc 1 617 17 is_stmt 0 view .LVU281
+ 1308 0018 43F00053 		orr	r3, r3, #536870912
+ 1309 001c C2F80034 		str	r3, [r2, #1024]
+ 618:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     }
+ 619:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** }
+ 1310              		.loc 1 619 1 view .LVU282
+ 1311 0020 7047     		bx	lr
+ 1312              	.L140:
+ 1313 0022 00BF     		.align	2
+ 1314              	.L139:
+ 1315 0024 00700040 		.word	1073770496
+ 1316              		.cfi_endproc
+ 1317              	.LFE145:
+ 1319              		.section	.text.dac_interrupt_disable,"ax",%progbits
+ 1320              		.align	1
+ 1321              		.global	dac_interrupt_disable
+ 1322              		.syntax unified
+ 1323              		.thumb
+ 1324              		.thumb_func
+ 1326              	dac_interrupt_disable:
+ 1327              	.LVL48:
+ 1328              	.LFB146:
+ 620:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** 
+ 621:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** /*!
+ 622:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \brief      disable DAC interrupt(DAC DMA underrun interrupt)
+ 623:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[in]  dac_periph: DACx(x = 0,1)
+ 624:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[out] none
+ 625:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \retval     none
+ 626:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** */
+ 627:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** void dac_interrupt_disable(uint32_t dac_periph)
+ 628:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** {
+ 1329              		.loc 1 628 1 is_stmt 1 view -0
+ 1330              		.cfi_startproc
+ 1331              		@ args = 0, pretend = 0, frame = 0
+ 1332              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1333              		@ link register save eliminated.
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s 			page 35
+
+
+ 629:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     if(DAC0 == dac_periph) {
+ 1334              		.loc 1 629 5 view .LVU284
+ 1335              		.loc 1 629 7 is_stmt 0 view .LVU285
+ 1336 0000 38B9     		cbnz	r0, .L142
+ 630:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         DAC_CTL &= ~DAC_CTL_DDUDRIE0;
+ 1337              		.loc 1 630 9 is_stmt 1 view .LVU286
+ 1338 0002 084A     		ldr	r2, .L144
+ 1339 0004 D2F80034 		ldr	r3, [r2, #1024]
+ 1340              		.loc 1 630 17 is_stmt 0 view .LVU287
+ 1341 0008 23F40053 		bic	r3, r3, #8192
+ 1342 000c C2F80034 		str	r3, [r2, #1024]
+ 1343 0010 7047     		bx	lr
+ 1344              	.L142:
+ 631:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     } else {
+ 632:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         DAC_CTL &= ~DAC_CTL_DDUDRIE1;
+ 1345              		.loc 1 632 9 is_stmt 1 view .LVU288
+ 1346 0012 044A     		ldr	r2, .L144
+ 1347 0014 D2F80034 		ldr	r3, [r2, #1024]
+ 1348              		.loc 1 632 17 is_stmt 0 view .LVU289
+ 1349 0018 23F00053 		bic	r3, r3, #536870912
+ 1350 001c C2F80034 		str	r3, [r2, #1024]
+ 633:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     }
+ 634:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** }
+ 1351              		.loc 1 634 1 view .LVU290
+ 1352 0020 7047     		bx	lr
+ 1353              	.L145:
+ 1354 0022 00BF     		.align	2
+ 1355              	.L144:
+ 1356 0024 00700040 		.word	1073770496
+ 1357              		.cfi_endproc
+ 1358              	.LFE146:
+ 1360              		.section	.text.dac_interrupt_flag_get,"ax",%progbits
+ 1361              		.align	1
+ 1362              		.global	dac_interrupt_flag_get
+ 1363              		.syntax unified
+ 1364              		.thumb
+ 1365              		.thumb_func
+ 1367              	dac_interrupt_flag_get:
+ 1368              	.LVL49:
+ 1369              	.LFB147:
+ 635:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** 
+ 636:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** /*!
+ 637:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \brief      get the specified DAC interrupt flag (DAC DMA underrun interrupt flag)
+ 638:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[in]  dac_periph: DACx(x = 0,1)
+ 639:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[out] none
+ 640:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \retval     FlagStatus: SET or RESET
+ 641:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** */
+ 642:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** FlagStatus dac_interrupt_flag_get(uint32_t dac_periph)
+ 643:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** {
+ 1370              		.loc 1 643 1 is_stmt 1 view -0
+ 1371              		.cfi_startproc
+ 1372              		@ args = 0, pretend = 0, frame = 0
+ 1373              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1374              		@ link register save eliminated.
+ 644:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     FlagStatus temp_flag = RESET;
+ 1375              		.loc 1 644 5 view .LVU292
+ 645:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     uint32_t ddudr_flag = 0U, ddudrie_flag = 0U;
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s 			page 36
+
+
+ 1376              		.loc 1 645 5 view .LVU293
+ 646:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** 
+ 647:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     if(DAC0 == dac_periph) {
+ 1377              		.loc 1 647 5 view .LVU294
+ 1378              		.loc 1 647 7 is_stmt 0 view .LVU295
+ 1379 0000 58B9     		cbnz	r0, .L147
+ 648:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         /* check the DMA underrun flag and DAC DMA underrun interrupt enable flag */
+ 649:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         ddudr_flag = DAC_STAT & DAC_STAT_DDUDR0;
+ 1380              		.loc 1 649 9 is_stmt 1 view .LVU296
+ 1381              		.loc 1 649 22 is_stmt 0 view .LVU297
+ 1382 0002 104B     		ldr	r3, .L153
+ 1383 0004 D3F83424 		ldr	r2, [r3, #1076]
+ 1384              	.LVL50:
+ 650:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         ddudrie_flag = DAC_CTL & DAC_CTL_DDUDRIE0;
+ 1385              		.loc 1 650 9 is_stmt 1 view .LVU298
+ 1386              		.loc 1 650 24 is_stmt 0 view .LVU299
+ 1387 0008 D3F80034 		ldr	r3, [r3, #1024]
+ 1388              		.loc 1 650 22 view .LVU300
+ 1389 000c 03F40053 		and	r3, r3, #8192
+ 1390              	.LVL51:
+ 651:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         if((RESET != ddudr_flag) && (RESET != ddudrie_flag)) {
+ 1391              		.loc 1 651 9 is_stmt 1 view .LVU301
+ 1392              		.loc 1 651 11 is_stmt 0 view .LVU302
+ 1393 0010 12F4005F 		tst	r2, #8192
+ 1394 0014 0ED0     		beq	.L149
+ 1395              		.loc 1 651 34 discriminator 1 view .LVU303
+ 1396 0016 7BB9     		cbnz	r3, .L150
+ 1397 0018 7047     		bx	lr
+ 1398              	.LVL52:
+ 1399              	.L147:
+ 652:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****             temp_flag = SET;
+ 653:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         }
+ 654:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     } else {
+ 655:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         /* check the DMA underrun flag and DAC DMA underrun interrupt enable flag */
+ 656:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         ddudr_flag = DAC_STAT & DAC_STAT_DDUDR1;
+ 1400              		.loc 1 656 9 is_stmt 1 view .LVU304
+ 1401              		.loc 1 656 22 is_stmt 0 view .LVU305
+ 1402 001a 0A4B     		ldr	r3, .L153
+ 1403 001c D3F83424 		ldr	r2, [r3, #1076]
+ 1404              	.LVL53:
+ 657:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         ddudrie_flag = DAC_CTL & DAC_CTL_DDUDRIE1;
+ 1405              		.loc 1 657 9 is_stmt 1 view .LVU306
+ 1406              		.loc 1 657 24 is_stmt 0 view .LVU307
+ 1407 0020 D3F80034 		ldr	r3, [r3, #1024]
+ 1408              		.loc 1 657 22 view .LVU308
+ 1409 0024 03F00053 		and	r3, r3, #536870912
+ 1410              	.LVL54:
+ 658:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         if((RESET != ddudr_flag) && (RESET != ddudrie_flag)) {
+ 1411              		.loc 1 658 9 is_stmt 1 view .LVU309
+ 1412              		.loc 1 658 11 is_stmt 0 view .LVU310
+ 1413 0028 12F0005F 		tst	r2, #536870912
+ 1414 002c 06D0     		beq	.L151
+ 1415              		.loc 1 658 34 discriminator 1 view .LVU311
+ 1416 002e 3BB9     		cbnz	r3, .L152
+ 644:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     uint32_t ddudr_flag = 0U, ddudrie_flag = 0U;
+ 1417              		.loc 1 644 16 view .LVU312
+ 1418 0030 0020     		movs	r0, #0
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s 			page 37
+
+
+ 1419              	.LVL55:
+ 644:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     uint32_t ddudr_flag = 0U, ddudrie_flag = 0U;
+ 1420              		.loc 1 644 16 view .LVU313
+ 1421 0032 7047     		bx	lr
+ 1422              	.LVL56:
+ 1423              	.L149:
+ 644:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     uint32_t ddudr_flag = 0U, ddudrie_flag = 0U;
+ 1424              		.loc 1 644 16 view .LVU314
+ 1425 0034 0020     		movs	r0, #0
+ 1426              	.LVL57:
+ 644:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     uint32_t ddudr_flag = 0U, ddudrie_flag = 0U;
+ 1427              		.loc 1 644 16 view .LVU315
+ 1428 0036 7047     		bx	lr
+ 1429              	.LVL58:
+ 1430              	.L150:
+ 652:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         }
+ 1431              		.loc 1 652 23 view .LVU316
+ 1432 0038 0120     		movs	r0, #1
+ 1433              	.LVL59:
+ 652:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         }
+ 1434              		.loc 1 652 23 view .LVU317
+ 1435 003a 7047     		bx	lr
+ 1436              	.LVL60:
+ 1437              	.L151:
+ 644:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     uint32_t ddudr_flag = 0U, ddudrie_flag = 0U;
+ 1438              		.loc 1 644 16 view .LVU318
+ 1439 003c 0020     		movs	r0, #0
+ 1440              	.LVL61:
+ 644:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     uint32_t ddudr_flag = 0U, ddudrie_flag = 0U;
+ 1441              		.loc 1 644 16 view .LVU319
+ 1442 003e 7047     		bx	lr
+ 1443              	.LVL62:
+ 1444              	.L152:
+ 659:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****             temp_flag = SET;
+ 1445              		.loc 1 659 23 view .LVU320
+ 1446 0040 0120     		movs	r0, #1
+ 1447              	.LVL63:
+ 660:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         }
+ 661:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     }
+ 662:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     return temp_flag;
+ 1448              		.loc 1 662 5 is_stmt 1 view .LVU321
+ 663:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** }
+ 1449              		.loc 1 663 1 is_stmt 0 view .LVU322
+ 1450 0042 7047     		bx	lr
+ 1451              	.L154:
+ 1452              		.align	2
+ 1453              	.L153:
+ 1454 0044 00700040 		.word	1073770496
+ 1455              		.cfi_endproc
+ 1456              	.LFE147:
+ 1458              		.section	.text.dac_interrupt_flag_clear,"ax",%progbits
+ 1459              		.align	1
+ 1460              		.global	dac_interrupt_flag_clear
+ 1461              		.syntax unified
+ 1462              		.thumb
+ 1463              		.thumb_func
+ 1465              	dac_interrupt_flag_clear:
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s 			page 38
+
+
+ 1466              	.LVL64:
+ 1467              	.LFB148:
+ 664:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** 
+ 665:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** /*!
+ 666:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \brief      clear the specified DAC interrupt flag (DAC DMA underrun interrupt flag)
+ 667:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[in]  dac_periph: DACx(x = 0,1)
+ 668:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \param[out] none
+ 669:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     \retval     none
+ 670:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** */
+ 671:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** void dac_interrupt_flag_clear(uint32_t dac_periph)
+ 672:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** {
+ 1468              		.loc 1 672 1 is_stmt 1 view -0
+ 1469              		.cfi_startproc
+ 1470              		@ args = 0, pretend = 0, frame = 0
+ 1471              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1472              		@ link register save eliminated.
+ 673:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     if(DAC0 == dac_periph) {
+ 1473              		.loc 1 673 5 view .LVU324
+ 1474              		.loc 1 673 7 is_stmt 0 view .LVU325
+ 1475 0000 38B9     		cbnz	r0, .L156
+ 674:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         DAC_STAT |= DAC_STAT_DDUDR0;
+ 1476              		.loc 1 674 9 is_stmt 1 view .LVU326
+ 1477 0002 084A     		ldr	r2, .L158
+ 1478 0004 D2F83434 		ldr	r3, [r2, #1076]
+ 1479              		.loc 1 674 18 is_stmt 0 view .LVU327
+ 1480 0008 43F40053 		orr	r3, r3, #8192
+ 1481 000c C2F83434 		str	r3, [r2, #1076]
+ 1482 0010 7047     		bx	lr
+ 1483              	.L156:
+ 675:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     } else {
+ 676:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****         DAC_STAT |= DAC_STAT_DDUDR1;
+ 1484              		.loc 1 676 9 is_stmt 1 view .LVU328
+ 1485 0012 044A     		ldr	r2, .L158
+ 1486 0014 D2F83434 		ldr	r3, [r2, #1076]
+ 1487              		.loc 1 676 18 is_stmt 0 view .LVU329
+ 1488 0018 43F00053 		orr	r3, r3, #536870912
+ 1489 001c C2F83434 		str	r3, [r2, #1076]
+ 677:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c ****     }
+ 678:../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c **** }
+ 1490              		.loc 1 678 1 view .LVU330
+ 1491 0020 7047     		bx	lr
+ 1492              	.L159:
+ 1493 0022 00BF     		.align	2
+ 1494              	.L158:
+ 1495 0024 00700040 		.word	1073770496
+ 1496              		.cfi_endproc
+ 1497              	.LFE148:
+ 1499              		.text
+ 1500              	.Letext0:
+ 1501              		.file 2 "/Applications/ArmGNUToolchain/12.2.mpacbti-rel1/arm-none-eabi/arm-none-eabi/include/machi
+ 1502              		.file 3 "/Applications/ArmGNUToolchain/12.2.mpacbti-rel1/arm-none-eabi/arm-none-eabi/include/sys/_
+ 1503              		.file 4 "../../../GD32F4xx_Firmware_Library/CMSIS/GD/GD32F4xx/Include/gd32f4xx.h"
+ 1504              		.file 5 "../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Include/gd32f4xx_rcu.h"
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s 			page 39
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 gd32f4xx_dac.c
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:21     .text.dac_deinit:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:27     .text.dac_deinit:00000000 dac_deinit
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:52     .text.dac_enable:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:58     .text.dac_enable:00000000 dac_enable
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:88     .text.dac_enable:00000024 $d
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:93     .text.dac_disable:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:99     .text.dac_disable:00000000 dac_disable
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:129    .text.dac_disable:00000024 $d
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:134    .text.dac_dma_enable:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:140    .text.dac_dma_enable:00000000 dac_dma_enable
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:170    .text.dac_dma_enable:00000024 $d
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:175    .text.dac_dma_disable:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:181    .text.dac_dma_disable:00000000 dac_dma_disable
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:211    .text.dac_dma_disable:00000024 $d
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:216    .text.dac_output_buffer_enable:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:222    .text.dac_output_buffer_enable:00000000 dac_output_buffer_enable
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:252    .text.dac_output_buffer_enable:00000024 $d
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:257    .text.dac_output_buffer_disable:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:263    .text.dac_output_buffer_disable:00000000 dac_output_buffer_disable
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:293    .text.dac_output_buffer_disable:00000024 $d
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:298    .text.dac_output_value_get:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:304    .text.dac_output_value_get:00000000 dac_output_value_get
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:342    .text.dac_output_value_get:00000018 $d
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:347    .text.dac_data_set:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:353    .text.dac_data_set:00000000 dac_data_set
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:426    .text.dac_data_set:0000004c $d
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:431    .text.dac_trigger_enable:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:437    .text.dac_trigger_enable:00000000 dac_trigger_enable
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:467    .text.dac_trigger_enable:00000024 $d
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:472    .text.dac_trigger_disable:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:478    .text.dac_trigger_disable:00000000 dac_trigger_disable
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:508    .text.dac_trigger_disable:00000024 $d
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:513    .text.dac_trigger_source_config:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:519    .text.dac_trigger_source_config:00000000 dac_trigger_source_config
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:559    .text.dac_trigger_source_config:00000038 $d
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:564    .text.dac_software_trigger_enable:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:570    .text.dac_software_trigger_enable:00000000 dac_software_trigger_enable
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:600    .text.dac_software_trigger_enable:00000024 $d
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:605    .text.dac_software_trigger_disable:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:611    .text.dac_software_trigger_disable:00000000 dac_software_trigger_disable
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:641    .text.dac_software_trigger_disable:00000024 $d
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:646    .text.dac_wave_mode_config:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:652    .text.dac_wave_mode_config:00000000 dac_wave_mode_config
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:692    .text.dac_wave_mode_config:00000038 $d
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:697    .text.dac_wave_bit_width_config:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:703    .text.dac_wave_bit_width_config:00000000 dac_wave_bit_width_config
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:743    .text.dac_wave_bit_width_config:00000038 $d
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:748    .text.dac_lfsr_noise_config:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:754    .text.dac_lfsr_noise_config:00000000 dac_lfsr_noise_config
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:794    .text.dac_lfsr_noise_config:00000038 $d
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:799    .text.dac_triangle_noise_config:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:805    .text.dac_triangle_noise_config:00000000 dac_triangle_noise_config
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:845    .text.dac_triangle_noise_config:00000038 $d
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:850    .text.dac_concurrent_enable:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:856    .text.dac_concurrent_enable:00000000 dac_concurrent_enable
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s 			page 40
+
+
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:877    .text.dac_concurrent_enable:00000010 $d
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:882    .text.dac_concurrent_disable:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:888    .text.dac_concurrent_disable:00000000 dac_concurrent_disable
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:909    .text.dac_concurrent_disable:00000010 $d
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:914    .text.dac_concurrent_software_trigger_enable:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:920    .text.dac_concurrent_software_trigger_enable:00000000 dac_concurrent_software_trigger_enable
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:941    .text.dac_concurrent_software_trigger_enable:00000010 $d
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:946    .text.dac_concurrent_software_trigger_disable:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:952    .text.dac_concurrent_software_trigger_disable:00000000 dac_concurrent_software_trigger_disable
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:973    .text.dac_concurrent_software_trigger_disable:00000010 $d
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:978    .text.dac_concurrent_output_buffer_enable:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:984    .text.dac_concurrent_output_buffer_enable:00000000 dac_concurrent_output_buffer_enable
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:1005   .text.dac_concurrent_output_buffer_enable:00000010 $d
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:1010   .text.dac_concurrent_output_buffer_disable:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:1016   .text.dac_concurrent_output_buffer_disable:00000000 dac_concurrent_output_buffer_disable
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:1037   .text.dac_concurrent_output_buffer_disable:00000010 $d
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:1042   .text.dac_concurrent_data_set:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:1048   .text.dac_concurrent_data_set:00000000 dac_concurrent_data_set
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:1107   .text.dac_concurrent_data_set:00000030 $d
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:1112   .text.dac_concurrent_interrupt_enable:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:1118   .text.dac_concurrent_interrupt_enable:00000000 dac_concurrent_interrupt_enable
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:1139   .text.dac_concurrent_interrupt_enable:00000010 $d
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:1144   .text.dac_concurrent_interrupt_disable:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:1150   .text.dac_concurrent_interrupt_disable:00000000 dac_concurrent_interrupt_disable
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:1171   .text.dac_concurrent_interrupt_disable:00000010 $d
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:1176   .text.dac_flag_get:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:1182   .text.dac_flag_get:00000000 dac_flag_get
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:1233   .text.dac_flag_get:00000028 $d
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:1238   .text.dac_flag_clear:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:1244   .text.dac_flag_clear:00000000 dac_flag_clear
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:1274   .text.dac_flag_clear:00000024 $d
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:1279   .text.dac_interrupt_enable:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:1285   .text.dac_interrupt_enable:00000000 dac_interrupt_enable
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:1315   .text.dac_interrupt_enable:00000024 $d
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:1320   .text.dac_interrupt_disable:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:1326   .text.dac_interrupt_disable:00000000 dac_interrupt_disable
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:1356   .text.dac_interrupt_disable:00000024 $d
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:1361   .text.dac_interrupt_flag_get:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:1367   .text.dac_interrupt_flag_get:00000000 dac_interrupt_flag_get
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:1454   .text.dac_interrupt_flag_get:00000044 $d
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:1459   .text.dac_interrupt_flag_clear:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:1465   .text.dac_interrupt_flag_clear:00000000 dac_interrupt_flag_clear
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//cc60BGqu.s:1495   .text.dac_interrupt_flag_clear:00000024 $d
+
+UNDEFINED SYMBOLS
+rcu_periph_reset_enable
+rcu_periph_reset_disable

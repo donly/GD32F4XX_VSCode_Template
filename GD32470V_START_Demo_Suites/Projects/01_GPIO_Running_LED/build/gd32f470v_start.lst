@@ -1,0 +1,483 @@
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccPk8PDG.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"gd32f470v_start.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.file 1 "../../Utilities/gd32f470v_start.c"
+  20              		.section	.text.gd_eval_led_init,"ax",%progbits
+  21              		.align	1
+  22              		.global	gd_eval_led_init
+  23              		.syntax unified
+  24              		.thumb
+  25              		.thumb_func
+  27              	gd_eval_led_init:
+  28              	.LVL0:
+  29              	.LFB116:
+   1:../../Utilities/gd32f470v_start.c **** /*!
+   2:../../Utilities/gd32f470v_start.c ****     \file    gd32f470v_start.c
+   3:../../Utilities/gd32f470v_start.c ****     \brief   firmware functions to manage leds, keys
+   4:../../Utilities/gd32f470v_start.c **** 
+   5:../../Utilities/gd32f470v_start.c ****     \version 2022-04-26, V2.0.0, demo for GD32F4xx
+   6:../../Utilities/gd32f470v_start.c **** */
+   7:../../Utilities/gd32f470v_start.c **** 
+   8:../../Utilities/gd32f470v_start.c **** /*
+   9:../../Utilities/gd32f470v_start.c ****     Copyright (c) 2022, GigaDevice Semiconductor Inc.
+  10:../../Utilities/gd32f470v_start.c **** 
+  11:../../Utilities/gd32f470v_start.c ****     Redistribution and use in source and binary forms, with or without modification, 
+  12:../../Utilities/gd32f470v_start.c **** are permitted provided that the following conditions are met:
+  13:../../Utilities/gd32f470v_start.c **** 
+  14:../../Utilities/gd32f470v_start.c ****     1. Redistributions of source code must retain the above copyright notice, this 
+  15:../../Utilities/gd32f470v_start.c ****        list of conditions and the following disclaimer.
+  16:../../Utilities/gd32f470v_start.c ****     2. Redistributions in binary form must reproduce the above copyright notice, 
+  17:../../Utilities/gd32f470v_start.c ****        this list of conditions and the following disclaimer in the documentation 
+  18:../../Utilities/gd32f470v_start.c ****        and/or other materials provided with the distribution.
+  19:../../Utilities/gd32f470v_start.c ****     3. Neither the name of the copyright holder nor the names of its contributors 
+  20:../../Utilities/gd32f470v_start.c ****        may be used to endorse or promote products derived from this software without 
+  21:../../Utilities/gd32f470v_start.c ****        specific prior written permission.
+  22:../../Utilities/gd32f470v_start.c **** 
+  23:../../Utilities/gd32f470v_start.c ****     THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" 
+  24:../../Utilities/gd32f470v_start.c **** AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  25:../../Utilities/gd32f470v_start.c **** WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  26:../../Utilities/gd32f470v_start.c **** IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  27:../../Utilities/gd32f470v_start.c **** INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  28:../../Utilities/gd32f470v_start.c **** NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  29:../../Utilities/gd32f470v_start.c **** PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccPk8PDG.s 			page 2
+
+
+  30:../../Utilities/gd32f470v_start.c **** WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  31:../../Utilities/gd32f470v_start.c **** ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY 
+  32:../../Utilities/gd32f470v_start.c **** OF SUCH DAMAGE.
+  33:../../Utilities/gd32f470v_start.c **** */
+  34:../../Utilities/gd32f470v_start.c **** 
+  35:../../Utilities/gd32f470v_start.c **** #include "gd32f470v_start.h"
+  36:../../Utilities/gd32f470v_start.c **** 
+  37:../../Utilities/gd32f470v_start.c **** /* private variables */
+  38:../../Utilities/gd32f470v_start.c **** static uint32_t GPIO_PORT[LEDn]           = {LED2_GPIO_PORT};
+  39:../../Utilities/gd32f470v_start.c **** static uint32_t GPIO_PIN[LEDn]            = {LED2_PIN};
+  40:../../Utilities/gd32f470v_start.c **** static rcu_periph_enum GPIO_CLK[LEDn]     = {LED2_GPIO_CLK};
+  41:../../Utilities/gd32f470v_start.c **** 
+  42:../../Utilities/gd32f470v_start.c **** static uint32_t KEY_PORT[KEYn]            = {USER_KEY_GPIO_PORT};
+  43:../../Utilities/gd32f470v_start.c **** static uint32_t KEY_PIN[KEYn]             = {USER_KEY_PIN};
+  44:../../Utilities/gd32f470v_start.c **** static rcu_periph_enum KEY_CLK[KEYn]      = {USER_KEY_GPIO_CLK};
+  45:../../Utilities/gd32f470v_start.c **** static exti_line_enum KEY_EXTI_LINE[KEYn] = {USER_KEY_EXTI_LINE};
+  46:../../Utilities/gd32f470v_start.c **** static uint8_t KEY_PORT_SOURCE[KEYn]      = {USER_KEY_EXTI_PORT_SOURCE};
+  47:../../Utilities/gd32f470v_start.c **** static uint8_t KEY_PIN_SOURCE[KEYn]       = {USER_KEY_EXTI_PIN_SOURCE};
+  48:../../Utilities/gd32f470v_start.c **** static uint8_t KEY_IRQn[KEYn]             = {USER_KEY_EXTI_IRQn};
+  49:../../Utilities/gd32f470v_start.c **** 
+  50:../../Utilities/gd32f470v_start.c **** /*!
+  51:../../Utilities/gd32f470v_start.c ****     \brief      configure led GPIO
+  52:../../Utilities/gd32f470v_start.c ****     \param[in]  led_num: specify the led to be configured
+  53:../../Utilities/gd32f470v_start.c ****       \arg        LED2
+  54:../../Utilities/gd32f470v_start.c ****     \param[out] none
+  55:../../Utilities/gd32f470v_start.c ****     \retval     none
+  56:../../Utilities/gd32f470v_start.c **** */
+  57:../../Utilities/gd32f470v_start.c **** void  gd_eval_led_init (led_typedef_enum led_num)
+  58:../../Utilities/gd32f470v_start.c **** {
+  30              		.loc 1 58 1 view -0
+  31              		.cfi_startproc
+  32              		@ args = 0, pretend = 0, frame = 0
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  34              		.loc 1 58 1 is_stmt 0 view .LVU1
+  35 0000 10B5     		push	{r4, lr}
+  36              	.LCFI0:
+  37              		.cfi_def_cfa_offset 8
+  38              		.cfi_offset 4, -8
+  39              		.cfi_offset 14, -4
+  59:../../Utilities/gd32f470v_start.c ****     /* enable the led clock */
+  60:../../Utilities/gd32f470v_start.c ****     rcu_periph_clock_enable(GPIO_CLK[led_num]);
+  40              		.loc 1 60 5 is_stmt 1 view .LVU2
+  41 0002 40F60240 		movw	r0, #3074
+  42              	.LVL1:
+  43              		.loc 1 60 5 is_stmt 0 view .LVU3
+  44 0006 FFF7FEFF 		bl	rcu_periph_clock_enable
+  45              	.LVL2:
+  61:../../Utilities/gd32f470v_start.c **** 
+  62:../../Utilities/gd32f470v_start.c ****     /* configure led GPIO port */ 
+  63:../../Utilities/gd32f470v_start.c ****     gpio_mode_set(GPIO_PORT[led_num], GPIO_MODE_OUTPUT, GPIO_PUPD_NONE,GPIO_PIN[led_num]);
+  46              		.loc 1 63 5 is_stmt 1 view .LVU4
+  47 000a 094C     		ldr	r4, .L3
+  48 000c 4023     		movs	r3, #64
+  49 000e 0022     		movs	r2, #0
+  50 0010 0121     		movs	r1, #1
+  51 0012 2046     		mov	r0, r4
+  52 0014 FFF7FEFF 		bl	gpio_mode_set
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccPk8PDG.s 			page 3
+
+
+  53              	.LVL3:
+  64:../../Utilities/gd32f470v_start.c ****     gpio_output_options_set(GPIO_PORT[led_num], GPIO_OTYPE_PP, GPIO_OSPEED_50MHZ,GPIO_PIN[led_num])
+  54              		.loc 1 64 5 view .LVU5
+  55 0018 4023     		movs	r3, #64
+  56 001a 0222     		movs	r2, #2
+  57 001c 0021     		movs	r1, #0
+  58 001e 2046     		mov	r0, r4
+  59 0020 FFF7FEFF 		bl	gpio_output_options_set
+  60              	.LVL4:
+  65:../../Utilities/gd32f470v_start.c **** 
+  66:../../Utilities/gd32f470v_start.c ****     GPIO_BC(GPIO_PORT[led_num]) = GPIO_PIN[led_num];
+  61              		.loc 1 66 5 view .LVU6
+  62              		.loc 1 66 33 is_stmt 0 view .LVU7
+  63 0024 034B     		ldr	r3, .L3+4
+  64 0026 4022     		movs	r2, #64
+  65 0028 C3F82828 		str	r2, [r3, #2088]
+  67:../../Utilities/gd32f470v_start.c **** }
+  66              		.loc 1 67 1 view .LVU8
+  67 002c 10BD     		pop	{r4, pc}
+  68              	.L4:
+  69 002e 00BF     		.align	2
+  70              	.L3:
+  71 0030 00080240 		.word	1073874944
+  72 0034 00000240 		.word	1073872896
+  73              		.cfi_endproc
+  74              	.LFE116:
+  76              		.section	.text.gd_eval_led_on,"ax",%progbits
+  77              		.align	1
+  78              		.global	gd_eval_led_on
+  79              		.syntax unified
+  80              		.thumb
+  81              		.thumb_func
+  83              	gd_eval_led_on:
+  84              	.LVL5:
+  85              	.LFB117:
+  68:../../Utilities/gd32f470v_start.c **** 
+  69:../../Utilities/gd32f470v_start.c **** /*!
+  70:../../Utilities/gd32f470v_start.c ****     \brief      turn on selected led
+  71:../../Utilities/gd32f470v_start.c ****     \param[in]  led_num: specify the led to be turned on
+  72:../../Utilities/gd32f470v_start.c ****       \arg        LED2
+  73:../../Utilities/gd32f470v_start.c ****     \param[out] none
+  74:../../Utilities/gd32f470v_start.c ****     \retval     none
+  75:../../Utilities/gd32f470v_start.c **** */
+  76:../../Utilities/gd32f470v_start.c **** void gd_eval_led_on(led_typedef_enum led_num)
+  77:../../Utilities/gd32f470v_start.c **** {
+  86              		.loc 1 77 1 is_stmt 1 view -0
+  87              		.cfi_startproc
+  88              		@ args = 0, pretend = 0, frame = 0
+  89              		@ frame_needed = 0, uses_anonymous_args = 0
+  90              		@ link register save eliminated.
+  78:../../Utilities/gd32f470v_start.c ****     GPIO_BOP(GPIO_PORT[led_num]) = GPIO_PIN[led_num];
+  91              		.loc 1 78 5 view .LVU10
+  92              		.loc 1 78 34 is_stmt 0 view .LVU11
+  93 0000 024B     		ldr	r3, .L6
+  94 0002 4022     		movs	r2, #64
+  95 0004 C3F81828 		str	r2, [r3, #2072]
+  79:../../Utilities/gd32f470v_start.c **** }
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccPk8PDG.s 			page 4
+
+
+  96              		.loc 1 79 1 view .LVU12
+  97 0008 7047     		bx	lr
+  98              	.L7:
+  99 000a 00BF     		.align	2
+ 100              	.L6:
+ 101 000c 00000240 		.word	1073872896
+ 102              		.cfi_endproc
+ 103              	.LFE117:
+ 105              		.section	.text.gd_eval_led_off,"ax",%progbits
+ 106              		.align	1
+ 107              		.global	gd_eval_led_off
+ 108              		.syntax unified
+ 109              		.thumb
+ 110              		.thumb_func
+ 112              	gd_eval_led_off:
+ 113              	.LVL6:
+ 114              	.LFB118:
+  80:../../Utilities/gd32f470v_start.c **** 
+  81:../../Utilities/gd32f470v_start.c **** /*!
+  82:../../Utilities/gd32f470v_start.c ****     \brief      turn off selected led
+  83:../../Utilities/gd32f470v_start.c ****     \param[in]  led_num: specify the led to be turned off
+  84:../../Utilities/gd32f470v_start.c ****       \arg        LED2
+  85:../../Utilities/gd32f470v_start.c ****     \param[out] none
+  86:../../Utilities/gd32f470v_start.c ****     \retval     none
+  87:../../Utilities/gd32f470v_start.c **** */
+  88:../../Utilities/gd32f470v_start.c **** void gd_eval_led_off(led_typedef_enum led_num)
+  89:../../Utilities/gd32f470v_start.c **** {
+ 115              		.loc 1 89 1 is_stmt 1 view -0
+ 116              		.cfi_startproc
+ 117              		@ args = 0, pretend = 0, frame = 0
+ 118              		@ frame_needed = 0, uses_anonymous_args = 0
+ 119              		@ link register save eliminated.
+  90:../../Utilities/gd32f470v_start.c ****     GPIO_BC(GPIO_PORT[led_num]) = GPIO_PIN[led_num];
+ 120              		.loc 1 90 5 view .LVU14
+ 121              		.loc 1 90 33 is_stmt 0 view .LVU15
+ 122 0000 024B     		ldr	r3, .L9
+ 123 0002 4022     		movs	r2, #64
+ 124 0004 C3F82828 		str	r2, [r3, #2088]
+  91:../../Utilities/gd32f470v_start.c **** }
+ 125              		.loc 1 91 1 view .LVU16
+ 126 0008 7047     		bx	lr
+ 127              	.L10:
+ 128 000a 00BF     		.align	2
+ 129              	.L9:
+ 130 000c 00000240 		.word	1073872896
+ 131              		.cfi_endproc
+ 132              	.LFE118:
+ 134              		.section	.text.gd_eval_led_toggle,"ax",%progbits
+ 135              		.align	1
+ 136              		.global	gd_eval_led_toggle
+ 137              		.syntax unified
+ 138              		.thumb
+ 139              		.thumb_func
+ 141              	gd_eval_led_toggle:
+ 142              	.LVL7:
+ 143              	.LFB119:
+  92:../../Utilities/gd32f470v_start.c **** 
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccPk8PDG.s 			page 5
+
+
+  93:../../Utilities/gd32f470v_start.c **** /*!
+  94:../../Utilities/gd32f470v_start.c ****     \brief      toggle selected led
+  95:../../Utilities/gd32f470v_start.c ****     \param[in]  led_num: specify the led to be toggled
+  96:../../Utilities/gd32f470v_start.c ****       \arg        LED2
+  97:../../Utilities/gd32f470v_start.c ****     \param[out] none
+  98:../../Utilities/gd32f470v_start.c ****     \retval     none
+  99:../../Utilities/gd32f470v_start.c **** */
+ 100:../../Utilities/gd32f470v_start.c **** void gd_eval_led_toggle(led_typedef_enum led_num)
+ 101:../../Utilities/gd32f470v_start.c **** {
+ 144              		.loc 1 101 1 is_stmt 1 view -0
+ 145              		.cfi_startproc
+ 146              		@ args = 0, pretend = 0, frame = 0
+ 147              		@ frame_needed = 0, uses_anonymous_args = 0
+ 148              		@ link register save eliminated.
+ 102:../../Utilities/gd32f470v_start.c ****     GPIO_TG(GPIO_PORT[led_num]) = GPIO_PIN[led_num];
+ 149              		.loc 1 102 5 view .LVU18
+ 150              		.loc 1 102 33 is_stmt 0 view .LVU19
+ 151 0000 024B     		ldr	r3, .L12
+ 152 0002 4022     		movs	r2, #64
+ 153 0004 C3F82C28 		str	r2, [r3, #2092]
+ 103:../../Utilities/gd32f470v_start.c **** }
+ 154              		.loc 1 103 1 view .LVU20
+ 155 0008 7047     		bx	lr
+ 156              	.L13:
+ 157 000a 00BF     		.align	2
+ 158              	.L12:
+ 159 000c 00000240 		.word	1073872896
+ 160              		.cfi_endproc
+ 161              	.LFE119:
+ 163              		.section	.text.gd_eval_key_init,"ax",%progbits
+ 164              		.align	1
+ 165              		.global	gd_eval_key_init
+ 166              		.syntax unified
+ 167              		.thumb
+ 168              		.thumb_func
+ 170              	gd_eval_key_init:
+ 171              	.LVL8:
+ 172              	.LFB120:
+ 104:../../Utilities/gd32f470v_start.c **** 
+ 105:../../Utilities/gd32f470v_start.c **** /*!
+ 106:../../Utilities/gd32f470v_start.c ****     \brief      configure key
+ 107:../../Utilities/gd32f470v_start.c ****     \param[in]  key_num: specify the key to be configured
+ 108:../../Utilities/gd32f470v_start.c ****       \arg        KEY_USER: user key
+ 109:../../Utilities/gd32f470v_start.c ****     \param[in]  key_mode: specify button mode
+ 110:../../Utilities/gd32f470v_start.c ****       \arg        KEY_MODE_GPIO: key will be used as simple IO
+ 111:../../Utilities/gd32f470v_start.c ****       \arg        KEY_MODE_EXTI: key will be connected to EXTI line with interrupt
+ 112:../../Utilities/gd32f470v_start.c ****     \param[out] none
+ 113:../../Utilities/gd32f470v_start.c ****     \retval     none
+ 114:../../Utilities/gd32f470v_start.c **** */
+ 115:../../Utilities/gd32f470v_start.c **** void gd_eval_key_init(key_typedef_enum key_num, keymode_typedef_enum key_mode)
+ 116:../../Utilities/gd32f470v_start.c **** {
+ 173              		.loc 1 116 1 is_stmt 1 view -0
+ 174              		.cfi_startproc
+ 175              		@ args = 0, pretend = 0, frame = 0
+ 176              		@ frame_needed = 0, uses_anonymous_args = 0
+ 177              		.loc 1 116 1 is_stmt 0 view .LVU22
+ 178 0000 10B5     		push	{r4, lr}
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccPk8PDG.s 			page 6
+
+
+ 179              	.LCFI1:
+ 180              		.cfi_def_cfa_offset 8
+ 181              		.cfi_offset 4, -8
+ 182              		.cfi_offset 14, -4
+ 183 0002 0C46     		mov	r4, r1
+ 117:../../Utilities/gd32f470v_start.c ****     /* enable the key clock */
+ 118:../../Utilities/gd32f470v_start.c ****     rcu_periph_clock_enable(KEY_CLK[key_num]);
+ 184              		.loc 1 118 5 is_stmt 1 view .LVU23
+ 185 0004 4FF44060 		mov	r0, #3072
+ 186              	.LVL9:
+ 187              		.loc 1 118 5 is_stmt 0 view .LVU24
+ 188 0008 FFF7FEFF 		bl	rcu_periph_clock_enable
+ 189              	.LVL10:
+ 119:../../Utilities/gd32f470v_start.c ****     rcu_periph_clock_enable(RCU_SYSCFG);
+ 190              		.loc 1 119 5 is_stmt 1 view .LVU25
+ 191 000c 41F20E10 		movw	r0, #4366
+ 192 0010 FFF7FEFF 		bl	rcu_periph_clock_enable
+ 193              	.LVL11:
+ 120:../../Utilities/gd32f470v_start.c **** 
+ 121:../../Utilities/gd32f470v_start.c ****     /* configure button pin as input */
+ 122:../../Utilities/gd32f470v_start.c ****     gpio_mode_set(KEY_PORT[key_num], GPIO_MODE_INPUT, GPIO_PUPD_NONE,KEY_PIN[key_num]);
+ 194              		.loc 1 122 5 view .LVU26
+ 195 0014 0123     		movs	r3, #1
+ 196 0016 0022     		movs	r2, #0
+ 197 0018 1146     		mov	r1, r2
+ 198 001a 0C48     		ldr	r0, .L18
+ 199 001c FFF7FEFF 		bl	gpio_mode_set
+ 200              	.LVL12:
+ 123:../../Utilities/gd32f470v_start.c **** 
+ 124:../../Utilities/gd32f470v_start.c ****     if (key_mode == KEY_MODE_EXTI) {
+ 201              		.loc 1 124 5 view .LVU27
+ 202              		.loc 1 124 8 is_stmt 0 view .LVU28
+ 203 0020 012C     		cmp	r4, #1
+ 204 0022 00D0     		beq	.L17
+ 205              	.L14:
+ 125:../../Utilities/gd32f470v_start.c ****         /* enable and set key EXTI interrupt to the lowest priority */
+ 126:../../Utilities/gd32f470v_start.c ****         nvic_irq_enable(KEY_IRQn[key_num], 2U, 0U);
+ 127:../../Utilities/gd32f470v_start.c **** 
+ 128:../../Utilities/gd32f470v_start.c ****         /* connect key EXTI line to key GPIO pin */
+ 129:../../Utilities/gd32f470v_start.c ****         syscfg_exti_line_config(KEY_PORT_SOURCE[key_num], KEY_PIN_SOURCE[key_num]);
+ 130:../../Utilities/gd32f470v_start.c **** 
+ 131:../../Utilities/gd32f470v_start.c ****         /* configure key EXTI line */
+ 132:../../Utilities/gd32f470v_start.c ****         exti_init(KEY_EXTI_LINE[key_num], EXTI_INTERRUPT, EXTI_TRIG_FALLING);
+ 133:../../Utilities/gd32f470v_start.c ****         exti_interrupt_flag_clear(KEY_EXTI_LINE[key_num]);
+ 134:../../Utilities/gd32f470v_start.c ****     }
+ 135:../../Utilities/gd32f470v_start.c **** }
+ 206              		.loc 1 135 1 view .LVU29
+ 207 0024 10BD     		pop	{r4, pc}
+ 208              	.L17:
+ 126:../../Utilities/gd32f470v_start.c **** 
+ 209              		.loc 1 126 9 is_stmt 1 view .LVU30
+ 210 0026 0022     		movs	r2, #0
+ 211 0028 0221     		movs	r1, #2
+ 212 002a 0620     		movs	r0, #6
+ 213 002c FFF7FEFF 		bl	nvic_irq_enable
+ 214              	.LVL13:
+ 129:../../Utilities/gd32f470v_start.c **** 
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccPk8PDG.s 			page 7
+
+
+ 215              		.loc 1 129 9 view .LVU31
+ 216 0030 0021     		movs	r1, #0
+ 217 0032 0846     		mov	r0, r1
+ 218 0034 FFF7FEFF 		bl	syscfg_exti_line_config
+ 219              	.LVL14:
+ 132:../../Utilities/gd32f470v_start.c ****         exti_interrupt_flag_clear(KEY_EXTI_LINE[key_num]);
+ 220              		.loc 1 132 9 view .LVU32
+ 221 0038 0122     		movs	r2, #1
+ 222 003a 0021     		movs	r1, #0
+ 223 003c 1046     		mov	r0, r2
+ 224 003e FFF7FEFF 		bl	exti_init
+ 225              	.LVL15:
+ 133:../../Utilities/gd32f470v_start.c ****     }
+ 226              		.loc 1 133 9 view .LVU33
+ 227 0042 0120     		movs	r0, #1
+ 228 0044 FFF7FEFF 		bl	exti_interrupt_flag_clear
+ 229              	.LVL16:
+ 230              		.loc 1 135 1 is_stmt 0 view .LVU34
+ 231 0048 ECE7     		b	.L14
+ 232              	.L19:
+ 233 004a 00BF     		.align	2
+ 234              	.L18:
+ 235 004c 00000240 		.word	1073872896
+ 236              		.cfi_endproc
+ 237              	.LFE120:
+ 239              		.section	.text.gd_eval_key_state_get,"ax",%progbits
+ 240              		.align	1
+ 241              		.global	gd_eval_key_state_get
+ 242              		.syntax unified
+ 243              		.thumb
+ 244              		.thumb_func
+ 246              	gd_eval_key_state_get:
+ 247              	.LVL17:
+ 248              	.LFB121:
+ 136:../../Utilities/gd32f470v_start.c **** 
+ 137:../../Utilities/gd32f470v_start.c **** /*!
+ 138:../../Utilities/gd32f470v_start.c ****     \brief      return the selected key state
+ 139:../../Utilities/gd32f470v_start.c ****     \param[in]  key: specify the key to be checked
+ 140:../../Utilities/gd32f470v_start.c ****       \arg        KEY_USER: user key
+ 141:../../Utilities/gd32f470v_start.c ****     \param[out] none
+ 142:../../Utilities/gd32f470v_start.c ****     \retval     the key's GPIO pin value
+ 143:../../Utilities/gd32f470v_start.c **** */
+ 144:../../Utilities/gd32f470v_start.c **** uint8_t gd_eval_key_state_get(key_typedef_enum key)
+ 145:../../Utilities/gd32f470v_start.c **** {
+ 249              		.loc 1 145 1 is_stmt 1 view -0
+ 250              		.cfi_startproc
+ 251              		@ args = 0, pretend = 0, frame = 0
+ 252              		@ frame_needed = 0, uses_anonymous_args = 0
+ 253              		.loc 1 145 1 is_stmt 0 view .LVU36
+ 254 0000 08B5     		push	{r3, lr}
+ 255              	.LCFI2:
+ 256              		.cfi_def_cfa_offset 8
+ 257              		.cfi_offset 3, -8
+ 258              		.cfi_offset 14, -4
+ 146:../../Utilities/gd32f470v_start.c ****     return gpio_input_bit_get(KEY_PORT[key], KEY_PIN[key]);
+ 259              		.loc 1 146 5 is_stmt 1 view .LVU37
+ 260              		.loc 1 146 12 is_stmt 0 view .LVU38
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccPk8PDG.s 			page 8
+
+
+ 261 0002 0121     		movs	r1, #1
+ 262 0004 0148     		ldr	r0, .L22
+ 263              	.LVL18:
+ 264              		.loc 1 146 12 view .LVU39
+ 265 0006 FFF7FEFF 		bl	gpio_input_bit_get
+ 266              	.LVL19:
+ 147:../../Utilities/gd32f470v_start.c **** }
+ 267              		.loc 1 147 1 view .LVU40
+ 268 000a 08BD     		pop	{r3, pc}
+ 269              	.L23:
+ 270              		.align	2
+ 271              	.L22:
+ 272 000c 00000240 		.word	1073872896
+ 273              		.cfi_endproc
+ 274              	.LFE121:
+ 276              		.text
+ 277              	.Letext0:
+ 278              		.file 2 "/Applications/ArmGNUToolchain/12.2.mpacbti-rel1/arm-none-eabi/arm-none-eabi/include/machi
+ 279              		.file 3 "/Applications/ArmGNUToolchain/12.2.mpacbti-rel1/arm-none-eabi/arm-none-eabi/include/sys/_
+ 280              		.file 4 "../../../GD32F4xx_Firmware_Library/CMSIS/GD/GD32F4xx/Include/gd32f4xx.h"
+ 281              		.file 5 "../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Include/gd32f4xx_rcu.h"
+ 282              		.file 6 "../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Include/gd32f4xx_dbg.h"
+ 283              		.file 7 "../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Include/gd32f4xx_exti.h"
+ 284              		.file 8 "../../Utilities/gd32f470v_start.h"
+ 285              		.file 9 "../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Include/gd32f4xx_syscfg.h
+ 286              		.file 10 "../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Include/gd32f4xx_misc.h"
+ 287              		.file 11 "../../../GD32F4xx_Firmware_Library/GD32F4xx_standard_peripheral/Include/gd32f4xx_gpio.h"
+ARM GAS  /var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccPk8PDG.s 			page 9
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 gd32f470v_start.c
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccPk8PDG.s:21     .text.gd_eval_led_init:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccPk8PDG.s:27     .text.gd_eval_led_init:00000000 gd_eval_led_init
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccPk8PDG.s:71     .text.gd_eval_led_init:00000030 $d
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccPk8PDG.s:77     .text.gd_eval_led_on:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccPk8PDG.s:83     .text.gd_eval_led_on:00000000 gd_eval_led_on
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccPk8PDG.s:101    .text.gd_eval_led_on:0000000c $d
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccPk8PDG.s:106    .text.gd_eval_led_off:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccPk8PDG.s:112    .text.gd_eval_led_off:00000000 gd_eval_led_off
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccPk8PDG.s:130    .text.gd_eval_led_off:0000000c $d
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccPk8PDG.s:135    .text.gd_eval_led_toggle:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccPk8PDG.s:141    .text.gd_eval_led_toggle:00000000 gd_eval_led_toggle
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccPk8PDG.s:159    .text.gd_eval_led_toggle:0000000c $d
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccPk8PDG.s:164    .text.gd_eval_key_init:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccPk8PDG.s:170    .text.gd_eval_key_init:00000000 gd_eval_key_init
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccPk8PDG.s:235    .text.gd_eval_key_init:0000004c $d
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccPk8PDG.s:240    .text.gd_eval_key_state_get:00000000 $t
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccPk8PDG.s:246    .text.gd_eval_key_state_get:00000000 gd_eval_key_state_get
+/var/folders/h5/b3x4g50d3yx3hd9mlg8mn_600000gn/T//ccPk8PDG.s:272    .text.gd_eval_key_state_get:0000000c $d
+
+UNDEFINED SYMBOLS
+rcu_periph_clock_enable
+gpio_mode_set
+gpio_output_options_set
+nvic_irq_enable
+syscfg_exti_line_config
+exti_init
+exti_interrupt_flag_clear
+gpio_input_bit_get
